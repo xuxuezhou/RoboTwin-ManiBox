@@ -13,7 +13,7 @@
 1. Task Code Generation Pipeline.
 2. RoboTwin (Final Version) will be released soon.
 3. Real Robot Data collected by teleoperation.
-4. Tasks env.
+4. Tasks env (Data Collection).
 5. More baseline code will be integrated into this repository (RICE, ACT, Diffusion Policy).
 
 # 📚 Overview
@@ -28,15 +28,14 @@ Coming Soon
 
 # 🧑🏻‍💻 Usage 
 ## 1. Task Running and Data Collection
-Run `run_task.sh` to run task:
-```
-bash run_task.sh ${task_name} ${gpu_id}
-```
-The default task running configurations can be found at `config/${task_name}.yml`, if you want to change some task setting, just modify the specific configuration file.
+This part will be released soon. We now release 50 demos for each task:
 
-RoboTwin will run expert check first to make sure only successful data will be collect (by running seeds one by one first), this will not take too long.
-
-The Data will be collect to `data` under the root directory, in the form of `.pkl` usually.
+In the project root directory:
+```
+mkdir data
+cd data
+```
+View [https://huggingface.co/datasets/YaoMarkMu/robotwin_dataset](https://huggingface.co/datasets/YaoMarkMu/robotwin_dataset), download the files and unzip them to `data`.
 
 ## 2. Task Config
 Data collection configurations are located in the `config` folder, corresponding to each task. Here is an explanation of the important parameters:
@@ -73,12 +72,12 @@ python script/pkl2zarr_dp3.py
 
 Then, move to `policy/3D-Diffusion-Policy` first, and run the following code to train DP3 :
 ```
-bash train.sh ${task_name} ${expert_data_num} ${gpu_id}
+bash train.sh ${task_name} ${expert_data_num} ${seed} ${gpu_id}
 ```
 
 Run the following code to eval DP3 for specific task:
 ```
-bash eval.sh ${task_name} ${expert_data_num} ${gpu_id}
+bash eval.sh ${task_name} ${expert_data_num} ${checkpoint_num} ${seed} ${gpu_id}
 ```
 
 Current leaderboard:
@@ -91,7 +90,7 @@ Here's the revised table with the averages listed at the end:
 |                                | DP3 (XYZ+RGB)       | 22%          | 41%          | 60%          |
 | Block Handover                 | DP3 (XYZ)           | 55%          | 89%          | 70%          |
 |                                | DP3 (XYZ+RGB)       | 48%          | 81%          | 94%          |
-| Block Stack (Easy)             | DP3 (XYZ)           | /            | /            | /            |
+| Blocks Stack (Easy)            | DP3 (XYZ)           | /            | /            | /            |
 |                                | DP3 (XYZ+RGB)       | 0%           | 1%           | 23%          |
 | Container Place                | DP3 (XYZ)           | 34%          | 54%          | 68%          |
 |                                | DP3 (XYZ+RGB)       | 18%          | 28%          | 54%          |
@@ -105,9 +104,7 @@ Here's the revised table with the averages listed at the end:
 |                                | DP3 (XYZ+RGB)       | 0%           | 0%           | 5%           |
 | Block Hammer Beat              | DP3 (XYZ)           | 37%          | 45%          | 60%          |
 |                                | DP3 (XYZ+RGB)       | 36%          | 41%          | 73%          |
-| Block Sweep                    | DP3 (XYZ)           | 49%          | 80%          | 96%          |
-|                                | DP3 (XYZ+RGB)       | 70%          | 98%          | 99%          |
-| Block Stack (Hard)             | DP3 (XYZ)           | /            | /            | /            |
+| Blocks Stack (Hard)            | DP3 (XYZ)           | /            | /            | /            |
 |                                | DP3 (XYZ+RGB)       | 0%           | 0%           | 3%           |
 | Diverse Bottles Pick           | DP3 (XYZ)           | 3%           | 12%          | 38%          |
 |                                | DP3 (XYZ+RGB)       | 0%           | 1%           | 7%           |
@@ -117,8 +114,8 @@ Here's the revised table with the averages listed at the end:
 |                                | DP3 (XYZ+RGB)       | 1%           | 2%           | 6%           |
 | Shoe Place                     | DP3 (XYZ)           | 12%          | 16%          | 54%          |
 |                                | DP3 (XYZ+RGB)       | 13%          | 20%          | 35%          |
-| Average                        | DP3 (XYZ)           | 20.15%       | 36.46%       | 53.23%       |
-|                                | DP3 (XYZ+RGB)       | 17.93%       | 29.33%       | 45.93%       |
+| Average                        | DP3 (XYZ)           | 17.75%       | 32.83%       | 49.67%       |
+|                                | DP3 (XYZ+RGB)       | 11.93%       | 22.00%       | 42.14%       |
 
 ```
 
