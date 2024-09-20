@@ -67,7 +67,7 @@ The DP3 code can be found in `policy/3D-Diffusion-Policy`.
 
 Process Data for DP3 training after collecting data (In root directory), and input the task name and the amount of data you want your policy to train with:
 ```
-python script/pkl2zarr_dp3.py
+python script/pkl2zarr_dp3.py ${task_name} ${number_of_episodes}
 ```
 
 Then, move to `policy/3D-Diffusion-Policy` first, and run the following code to train DP3 :
