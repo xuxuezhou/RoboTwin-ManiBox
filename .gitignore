@@ -8,7 +8,7 @@ result/
 asset.zip
 aloha_maniskill_sim_modify/
 models_copy/
-# third_party/
+third_party/
 result_dp3/
 task_config/seeds/*.txt
 
