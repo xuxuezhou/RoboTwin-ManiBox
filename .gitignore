@@ -1,0 +1,52 @@
+aloha_maniskill_sim/
+models/
+data/*
+!data/instructions/
+__pycache__/
+# policy/3D-Diffusion-Policy/3D-Diffusion-Policy/data/
+# policy/3D-Diffusion-Policy/3D-Diffusion-Policy/checkpoints/
+# policy/*
+result/
+third_party/
+result_dp3/
+task_config/seeds/*.txt
+run_all_task.sh
+# task_config/*
+# !task_config/_*
+task_config/_tmp_*
+*.zip
+submit-linux-amd64
+viewer_show.*
+weights/
+eval_video/
+
+# tmp
+base_task_bac.py
+_tmp_save_pic.py
+task_video/
+**/checkpoints/
+**/data/
+policy/data/
+rgb_images/
+/*.mp4
+/timer.log
+/trans.ipynb
+/test*
+/*.ipynb
+
+# eval result
+eval_result/
+
+# Code Generation
+robotwin.py
+gpt_api/*
+assets/*
+!assets/_download.py
+!assets/_upload.py
+!assets/texture_generator
+
+policy/weights/*
+
+curobo/*
+./get_video.py
+**/.DS_Store
