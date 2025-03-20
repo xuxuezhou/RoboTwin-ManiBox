@@ -1,14 +1,14 @@
 <h1 align="center">
-	RoboTwin Dual-Arm Collaboration Challenge<br>2nd MEIS Workshop@CVPR2025<br>
+	RoboTwin Dual-Arm Collaboration Challenge<br>2nd MEIS Workshop @ CVPR2025<br>
 </h1>
 
 ![](./files/poster.png)
 
-<h2><a href="https://robotwin-benchmark.github.io/cvpr-2025-challenge/">Webpage</a> | <a href="https://developer.d-robotics.cc/en/cvpr-2025-challenge">D-Robotics Cloud Platform</a> | <a href="https://robotwin-benchmark.github.io/cvpr-2025-challenge/">Registration</a></h2> 
+<h2><a href="https://robotwin-benchmark.github.io/cvpr-2025-challenge/">Webpage</a> | <a href="https://developer.d-robotics.cc/en/cvpr-2025-challenge">D-Robotics Cloud Platform</a> | <a href="https://docs.google.com/forms/d/e/1FAIpQLSdibD7TEROlNOO8IFgGmezjUCjELqKHvaUtvj2Nv281hHPZTg/viewform?usp=header">Registration</a></h2> 
 
 Organizers: <a href="https://yaomarkmu.github.io/">Yao Mu</a>, <a href="https://tianxingchen.github.io">Tianxing Chen</a>, <a href="http://luoping.me/">Ping Luo</a>, <a href="https://english.seiee.sjtu.edu.cn/english/detail/842_802.htm">Xiaokang Yang</a>, <a href="https://www.eecs.utk.edu/people/fei-liu/">Fei Liu</a>, <a href="https://web.stanford.edu/~schwager/">Mac Schwager</a>, <a href="https://www.intelligentrobotics-acrossscales.com/">Dandan Zhang</a>, Zhiqiang Xie, Yusen Qin, <a href="https://dingmyu.github.io/">Mingyu Ding</a>, Zanxin Chen, Kaixuan Wang, Baijun Chen.
 
-**RoboTwin**, accepted to <i style="color: red; display: inline;"><b>CVPR 2025</b></i> and <i style="color: red; display: inline;"><b>ECCV Workshop 2024 (Best Paper Award)</b></i>: [Webpage](https://robotwin-benchmark.github.io/early-version) | [PDF](https://arxiv.org/pdf/2409.02920) | [arXiv](https://arxiv.org/abs/2409.02920)<br>
+**RoboTwin**, accepted to <i style="color: red; display: inline;"><b>CVPR 2025</b></i> and <i style="color: red; display: inline;"><b>ECCV Workshop 2024 (Best Paper Award)</b></i>:<br>[Webpage](https://robotwin-benchmark.github.io/early-version) | [PDF](https://arxiv.org/pdf/2409.02920) | [arXiv](https://arxiv.org/abs/2409.02920)<br>
 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTianxingChen%2FRoboTwin&count_bg=%23184FFF&title_bg=%23E116E5&icon=&icon_color=%23E7E7E7&title=Repo+Viewers&edge_flat=true"/><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/TianxingChen/RoboTwin">
 
 **Hardware Support**: AgileX Robotics (松灵机器人)
