@@ -1,0 +1,51 @@
+models/
+data/*
+!data/instructions/
+policy/ACT/act-ckpt/
+policy/ACT/data/*
+__pycache__/
+policy/3D-Diffusion-Policy/3D-Diffusion-Policy/data/
+policy/3D-Diffusion-Policy/3D-Diffusion-Policy/checkpoints/
+result/
+# third_party/
+# assets/
+result_dp3/
+run_all_task.sh
+# task_config
+# script/_task_config_template.json
+# !task_config/_*
+# task_config/_tmp_*
+# task_config/_todo_*
+*.zip
+viewer_show.*
+weights/
+eval_video/
+
+# tmp
+base_task_bac.py
+_tmp_save_pic.py
+task_video/
+checkpoints/
+policy/data/
+rgb_images/
+/*.mp4
+/timer.log
+/trans.ipynb
+/test*
+/*.ipynb
+/.localrc.sh
+
+# eval result
+eval_result/
+
+# Code Generation
+robotwin.py
+gpt_api/*
+
+policy/weights/*
+
+curobo/*
+
+.vscode
+/config.json
+# ./task_config/*

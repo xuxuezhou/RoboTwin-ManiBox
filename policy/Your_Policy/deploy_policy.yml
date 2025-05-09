@@ -1,0 +1,15 @@
+# Basic experiment configuration
+
+# modify this !!!!!
+policy_name: Your_Policy 
+setting: null 
+
+# keep unchanged
+task_name: null  
+seed: null 
+instruction_type: unseen 
+expert_data_num: null 
+checkpoint_num: null 
+
+# You can add parameters here
+# ...

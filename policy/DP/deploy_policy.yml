@@ -1,0 +1,10 @@
+# Basic experiment configuration
+policy_name: DP
+task_name: null
+setting: null # modify this
+seed: null
+instruction_type: unseen
+
+expert_data_num: null # modify this
+checkpoint_num: 300
+head_camera_type: D435

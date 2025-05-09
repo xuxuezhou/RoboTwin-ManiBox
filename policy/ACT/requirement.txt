@@ -1,0 +1,13 @@
+torchvision
+pyquaternion==0.9.9
+pyyaml==6.0
+rospkg==1.5.0
+pexpect==4.8.0
+mujoco==2.3.3
+dm-control==1.0.9
+opencv-python
+matplotlib==3.7.1
+einops==0.6.0
+packaging==23.0
+h5py==3.8.0
+ipython==8.12.0

@@ -1,0 +1,12 @@
+# Basic experiment configuration
+policy_name: null
+task_name: null
+setting: null # modify this
+seed: null
+instruction_type: unseen
+
+model_name: test # modify this
+checkpoint_id: 10000 # modify this
+seed: 0
+checkpoint_id: null
+rdt_step: 30

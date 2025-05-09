@@ -1,0 +1,34 @@
+task_name: place_phone_stand
+render_freq: 0
+episode_num: 100
+use_seed: false
+save_freq: 10
+embodiment:
+- aloha-agilex-1
+augmentation:
+  random_background: true
+  messy_table: true
+  clean_background_rate: 0.1
+  random_head_camera_dis: 0
+  random_table_height: 0.03
+  random_light: true
+  crazy_random_light_rate: 0.1
+  random_embodiment: false
+camera:
+  head_camera_type: D435
+  wrist_camera_type: D435
+  collect_head_camera: true
+  collect_wrist_camera: true
+data_type:
+  rgb: true
+  depth: false
+  observer: false
+  endpose: false
+  qpos: true
+pcd_down_sample_num: 1024
+dual_arm: true
+pcd_crop: true
+save_path: ./data
+st_episode: 0
+collect_data: true
+eval_video_log: true
