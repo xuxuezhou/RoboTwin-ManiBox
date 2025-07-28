@@ -490,6 +490,7 @@ def get_glb_or_obj_file(modeldir, model_id):
         file = modeldir / "base.glb"
     else:
         file = modeldir / f"base{model_id}.glb"
+    # print("file:", file)
     if not file.exists():
         if model_id is None:
             file = modeldir / "textured.obj"
@@ -527,6 +528,8 @@ def create_actor(
     if visual_file == "" or not visual_file.exists():
         visual_file = get_glb_or_obj_file(modeldir, model_id)
 
+    # print("collision_file:", collision_file)
+    # print("visual_file:", visual_file)
     if not collision_file.exists() or not visual_file.exists():
         print(modelname, "is not exist model file!")
         return None

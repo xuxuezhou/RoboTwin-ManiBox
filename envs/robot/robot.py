@@ -12,7 +12,14 @@ from copy import deepcopy
 import sapien.core as sapien
 import envs._GLOBAL_CONFIGS as CONFIGS
 from envs.utils import transforms
-from .planner import CuroboPlanner
+try:
+    from .planner import CuroboPlanner
+    CUROBO_AVAILABLE = True
+except ImportError:
+    print("⚠️ CuroboPlanner not available, using MplibPlanner only")
+    CuroboPlanner = None
+    CUROBO_AVAILABLE = False
+from .planner import MplibPlanner
 import torch.multiprocessing as mp
 
 
@@ -132,8 +139,12 @@ class Robot:
                 self.right_conn.send({"cmd": "reset"})
                 _ = self.right_conn.recv()
         else:
-            if not isinstance(self.left_planner, CuroboPlanner) or not isinstance(self.right_planner, CuroboPlanner):
-                self.set_planner(scene=scene)
+            if CUROBO_AVAILABLE and CuroboPlanner is not None:
+                if not isinstance(self.left_planner, CuroboPlanner) or not isinstance(self.right_planner, CuroboPlanner):
+                    self.set_planner(scene=scene)
+            else:
+                if not isinstance(self.left_planner, MplibPlanner) or not isinstance(self.right_planner, MplibPlanner):
+                    self.set_planner(scene=scene)
 
         self.init_joints()
 
@@ -265,14 +276,23 @@ class Robot:
             abs_right_curobo_yml_path = abs_right_curobo_yml_path.replace("curobo.yml", "curobo_right.yml")
 
         if not self.communication_flag:
-            self.left_planner = CuroboPlanner(self.left_entity_origion_pose,
-                                              self.left_arm_joints_name,
-                                              [joint.get_name() for joint in self.left_entity.get_active_joints()],
-                                              yml_path=abs_left_curobo_yml_path)
-            self.right_planner = CuroboPlanner(self.right_entity_origion_pose,
-                                               self.right_arm_joints_name,
-                                               [joint.get_name() for joint in self.right_entity.get_active_joints()],
-                                               yml_path=abs_right_curobo_yml_path)
+            if CUROBO_AVAILABLE and CuroboPlanner is not None:
+                self.left_planner = CuroboPlanner(self.left_entity_origion_pose,
+                                                  self.left_arm_joints_name,
+                                                  [joint.get_name() for joint in self.left_entity.get_active_joints()],
+                                                  yml_path=abs_left_curobo_yml_path)
+                self.right_planner = CuroboPlanner(self.right_entity_origion_pose,
+                                                   self.right_arm_joints_name,
+                                                   [joint.get_name() for joint in self.right_entity.get_active_joints()],
+                                                   yml_path=abs_right_curobo_yml_path)
+            else:
+                print("🔄 Using MplibPlanner as fallback")
+                self.left_planner = MplibPlanner(self.left_entity_origion_pose,
+                                                self.left_arm_joints_name,
+                                                [joint.get_name() for joint in self.left_entity.get_active_joints()])
+                self.right_planner = MplibPlanner(self.right_entity_origion_pose,
+                                                 self.right_arm_joints_name,
+                                                 [joint.get_name() for joint in self.right_entity.get_active_joints()])
         else:
             self.left_conn, left_child_conn = mp.Pipe()
             self.right_conn, right_child_conn = mp.Pipe()
