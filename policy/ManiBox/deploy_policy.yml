@@ -1,0 +1,59 @@
+# Basic experiment configuration (keep unchanged)
+policy_name: ManiBox
+task_name: null
+task_config: null
+ckpt_setting: null
+seed: null
+instruction_type: unseen
+
+# ManiBox Evaluation Configuration
+eval_video_log: true          # Enable video recording
+render_freq: 1                # Render every frame for smooth video
+num_eval_episodes: 10         # Number of episodes to evaluate
+
+# ManiBox RNN Policy Configuration
+policy_class: RNN
+batch_size: 16
+lr: 0.002
+num_epochs: 50
+weight_decay: 0.0001
+loss_function: l1
+gradient_accumulation_steps: 1
+
+# RNN specific parameters
+rnn_layers: 3
+rnn_hidden_dim: 512
+actor_hidden_dim: 512
+state_dim: 14
+action_dim: 14
+
+# Data parameters
+use_depth_image: false
+use_robot_base: false
+use_dataset_action: true
+camera_names: ['cam_high', 'cam_left_wrist', 'cam_right_wrist']
+objects: ['bottle', 'bottle']  # 2 objects to match checkpoint (38-dim input)
+
+# RoboTwin data type configuration
+data_type:
+  rgb: true
+  depth: false
+  pointcloud: false
+  observer: false
+  endpose: false
+  qpos: true                    # 🔑 Enable joint position data
+  mesh_segmentation: false
+  actor_segmentation: false
+
+# Training parameters
+scheduler: cos
+warmup_ratio: 0.1
+use_accelerate: false
+device: cuda:0
+context_len: 90
+episode_begin: 0
+episode_end: 90
+
+# Inference parameters
+max_episode_len: 200
+success_threshold: 0.8
