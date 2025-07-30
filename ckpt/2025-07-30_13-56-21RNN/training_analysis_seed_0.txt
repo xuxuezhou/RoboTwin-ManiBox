@@ -1,0 +1,16 @@
+
+=== Training Analysis Report (Seed 0) ===
+
+Basic Statistics:
+- Train Loss: μ=0.137708, σ=0.098708
+- Val Loss: μ=0.129103, σ=0.089882
+
+Best/Worst Points:
+- Best Val Loss: 0.067139 at epoch 99
+- Worst Val Loss: 0.708501 at epoch 0
+- Best Train Loss: 0.071644 at epoch 405
+- Worst Train Loss: 0.734895 at epoch 1
+
+Trend Analysis:
+- Train Loss Trend: -0.000425 (negative = improving)
+- Val Loss Trend: -0.002076 (negative = improving)

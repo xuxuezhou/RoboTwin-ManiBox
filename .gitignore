@@ -26,3 +26,6 @@ envs/curobo/*
 
 /*.json*
 /*.txt
+*.mp4
+*.ckpt
+*.pkl

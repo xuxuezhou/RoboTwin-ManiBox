@@ -73,14 +73,29 @@ def main(usr_args):
     video_save_dir = None
     video_size = None
 
-    get_model = eval_function_decorator(policy_name, "get_model")
-
+    # Load task config first to get policy_class
     with open(f"./task_config/{task_config}.yml", "r", encoding="utf-8") as f:
         args = yaml.load(f.read(), Loader=yaml.FullLoader)
 
     args['task_name'] = task_name
     args["task_config"] = task_config
     args["ckpt_setting"] = ckpt_setting
+    
+    # Determine which deployment script to use based on policy_class and checkpoint name
+    policy_class = args.get("policy_class", "RNN")  # Default to RNN
+    
+    # Also check checkpoint name for policy type hints
+    checkpoint_name = ckpt_setting if ckpt_setting and ckpt_setting != "null" else ""
+    is_diffusion_model = (policy_class in ["SimpleBBoxDiffusion", "Diffusion"] or 
+                         "Diffusion" in checkpoint_name or 
+                         "SimpleBBoxDiffusion" in checkpoint_name)
+    
+    if is_diffusion_model:
+        # Use diffusion deployment script
+        from policy.ManiBox.deploy_policy_diffusion import get_model
+    else:
+        # Use RNN deployment script
+        from policy.ManiBox.deploy_policy import get_model
 
     embodiment_type = args.get("embodiment")
     embodiment_config_path = os.path.join(CONFIGS_PATH, "_embodiment_config.yml")
@@ -233,10 +248,12 @@ def eval_policy(task_name,
                 args["render_freq"] = render_freq
                 continue
             except Exception as e:
-                # stack_trace = traceback.format_exc()
-                # print(" -------------")
-                # print("Error: ", e)
-                # print(" -------------")
+                stack_trace = traceback.format_exc()
+                print(" -------------")
+                print("Error: ", e)
+                print("Stack trace:")
+                print(stack_trace)
+                print(" -------------")
                 TASK_ENV.close_env()
                 now_seed += 1
                 args["render_freq"] = render_freq
@@ -290,12 +307,24 @@ def eval_policy(task_name,
 
         succ = False
         reset_func(model)
+        
+        # Start action logging for this episode
+        if hasattr(model, 'start_action_logging'):
+            import datetime
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            log_path = f"action_log_episode_{TASK_ENV.test_num}_{timestamp}.jsonl"
+            model.start_action_logging(log_path)
+        
         while TASK_ENV.take_action_cnt < TASK_ENV.step_lim:
             observation = TASK_ENV.get_obs()
             eval_func(TASK_ENV, model, observation)
             if TASK_ENV.eval_success:
                 succ = True
                 break
+        
+        # Stop action logging
+        if hasattr(model, 'stop_action_logging'):
+            model.stop_action_logging()
         # task_total_reward += TASK_ENV.episode_score
         if TASK_ENV.eval_video_path is not None:
             TASK_ENV._del_eval_video_ffmpeg()

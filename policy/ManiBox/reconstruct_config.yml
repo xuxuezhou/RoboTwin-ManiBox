@@ -1,0 +1,62 @@
+# Data Reconstruction Configuration
+# This config is specifically for reconstructing robot demonstrations with bounding box visualization
+
+# Basic experiment configuration
+policy_name: ManiBox
+task_name: pick_diverse_bottles
+task_config: demo_randomized
+ckpt_setting: null
+seed: 42
+instruction_type: unseen
+
+# Reconstruction specific configuration
+episode_id: 0
+max_steps: 50  # Limit reconstruction to first 50 steps
+output_dir: './reconstruction_output'
+data_path: 'policy/ManiBox/processed_data/manibox-pick-diverse-bottles'
+
+# Robot configuration
+embodiment_type: ['aloha-agilex']  # Use aloha-agilex robot
+
+# Camera configuration
+camera:
+  head_camera_type: 'D435'
+  wrist_camera_type: 'D435'
+  collect_head_camera: true
+  collect_wrist_camera: true
+
+# Domain randomization (disabled for reconstruction)
+domain_randomization:
+  random_background: false
+  cluttered_table: false
+  clean_background_rate: 1
+  random_head_camera_dis: 0
+  random_table_height: 0
+  random_light: false
+  crazy_random_light_rate: 0
+  random_embodiment: false
+
+# YOLO configuration for bounding box detection
+objects: ['bottle']  # Detect bottles
+max_detections_per_object: 2
+
+# Video configuration
+fps: 10
+enable_visualization: true
+
+# Data parameters
+use_depth_image: false
+use_robot_base: false
+use_dataset_action: true
+camera_names: ['cam_high', 'cam_left_wrist', 'cam_right_wrist']
+
+# RoboTwin data type configuration
+data_type:
+  rgb: true
+  depth: false
+  pointcloud: false
+  observer: false
+  endpose: false
+  qpos: true
+  mesh_segmentation: false
+  actor_segmentation: false 

@@ -1,0 +1,33 @@
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/ultralytics/nn/tasks.py:775: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(file, map_location="cpu")
+/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/data_load.py:21: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(dataset_dir, "integration.pkl"), map_location='cpu')
+/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/BBoxHistoryEpisodicDataset.py:52: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.data = torch.load(os.path.join(self.dataset_dir, "integration.pkl"), map_location='cpu')
+Timestamp: 2025-07-29_16-25-29
+scheduler: cos args.gradient_accumulation_steps 1
+whether use acclerator: False
+cur_path /home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox
+num episodes 500
+🔧 Using 2 object(s): ['apple', 'table']
+📊 Expected bbox dimension: 24
+
+Data from: policy/ManiBox/processed_data/manibox-pick-diverse-bottles
+
+Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([90, 12]) torch.Size([90, 14]) torch.Size([90, 14])
+Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([90, 12]) torch.Size([90, 14]) torch.Size([90, 14])
+length of train dataloader 4
+Traceback (most recent call last):
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 832, in <module>
+    main()
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 828, in main
+    train(args)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 555, in train
+    best_ckpt_info = train_process(train_dataloader, val_dataloader, config, stats)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 589, in train_process
+    policy = make_policy(policy_class, policy_config, pretrain_ckpt_dir)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 245, in make_policy
+    from policy.DiffusionPolicy import DiffusionPolicy
+ModuleNotFoundError: No module named 'policy.DiffusionPolicy'

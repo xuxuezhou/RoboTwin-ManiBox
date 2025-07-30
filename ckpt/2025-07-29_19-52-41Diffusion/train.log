@@ -1,0 +1,1438 @@
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/ultralytics/nn/tasks.py:775: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(file, map_location="cpu")
+/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/data_load.py:21: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(dataset_dir, "integration.pkl"), map_location='cpu')
+/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/BBoxHistoryEpisodicDataset.py:52: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.data = torch.load(os.path.join(self.dataset_dir, "integration.pkl"), map_location='cpu')
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+Timestamp: 2025-07-29_19-52-41
+scheduler: cos args.gradient_accumulation_steps 4
+whether use acclerator: False
+cur_path /home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox
+num episodes 500
+🎯 Using custom objects: ['bottle', 'bottle']
+📊 Expected bbox dimension: 24
+
+Data from: policy/ManiBox/processed_data/manibox-pick-diverse-bottles
+
+Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([90, 12]) torch.Size([90, 14]) torch.Size([90, 14])
+Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([90, 12]) torch.Size([90, 14]) torch.Size([90, 14])
+length of train dataloader 15
+You are using DiffusionPolicy.
+policy_config {'lr': 0.0001, 'lr_backbone': 7e-05, 'epochs': 200, 'train_loader_len': 15, 'warmup_ratio': 0.1, 'use_scheduler': 'cos', 'backbone': 'resnet18', 'masks': False, 'weight_decay': 0.0001, 'dilation': False, 'position_embedding': 'sine', 'loss_function': 'l1', 'chunk_size': 1, 'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist'], 'num_next_action': 0, 'use_depth_image': False, 'use_robot_base': False, 'hidden_dim': 512, 'device': 'cuda:0', 'state_dim': 14, 'action_dim': 14, 'observation_horizon': 1, 'action_horizon': 8, 'num_inference_timesteps': 10, 'ema_power': 0.75, 'alpha': 3.0, 'max_time_steps': 1000, 'time_embed_dim': 128, 'context_len': 90, 'num_samples_per_traj': 10, 'policy_class': 'Diffusion', 'gradient_accumulation_steps': 4}
+backbone visual encoder. number of parameters: 33.50M
+diffusion model. number of parameters: 0.80M
+  0%|          | 0/200 [00:00<?, ?it/s]
+0it [00:00, ?it/s][A
+                  [A
+Epoch 0, lr: 2e-05
+Train loss: 8.12044
+loss: 8.120 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  0%|          | 1/200 [00:00<03:14,  1.02it/s]Best ckpt saved, val loss 7.879186 @ epoch0
+Val loss:   7.87919.   Best val loss: 7.87919 at epoch 0
+loss: 7.879 
+
+Epoch 1, lr: 4e-05
+Train loss: 7.91187
+loss: 7.912 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  1%|          | 2/200 [00:01<02:21,  1.40it/s]Val loss:   8.13438.   Best val loss: 7.87919 at epoch 0
+loss: 8.134 
+
+Epoch 2, lr: 6e-05
+Train loss: 7.90981
+loss: 7.910 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  2%|▏         | 3/200 [00:02<02:26,  1.34it/s]Best ckpt saved, val loss 7.876341 @ epoch2
+Val loss:   7.87634.   Best val loss: 7.87634 at epoch 2
+loss: 7.876 
+
+Epoch 3, lr: 8e-05
+Train loss: 7.98208
+loss: 7.982 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  2%|▏         | 4/200 [00:02<02:13,  1.46it/s]Val loss:   7.89133.   Best val loss: 7.87634 at epoch 2
+loss: 7.891 
+
+Epoch 4, lr: 0.0001
+Train loss: 8.01751
+loss: 8.018 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  2%|▎         | 5/200 [00:03<02:26,  1.33it/s]Best ckpt saved, val loss 7.794508 @ epoch4
+Val loss:   7.79451.   Best val loss: 7.79451 at epoch 4
+loss: 7.795 
+
+Epoch 5, lr: 9.987820251299122e-05
+Train loss: 8.09423
+loss: 8.094 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  3%|▎         | 6/200 [00:04<02:15,  1.43it/s]Val loss:   7.86048.   Best val loss: 7.79451 at epoch 4
+loss: 7.860 
+
+Epoch 6, lr: 9.951340343707852e-05
+Train loss: 7.98927
+loss: 7.989 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  4%|▎         | 7/200 [00:04<02:07,  1.51it/s]Val loss:   7.87375.   Best val loss: 7.79451 at epoch 4
+loss: 7.874 
+
+Epoch 7, lr: 9.890738003669029e-05
+Train loss: 7.97088
+loss: 7.971 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  4%|▍         | 8/200 [00:05<02:13,  1.44it/s]Best ckpt saved, val loss 7.787719 @ epoch7
+Val loss:   7.78772.   Best val loss: 7.78772 at epoch 7
+loss: 7.788 
+
+Epoch 8, lr: 9.806308479691595e-05
+Train loss: 8.04918
+loss: 8.049 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  4%|▍         | 9/200 [00:06<02:05,  1.52it/s]Val loss:   8.09351.   Best val loss: 7.78772 at epoch 7
+loss: 8.094 
+
+Epoch 9, lr: 9.698463103929542e-05
+Train loss: 8.05291
+loss: 8.053 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  5%|▌         | 10/200 [00:06<02:01,  1.57it/s]Val loss:   8.06258.   Best val loss: 7.78772 at epoch 7
+loss: 8.063 
+
+Epoch 10, lr: 9.567727288213005e-05
+Train loss: 8.02743
+loss: 8.027 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  6%|▌         | 11/200 [00:07<01:58,  1.59it/s]Val loss:   8.20800.   Best val loss: 7.78772 at epoch 7
+loss: 8.208 
+
+Epoch 11, lr: 9.414737964294636e-05
+Train loss: 8.06469
+loss: 8.065 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  6%|▌         | 12/200 [00:08<02:07,  1.48it/s]Best ckpt saved, val loss 7.679632 @ epoch11
+Val loss:   7.67963.   Best val loss: 7.67963 at epoch 11
+loss: 7.680 
+
+Epoch 12, lr: 9.24024048078213e-05
+Train loss: 8.02348
+loss: 8.023 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  6%|▋         | 13/200 [00:08<02:02,  1.53it/s]Val loss:   8.11999.   Best val loss: 7.67963 at epoch 11
+loss: 8.120 
+
+Epoch 13, lr: 9.045084971874738e-05
+Train loss: 7.97517
+loss: 7.975 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  7%|▋         | 14/200 [00:09<01:59,  1.55it/s]Val loss:   7.69254.   Best val loss: 7.67963 at epoch 11
+loss: 7.693 
+
+Epoch 14, lr: 8.83022221559489e-05
+Train loss: 7.94571
+loss: 7.946 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  8%|▊         | 15/200 [00:10<01:56,  1.59it/s]Val loss:   7.88610.   Best val loss: 7.67963 at epoch 11
+loss: 7.886 
+
+Epoch 15, lr: 8.596699001693255e-05
+Train loss: 7.97789
+loss: 7.978 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  8%|▊         | 16/200 [00:10<01:55,  1.59it/s]Val loss:   7.98630.   Best val loss: 7.67963 at epoch 11
+loss: 7.986 
+
+Epoch 16, lr: 8.345653031794292e-05
+Train loss: 8.03644
+loss: 8.036 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  8%|▊         | 17/200 [00:11<01:55,  1.58it/s]Val loss:   8.26251.   Best val loss: 7.67963 at epoch 11
+loss: 8.263 
+
+Epoch 17, lr: 8.07830737662829e-05
+Train loss: 7.93529
+loss: 7.935 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+  9%|▉         | 18/200 [00:12<01:57,  1.55it/s]Val loss:   8.24993.   Best val loss: 7.67963 at epoch 11
+loss: 8.250 
+
+Epoch 18, lr: 7.795964517353735e-05
+Train loss: 8.04286
+loss: 8.043 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 10%|▉         | 19/200 [00:12<01:54,  1.58it/s]Val loss:   7.89581.   Best val loss: 7.67963 at epoch 11
+loss: 7.896 
+
+Epoch 19, lr: 7.500000000000001e-05
+Train loss: 7.93073
+loss: 7.931 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 10%|█         | 20/200 [00:13<01:53,  1.59it/s]Val loss:   8.05250.   Best val loss: 7.67963 at epoch 11
+loss: 8.052 
+/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py:147: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  plt.figure()
+
+Epoch 20, lr: 7.191855733945387e-05
+Train loss: 8.04422
+loss: 8.044 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 10%|█         | 21/200 [00:13<01:52,  1.59it/s]Val loss:   8.06157.   Best val loss: 7.67963 at epoch 11
+loss: 8.062 
+
+Epoch 21, lr: 6.873032967079561e-05
+Train loss: 7.95291
+loss: 7.953 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 11%|█         | 22/200 [00:14<01:50,  1.60it/s]Val loss:   7.98353.   Best val loss: 7.67963 at epoch 11
+loss: 7.984 
+
+Epoch 22, lr: 6.545084971874738e-05
+Train loss: 7.96544
+loss: 7.965 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 12%|█▏        | 23/200 [00:15<01:57,  1.51it/s]Val loss:   8.14324.   Best val loss: 7.67963 at epoch 11
+loss: 8.143 
+
+Epoch 23, lr: 6.209609477998338e-05
+Train loss: 7.94646
+loss: 7.946 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 12%|█▏        | 24/200 [00:15<01:55,  1.52it/s]Val loss:   7.87537.   Best val loss: 7.67963 at epoch 11
+loss: 7.875 
+
+Epoch 24, lr: 5.868240888334653e-05
+Train loss: 8.09431
+loss: 8.094 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 12%|█▎        | 25/200 [00:16<01:55,  1.51it/s]Val loss:   8.08695.   Best val loss: 7.67963 at epoch 11
+loss: 8.087 
+
+Epoch 25, lr: 5.522642316338268e-05
+Train loss: 8.06746
+loss: 8.067 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 13%|█▎        | 26/200 [00:17<01:53,  1.53it/s]Val loss:   8.23425.   Best val loss: 7.67963 at epoch 11
+loss: 8.234 
+
+Epoch 26, lr: 5.174497483512506e-05
+Train loss: 8.07788
+loss: 8.078 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 14%|█▎        | 27/200 [00:17<01:53,  1.53it/s]Val loss:   7.98970.   Best val loss: 7.67963 at epoch 11
+loss: 7.990 
+
+Epoch 27, lr: 4.825502516487497e-05
+Train loss: 7.94228
+loss: 7.942 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 14%|█▍        | 28/200 [00:18<01:52,  1.53it/s]Val loss:   7.87777.   Best val loss: 7.67963 at epoch 11
+loss: 7.878 
+
+Epoch 28, lr: 4.477357683661734e-05
+Train loss: 8.05604
+loss: 8.056 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 14%|█▍        | 29/200 [00:19<01:53,  1.51it/s]Val loss:   8.20287.   Best val loss: 7.67963 at epoch 11
+loss: 8.203 
+
+Epoch 29, lr: 4.131759111665349e-05
+Train loss: 8.10977
+loss: 8.110 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 15%|█▌        | 30/200 [00:19<01:52,  1.51it/s]Val loss:   8.11126.   Best val loss: 7.67963 at epoch 11
+loss: 8.111 
+
+Epoch 30, lr: 3.790390522001662e-05
+Train loss: 8.02307
+loss: 8.023 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 16%|█▌        | 31/200 [00:20<01:52,  1.51it/s]Val loss:   8.15975.   Best val loss: 7.67963 at epoch 11
+loss: 8.160 
+
+Epoch 31, lr: 3.4549150281252636e-05
+Train loss: 8.03815
+loss: 8.038 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 16%|█▌        | 32/200 [00:21<01:50,  1.52it/s]Val loss:   7.76159.   Best val loss: 7.67963 at epoch 11
+loss: 7.762 
+
+Epoch 32, lr: 3.12696703292044e-05
+Train loss: 7.93353
+loss: 7.934 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 16%|█▋        | 33/200 [00:21<01:52,  1.48it/s]Val loss:   8.20212.   Best val loss: 7.67963 at epoch 11
+loss: 8.202 
+
+Epoch 33, lr: 2.8081442660546125e-05
+Train loss: 8.05366
+loss: 8.054 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 17%|█▋        | 34/200 [00:22<01:53,  1.46it/s]Val loss:   7.81639.   Best val loss: 7.67963 at epoch 11
+loss: 7.816 
+
+Epoch 34, lr: 2.500000000000001e-05
+Train loss: 8.10068
+loss: 8.101 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 18%|█▊        | 35/200 [00:23<01:53,  1.45it/s]Val loss:   7.91631.   Best val loss: 7.67963 at epoch 11
+loss: 7.916 
+
+Epoch 35, lr: 2.2040354826462668e-05
+Train loss: 8.04544
+loss: 8.045 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 18%|█▊        | 36/200 [00:24<01:54,  1.43it/s]Val loss:   8.00394.   Best val loss: 7.67963 at epoch 11
+loss: 8.004 
+
+Epoch 36, lr: 1.9216926233717085e-05
+Train loss: 7.88619
+loss: 7.886 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 18%|█▊        | 37/200 [00:24<01:54,  1.42it/s]Val loss:   8.05293.   Best val loss: 7.67963 at epoch 11
+loss: 8.053 
+
+Epoch 37, lr: 1.6543469682057106e-05
+Train loss: 8.01931
+loss: 8.019 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 19%|█▉        | 38/200 [00:25<01:55,  1.40it/s]Val loss:   7.90673.   Best val loss: 7.67963 at epoch 11
+loss: 7.907 
+
+Epoch 38, lr: 1.4033009983067452e-05
+Train loss: 8.07245
+loss: 8.072 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 20%|█▉        | 39/200 [00:26<01:55,  1.40it/s]Val loss:   7.85102.   Best val loss: 7.67963 at epoch 11
+loss: 7.851 
+
+Epoch 39, lr: 1.1697777844051105e-05
+Train loss: 7.94894
+loss: 7.949 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 20%|██        | 40/200 [00:26<01:55,  1.38it/s]Val loss:   7.90383.   Best val loss: 7.67963 at epoch 11
+loss: 7.904 
+
+Epoch 40, lr: 9.549150281252633e-06
+Train loss: 8.00805
+loss: 8.008 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 20%|██        | 41/200 [00:27<01:55,  1.38it/s]Val loss:   7.83553.   Best val loss: 7.67963 at epoch 11
+loss: 7.836 
+
+Epoch 41, lr: 7.597595192178702e-06
+Train loss: 8.04911
+loss: 8.049 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 21%|██        | 42/200 [00:28<01:53,  1.39it/s]Val loss:   8.05977.   Best val loss: 7.67963 at epoch 11
+loss: 8.060 
+
+Epoch 42, lr: 5.852620357053651e-06
+Train loss: 8.08039
+loss: 8.080 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 22%|██▏       | 43/200 [00:29<01:52,  1.40it/s]Val loss:   8.14960.   Best val loss: 7.67963 at epoch 11
+loss: 8.150 
+
+Epoch 43, lr: 4.322727117869951e-06
+Train loss: 7.99417
+loss: 7.994 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 22%|██▏       | 44/200 [00:29<01:51,  1.39it/s]Val loss:   7.98042.   Best val loss: 7.67963 at epoch 11
+loss: 7.980 
+
+Epoch 44, lr: 3.0153689607045845e-06
+Train loss: 7.99706
+loss: 7.997 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 22%|██▎       | 45/200 [00:30<01:51,  1.39it/s]Val loss:   7.89041.   Best val loss: 7.67963 at epoch 11
+loss: 7.890 
+
+Epoch 45, lr: 1.9369152030840556e-06
+Train loss: 7.97236
+loss: 7.972 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 23%|██▎       | 46/200 [00:31<02:01,  1.26it/s]Val loss:   8.13490.   Best val loss: 7.67963 at epoch 11
+loss: 8.135 
+
+Epoch 46, lr: 1.0926199633097157e-06
+Train loss: 7.98599
+loss: 7.986 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 24%|██▎       | 47/200 [00:32<01:59,  1.28it/s]Val loss:   7.90847.   Best val loss: 7.67963 at epoch 11
+loss: 7.908 
+
+Epoch 47, lr: 4.865965629214819e-07
+Train loss: 8.05767
+loss: 8.058 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 24%|██▍       | 48/200 [00:32<01:56,  1.31it/s]Val loss:   7.93477.   Best val loss: 7.67963 at epoch 11
+loss: 7.935 
+
+Epoch 48, lr: 1.2179748700879012e-07
+Train loss: 8.00829
+loss: 8.008 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 24%|██▍       | 49/200 [00:33<01:56,  1.30it/s]Val loss:   8.34199.   Best val loss: 7.67963 at epoch 11
+loss: 8.342 
+
+Epoch 49, lr: 0.0
+Train loss: 7.88110
+loss: 7.881 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 25%|██▌       | 50/200 [00:34<01:54,  1.31it/s]Val loss:   8.16415.   Best val loss: 7.67963 at epoch 11
+loss: 8.164 
+
+Epoch 50, lr: 1.2179748700878456e-07
+Train loss: 8.03334
+loss: 8.033 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 26%|██▌       | 51/200 [00:35<01:54,  1.30it/s]Val loss:   8.07670.   Best val loss: 7.67963 at epoch 11
+loss: 8.077 
+
+Epoch 51, lr: 4.865965629214875e-07
+Train loss: 8.02725
+loss: 8.027 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 26%|██▌       | 52/200 [00:36<01:54,  1.30it/s]Val loss:   7.93497.   Best val loss: 7.67963 at epoch 11
+loss: 7.935 
+
+Epoch 52, lr: 1.0926199633097157e-06
+Train loss: 7.96842
+loss: 7.968 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 26%|██▋       | 53/200 [00:36<01:52,  1.30it/s]Val loss:   8.26842.   Best val loss: 7.67963 at epoch 11
+loss: 8.268 
+
+Epoch 53, lr: 1.93691520308405e-06
+Train loss: 8.02654
+loss: 8.027 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 27%|██▋       | 54/200 [00:37<01:51,  1.31it/s]Val loss:   8.05095.   Best val loss: 7.67963 at epoch 11
+loss: 8.051 
+
+Epoch 54, lr: 3.0153689607045785e-06
+Train loss: 8.09041
+loss: 8.090 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 28%|██▊       | 55/200 [00:38<01:50,  1.31it/s]Val loss:   7.90221.   Best val loss: 7.67963 at epoch 11
+loss: 7.902 
+
+Epoch 55, lr: 4.322727117869946e-06
+Train loss: 7.97919
+loss: 7.979 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 28%|██▊       | 56/200 [00:39<01:50,  1.31it/s]Val loss:   8.04942.   Best val loss: 7.67963 at epoch 11
+loss: 8.049 
+
+Epoch 56, lr: 5.852620357053646e-06
+Train loss: 8.07163
+loss: 8.072 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 28%|██▊       | 57/200 [00:39<01:50,  1.30it/s]Val loss:   7.99967.   Best val loss: 7.67963 at epoch 11
+loss: 8.000 
+
+Epoch 57, lr: 7.597595192178697e-06
+Train loss: 7.84003
+loss: 7.840 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 29%|██▉       | 58/200 [00:40<01:50,  1.29it/s]Val loss:   8.13530.   Best val loss: 7.67963 at epoch 11
+loss: 8.135 
+
+Epoch 58, lr: 9.549150281252623e-06
+Train loss: 8.09820
+loss: 8.098 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 30%|██▉       | 59/200 [00:41<01:51,  1.27it/s]Val loss:   7.86893.   Best val loss: 7.67963 at epoch 11
+loss: 7.869 
+
+Epoch 59, lr: 1.16977778440511e-05
+Train loss: 7.99404
+loss: 7.994 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 30%|███       | 60/200 [00:42<01:50,  1.27it/s]Val loss:   7.91638.   Best val loss: 7.67963 at epoch 11
+loss: 7.916 
+
+Epoch 60, lr: 1.4033009983067447e-05
+Train loss: 8.01083
+loss: 8.011 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 30%|███       | 61/200 [00:43<01:47,  1.29it/s]Val loss:   8.01460.   Best val loss: 7.67963 at epoch 11
+loss: 8.015 
+
+Epoch 61, lr: 1.654346968205708e-05
+Train loss: 7.89033
+loss: 7.890 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 31%|███       | 62/200 [00:44<01:56,  1.18it/s]Best ckpt saved, val loss 7.560782 @ epoch61
+Val loss:   7.56078.   Best val loss: 7.56078 at epoch 61
+loss: 7.561 
+
+Epoch 62, lr: 1.92169262337171e-05
+Train loss: 7.97193
+loss: 7.972 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 32%|███▏      | 63/200 [00:44<01:55,  1.19it/s]Val loss:   7.95703.   Best val loss: 7.56078 at epoch 61
+loss: 7.957 
+
+Epoch 63, lr: 2.2040354826462638e-05
+Train loss: 7.91534
+loss: 7.915 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 32%|███▏      | 64/200 [00:45<01:53,  1.20it/s]Val loss:   8.22957.   Best val loss: 7.56078 at epoch 61
+loss: 8.230 
+
+Epoch 64, lr: 2.4999999999999977e-05
+Train loss: 8.07038
+loss: 8.070 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 32%|███▎      | 65/200 [00:46<01:51,  1.21it/s]Val loss:   8.05233.   Best val loss: 7.56078 at epoch 61
+loss: 8.052 
+
+Epoch 65, lr: 2.8081442660546115e-05
+Train loss: 7.89946
+loss: 7.899 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 33%|███▎      | 66/200 [00:47<01:50,  1.22it/s]Val loss:   8.09031.   Best val loss: 7.56078 at epoch 61
+loss: 8.090 
+
+Epoch 66, lr: 3.1269670329204384e-05
+Train loss: 7.99024
+loss: 7.990 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 34%|███▎      | 67/200 [00:48<01:48,  1.23it/s]Val loss:   7.81104.   Best val loss: 7.56078 at epoch 61
+loss: 7.811 
+
+Epoch 67, lr: 3.454915028125262e-05
+Train loss: 8.04021
+loss: 8.040 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 34%|███▍      | 68/200 [00:48<01:47,  1.23it/s]Val loss:   8.28235.   Best val loss: 7.56078 at epoch 61
+loss: 8.282 
+
+Epoch 68, lr: 3.790390522001661e-05
+Train loss: 7.88178
+loss: 7.882 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 34%|███▍      | 69/200 [00:49<01:48,  1.21it/s]Val loss:   7.61956.   Best val loss: 7.56078 at epoch 61
+loss: 7.620 
+
+Epoch 69, lr: 4.131759111665349e-05
+Train loss: 8.04171
+loss: 8.042 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 35%|███▌      | 70/200 [00:50<01:46,  1.22it/s]Val loss:   8.00375.   Best val loss: 7.56078 at epoch 61
+loss: 8.004 
+
+Epoch 70, lr: 4.477357683661729e-05
+Train loss: 8.14130
+loss: 8.141 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 36%|███▌      | 71/200 [00:51<01:46,  1.21it/s]Val loss:   8.06003.   Best val loss: 7.56078 at epoch 61
+loss: 8.060 
+
+Epoch 71, lr: 4.825502516487496e-05
+Train loss: 7.96576
+loss: 7.966 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 36%|███▌      | 72/200 [00:52<01:46,  1.20it/s]Val loss:   8.02932.   Best val loss: 7.56078 at epoch 61
+loss: 8.029 
+
+Epoch 72, lr: 5.174497483512503e-05
+Train loss: 7.90744
+loss: 7.907 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 36%|███▋      | 73/200 [00:53<01:45,  1.20it/s]Val loss:   8.21007.   Best val loss: 7.56078 at epoch 61
+loss: 8.210 
+
+Epoch 73, lr: 5.52264231633827e-05
+Train loss: 8.06052
+loss: 8.061 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 37%|███▋      | 74/200 [00:54<01:52,  1.12it/s]Val loss:   8.04798.   Best val loss: 7.56078 at epoch 61
+loss: 8.048 
+
+Epoch 74, lr: 5.8682408883346504e-05
+Train loss: 7.98875
+loss: 7.989 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 38%|███▊      | 75/200 [00:54<01:49,  1.15it/s]Val loss:   7.83156.   Best val loss: 7.56078 at epoch 61
+loss: 7.832 
+
+Epoch 75, lr: 6.209609477998338e-05
+Train loss: 7.95144
+loss: 7.951 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 38%|███▊      | 76/200 [00:55<01:47,  1.16it/s]Val loss:   8.13034.   Best val loss: 7.56078 at epoch 61
+loss: 8.130 
+
+Epoch 76, lr: 6.545084971874737e-05
+Train loss: 7.98971
+loss: 7.990 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 38%|███▊      | 77/200 [00:56<01:44,  1.17it/s]Val loss:   7.72800.   Best val loss: 7.56078 at epoch 61
+loss: 7.728 
+
+Epoch 77, lr: 6.87303296707956e-05
+Train loss: 8.00401
+loss: 8.004 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 39%|███▉      | 78/200 [00:57<01:43,  1.18it/s]Val loss:   7.95193.   Best val loss: 7.56078 at epoch 61
+loss: 7.952 
+
+Epoch 78, lr: 7.191855733945387e-05
+Train loss: 7.91689
+loss: 7.917 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 40%|███▉      | 79/200 [00:58<01:42,  1.19it/s]Val loss:   8.00502.   Best val loss: 7.56078 at epoch 61
+loss: 8.005 
+
+Epoch 79, lr: 7.500000000000001e-05
+Train loss: 8.01751
+loss: 8.018 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 40%|████      | 80/200 [00:59<01:41,  1.18it/s]Val loss:   7.82436.   Best val loss: 7.56078 at epoch 61
+loss: 7.824 
+
+Epoch 80, lr: 7.795964517353736e-05
+Train loss: 8.02708
+loss: 8.027 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 40%|████      | 81/200 [00:59<01:40,  1.18it/s]Val loss:   7.94665.   Best val loss: 7.56078 at epoch 61
+loss: 7.947 
+
+Epoch 81, lr: 8.078307376628289e-05
+Train loss: 7.97953
+loss: 7.980 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 41%|████      | 82/200 [01:00<01:40,  1.17it/s]Val loss:   8.12778.   Best val loss: 7.56078 at epoch 61
+loss: 8.128 
+
+Epoch 82, lr: 8.345653031794293e-05
+Train loss: 8.02035
+loss: 8.020 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 42%|████▏     | 83/200 [01:01<01:39,  1.17it/s]Val loss:   7.80988.   Best val loss: 7.56078 at epoch 61
+loss: 7.810 
+
+Epoch 83, lr: 8.596699001693255e-05
+Train loss: 8.06642
+loss: 8.066 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 42%|████▏     | 84/200 [01:02<01:39,  1.17it/s]Val loss:   8.27689.   Best val loss: 7.56078 at epoch 61
+loss: 8.277 
+
+Epoch 84, lr: 8.83022221559489e-05
+Train loss: 7.97416
+loss: 7.974 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 42%|████▎     | 85/200 [01:03<01:37,  1.18it/s]Val loss:   7.85425.   Best val loss: 7.56078 at epoch 61
+loss: 7.854 
+
+Epoch 85, lr: 9.045084971874738e-05
+Train loss: 8.08604
+loss: 8.086 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 43%|████▎     | 86/200 [01:04<01:37,  1.17it/s]Val loss:   8.36609.   Best val loss: 7.56078 at epoch 61
+loss: 8.366 
+
+Epoch 86, lr: 9.24024048078213e-05
+Train loss: 7.98709
+loss: 7.987 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 44%|████▎     | 87/200 [01:05<01:35,  1.18it/s]Val loss:   8.22451.   Best val loss: 7.56078 at epoch 61
+loss: 8.225 
+
+Epoch 87, lr: 9.414737964294636e-05
+Train loss: 7.90995
+loss: 7.910 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 44%|████▍     | 88/200 [01:05<01:34,  1.18it/s]Val loss:   7.81406.   Best val loss: 7.56078 at epoch 61
+loss: 7.814 
+
+Epoch 88, lr: 9.567727288213006e-05
+Train loss: 8.06918
+loss: 8.069 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 44%|████▍     | 89/200 [01:06<01:34,  1.18it/s]Val loss:   8.16179.   Best val loss: 7.56078 at epoch 61
+loss: 8.162 
+
+Epoch 89, lr: 9.698463103929541e-05
+Train loss: 8.04032
+loss: 8.040 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 45%|████▌     | 90/200 [01:07<01:33,  1.17it/s]Val loss:   8.06827.   Best val loss: 7.56078 at epoch 61
+loss: 8.068 
+
+Epoch 90, lr: 9.806308479691595e-05
+Train loss: 8.01104
+loss: 8.011 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 46%|████▌     | 91/200 [01:08<01:33,  1.17it/s]Val loss:   8.01464.   Best val loss: 7.56078 at epoch 61
+loss: 8.015 
+
+Epoch 91, lr: 9.890738003669029e-05
+Train loss: 8.02476
+loss: 8.025 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 46%|████▌     | 92/200 [01:09<01:34,  1.15it/s]Val loss:   8.14823.   Best val loss: 7.56078 at epoch 61
+loss: 8.148 
+
+Epoch 92, lr: 9.951340343707851e-05
+Train loss: 8.00823
+loss: 8.008 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 46%|████▋     | 93/200 [01:10<01:33,  1.14it/s]Val loss:   7.77585.   Best val loss: 7.56078 at epoch 61
+loss: 7.776 
+
+Epoch 93, lr: 9.987820251299122e-05
+Train loss: 7.96345
+loss: 7.963 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 47%|████▋     | 94/200 [01:11<01:34,  1.12it/s]Val loss:   7.84076.   Best val loss: 7.56078 at epoch 61
+loss: 7.841 
+
+Epoch 94, lr: 0.0001
+Train loss: 8.04824
+loss: 8.048 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 48%|████▊     | 95/200 [01:12<01:34,  1.11it/s]Val loss:   8.45226.   Best val loss: 7.56078 at epoch 61
+loss: 8.452 
+
+Epoch 95, lr: 9.987820251299122e-05
+Train loss: 8.06894
+loss: 8.069 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 48%|████▊     | 96/200 [01:13<01:34,  1.10it/s]Val loss:   8.23586.   Best val loss: 7.56078 at epoch 61
+loss: 8.236 
+
+Epoch 96, lr: 9.951340343707854e-05
+Train loss: 8.01792
+loss: 8.018 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 48%|████▊     | 97/200 [01:14<01:34,  1.09it/s]Val loss:   8.25479.   Best val loss: 7.56078 at epoch 61
+loss: 8.255 
+
+Epoch 97, lr: 9.890738003669029e-05
+Train loss: 7.90968
+loss: 7.910 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 49%|████▉     | 98/200 [01:14<01:34,  1.08it/s]Val loss:   7.75058.   Best val loss: 7.56078 at epoch 61
+loss: 7.751 
+
+Epoch 98, lr: 9.806308479691595e-05
+Train loss: 8.01760
+loss: 8.018 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 50%|████▉     | 99/200 [01:15<01:32,  1.09it/s]Val loss:   7.68928.   Best val loss: 7.56078 at epoch 61
+loss: 7.689 
+
+Epoch 99, lr: 9.698463103929542e-05
+Train loss: 7.97531
+loss: 7.975 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 50%|█████     | 100/200 [01:16<01:32,  1.09it/s]Val loss:   7.99718.   Best val loss: 7.56078 at epoch 61
+loss: 7.997 
+
+Epoch 100, lr: 9.567727288213006e-05
+Train loss: 7.94944
+loss: 7.949 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 50%|█████     | 101/200 [01:17<01:31,  1.09it/s]Val loss:   7.93538.   Best val loss: 7.56078 at epoch 61
+loss: 7.935 
+
+Epoch 101, lr: 9.414737964294637e-05
+Train loss: 7.90795
+loss: 7.908 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 51%|█████     | 102/200 [01:18<01:30,  1.08it/s]Val loss:   8.27813.   Best val loss: 7.56078 at epoch 61
+loss: 8.278 
+
+Epoch 102, lr: 9.240240480782134e-05
+Train loss: 7.99511
+loss: 7.995 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 52%|█████▏    | 103/200 [01:19<01:30,  1.08it/s]Val loss:   8.01192.   Best val loss: 7.56078 at epoch 61
+loss: 8.012 
+
+Epoch 103, lr: 9.045084971874735e-05
+Train loss: 7.94853
+loss: 7.949 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 52%|█████▏    | 104/200 [01:20<01:31,  1.05it/s]Val loss:   7.97697.   Best val loss: 7.56078 at epoch 61
+loss: 7.977 
+
+Epoch 104, lr: 8.83022221559489e-05
+Train loss: 7.98840
+loss: 7.988 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 52%|█████▎    | 105/200 [01:21<01:31,  1.04it/s]Val loss:   8.32469.   Best val loss: 7.56078 at epoch 61
+loss: 8.325 
+
+Epoch 105, lr: 8.596699001693255e-05
+Train loss: 8.11368
+loss: 8.114 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 53%|█████▎    | 106/200 [01:22<01:29,  1.04it/s]Val loss:   8.26400.   Best val loss: 7.56078 at epoch 61
+loss: 8.264 
+
+Epoch 106, lr: 8.345653031794294e-05
+Train loss: 8.03805
+loss: 8.038 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 54%|█████▎    | 107/200 [01:23<01:37,  1.04s/it]Val loss:   8.16342.   Best val loss: 7.56078 at epoch 61
+loss: 8.163 
+
+Epoch 107, lr: 8.078307376628295e-05
+Train loss: 8.03137
+loss: 8.031 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 54%|█████▍    | 108/200 [01:24<01:33,  1.01s/it]Val loss:   8.00612.   Best val loss: 7.56078 at epoch 61
+loss: 8.006 
+
+Epoch 108, lr: 7.795964517353737e-05
+Train loss: 8.07951
+loss: 8.080 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 55%|█████▍    | 109/200 [01:25<01:31,  1.00s/it]Val loss:   8.09608.   Best val loss: 7.56078 at epoch 61
+loss: 8.096 
+
+Epoch 109, lr: 7.5e-05
+Train loss: 7.99354
+loss: 7.994 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 55%|█████▌    | 110/200 [01:26<01:28,  1.02it/s]Val loss:   7.77588.   Best val loss: 7.56078 at epoch 61
+loss: 7.776 
+
+Epoch 110, lr: 7.19185573394539e-05
+Train loss: 7.97026
+loss: 7.970 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 56%|█████▌    | 111/200 [01:27<01:26,  1.03it/s]Val loss:   7.85745.   Best val loss: 7.56078 at epoch 61
+loss: 7.857 
+
+Epoch 111, lr: 6.873032967079563e-05
+Train loss: 8.05946
+loss: 8.059 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 56%|█████▌    | 112/200 [01:28<01:24,  1.04it/s]Val loss:   7.92225.   Best val loss: 7.56078 at epoch 61
+loss: 7.922 
+
+Epoch 112, lr: 6.545084971874738e-05
+Train loss: 7.98920
+loss: 7.989 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 56%|█████▋    | 113/200 [01:29<01:23,  1.04it/s]Val loss:   7.92384.   Best val loss: 7.56078 at epoch 61
+loss: 7.924 
+
+Epoch 113, lr: 6.209609477998343e-05
+Train loss: 8.01651
+loss: 8.017 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 57%|█████▋    | 114/200 [01:30<01:22,  1.04it/s]Val loss:   7.98724.   Best val loss: 7.56078 at epoch 61
+loss: 7.987 
+
+Epoch 114, lr: 5.868240888334653e-05
+Train loss: 8.13216
+loss: 8.132 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 57%|█████▊    | 115/200 [01:31<01:22,  1.04it/s]Val loss:   8.19208.   Best val loss: 7.56078 at epoch 61
+loss: 8.192 
+
+Epoch 115, lr: 5.522642316338268e-05
+Train loss: 8.04088
+loss: 8.041 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 58%|█████▊    | 116/200 [01:32<01:21,  1.03it/s]Val loss:   8.28430.   Best val loss: 7.56078 at epoch 61
+loss: 8.284 
+
+Epoch 116, lr: 5.174497483512505e-05
+Train loss: 8.06655
+loss: 8.067 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 58%|█████▊    | 117/200 [01:33<01:21,  1.02it/s]Val loss:   7.80875.   Best val loss: 7.56078 at epoch 61
+loss: 7.809 
+
+Epoch 117, lr: 4.825502516487499e-05
+Train loss: 7.89399
+loss: 7.894 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 59%|█████▉    | 118/200 [01:34<01:20,  1.02it/s]Val loss:   7.90167.   Best val loss: 7.56078 at epoch 61
+loss: 7.902 
+
+Epoch 118, lr: 4.477357683661736e-05
+Train loss: 7.92636
+loss: 7.926 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 60%|█████▉    | 119/200 [01:35<01:19,  1.02it/s]Val loss:   7.88193.   Best val loss: 7.56078 at epoch 61
+loss: 7.882 
+
+Epoch 119, lr: 4.131759111665351e-05
+Train loss: 7.97100
+loss: 7.971 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 60%|██████    | 120/200 [01:36<01:18,  1.02it/s]Val loss:   8.01402.   Best val loss: 7.56078 at epoch 61
+loss: 8.014 
+
+Epoch 120, lr: 3.790390522001659e-05
+Train loss: 8.04445
+loss: 8.044 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 60%|██████    | 121/200 [01:37<01:19,  1.01s/it]Val loss:   7.98421.   Best val loss: 7.56078 at epoch 61
+loss: 7.984 
+
+Epoch 121, lr: 3.454915028125264e-05
+Train loss: 8.08656
+loss: 8.087 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 61%|██████    | 122/200 [01:38<01:17,  1.00it/s]Val loss:   7.81028.   Best val loss: 7.56078 at epoch 61
+loss: 7.810 
+
+Epoch 122, lr: 3.1269670329204445e-05
+Train loss: 7.97313
+loss: 7.973 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 62%|██████▏   | 123/200 [01:39<01:17,  1.01s/it]Val loss:   8.08947.   Best val loss: 7.56078 at epoch 61
+loss: 8.089 
+
+Epoch 123, lr: 2.8081442660546135e-05
+Train loss: 7.96679
+loss: 7.967 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 62%|██████▏   | 124/200 [01:40<01:17,  1.02s/it]Val loss:   8.18659.   Best val loss: 7.56078 at epoch 61
+loss: 8.187 
+
+Epoch 124, lr: 2.500000000000004e-05
+Train loss: 8.03935
+loss: 8.039 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 62%|██████▎   | 125/200 [01:41<01:16,  1.02s/it]Val loss:   7.94726.   Best val loss: 7.56078 at epoch 61
+loss: 7.947 
+
+Epoch 125, lr: 2.2040354826462655e-05
+Train loss: 8.03138
+loss: 8.031 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 63%|██████▎   | 126/200 [01:42<01:17,  1.05s/it]Val loss:   8.17241.   Best val loss: 7.56078 at epoch 61
+loss: 8.172 
+
+Epoch 126, lr: 1.9216926233717115e-05
+Train loss: 7.95636
+loss: 7.956 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 64%|██████▎   | 127/200 [01:43<01:17,  1.06s/it]Val loss:   8.12198.   Best val loss: 7.56078 at epoch 61
+loss: 8.122 
+
+Epoch 127, lr: 1.654346968205708e-05
+Train loss: 7.89845
+loss: 7.898 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 64%|██████▍   | 128/200 [01:44<01:15,  1.05s/it]Val loss:   7.80400.   Best val loss: 7.56078 at epoch 61
+loss: 7.804 
+
+Epoch 128, lr: 1.4033009983067464e-05
+Train loss: 8.04529
+loss: 8.045 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 64%|██████▍   | 129/200 [01:45<01:14,  1.04s/it]Val loss:   8.16360.   Best val loss: 7.56078 at epoch 61
+loss: 8.164 
+
+Epoch 129, lr: 1.169777784405114e-05
+Train loss: 8.08507
+loss: 8.085 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 65%|██████▌   | 130/200 [01:46<01:12,  1.04s/it]Val loss:   8.22064.   Best val loss: 7.56078 at epoch 61
+loss: 8.221 
+
+Epoch 130, lr: 9.54915028125264e-06
+Train loss: 7.90398
+loss: 7.904 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 66%|██████▌   | 131/200 [01:47<01:11,  1.03s/it]Val loss:   8.30508.   Best val loss: 7.56078 at epoch 61
+loss: 8.305 
+
+Epoch 131, lr: 7.597595192178686e-06
+Train loss: 7.92877
+loss: 7.929 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 66%|██████▌   | 132/200 [01:48<01:09,  1.03s/it]Val loss:   7.92956.   Best val loss: 7.56078 at epoch 61
+loss: 7.930 
+
+Epoch 132, lr: 5.852620357053657e-06
+Train loss: 8.00423
+loss: 8.004 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 66%|██████▋   | 133/200 [01:49<01:08,  1.03s/it]Val loss:   7.86564.   Best val loss: 7.56078 at epoch 61
+loss: 7.866 
+
+Epoch 133, lr: 4.322727117869973e-06
+Train loss: 7.98107
+loss: 7.981 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 67%|██████▋   | 134/200 [01:50<01:08,  1.04s/it]Val loss:   8.20576.   Best val loss: 7.56078 at epoch 61
+loss: 8.206 
+
+Epoch 134, lr: 3.0153689607045785e-06
+Train loss: 7.96415
+loss: 7.964 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 68%|██████▊   | 135/200 [01:51<01:08,  1.05s/it]Val loss:   8.06928.   Best val loss: 7.56078 at epoch 61
+loss: 8.069 
+
+Epoch 135, lr: 1.9369152030840666e-06
+Train loss: 7.97136
+loss: 7.971 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 68%|██████▊   | 136/200 [01:52<01:06,  1.04s/it]Val loss:   8.07310.   Best val loss: 7.56078 at epoch 61
+loss: 8.073 
+
+Epoch 136, lr: 1.0926199633097322e-06
+Train loss: 8.03763
+loss: 8.038 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 68%|██████▊   | 137/200 [01:54<01:06,  1.06s/it]Val loss:   7.67415.   Best val loss: 7.56078 at epoch 61
+loss: 7.674 
+
+Epoch 137, lr: 4.865965629214875e-07
+Train loss: 7.96881
+loss: 7.969 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 69%|██████▉   | 138/200 [01:55<01:04,  1.05s/it]Val loss:   7.94742.   Best val loss: 7.56078 at epoch 61
+loss: 7.947 
+
+Epoch 138, lr: 1.2179748700878456e-07
+Train loss: 7.98543
+loss: 7.985 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 70%|██████▉   | 139/200 [01:56<01:04,  1.06s/it]Val loss:   7.96852.   Best val loss: 7.56078 at epoch 61
+loss: 7.969 
+
+Epoch 139, lr: 0.0
+Train loss: 7.94302
+loss: 7.943 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 70%|███████   | 140/200 [01:57<01:03,  1.06s/it]Val loss:   8.10476.   Best val loss: 7.56078 at epoch 61
+loss: 8.105 
+
+Epoch 140, lr: 1.2179748700878456e-07
+Train loss: 8.03496
+loss: 8.035 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 70%|███████   | 141/200 [01:58<01:02,  1.06s/it]Val loss:   8.08187.   Best val loss: 7.56078 at epoch 61
+loss: 8.082 
+
+Epoch 141, lr: 4.865965629214819e-07
+Train loss: 8.01912
+loss: 8.019 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 71%|███████   | 142/200 [01:59<01:01,  1.06s/it]Val loss:   7.78161.   Best val loss: 7.56078 at epoch 61
+loss: 7.782 
+
+Epoch 142, lr: 1.0926199633097267e-06
+Train loss: 7.91528
+loss: 7.915 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 72%|███████▏  | 143/200 [02:00<01:00,  1.06s/it]Val loss:   7.75321.   Best val loss: 7.56078 at epoch 61
+loss: 7.753 
+
+Epoch 143, lr: 1.9369152030840556e-06
+Train loss: 7.88637
+loss: 7.886 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 72%|███████▏  | 144/200 [02:01<00:58,  1.05s/it]Val loss:   8.02470.   Best val loss: 7.56078 at epoch 61
+loss: 8.025 
+
+Epoch 144, lr: 3.0153689607045675e-06
+Train loss: 7.95256
+loss: 7.953 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 72%|███████▎  | 145/200 [02:02<00:58,  1.07s/it]Val loss:   7.90523.   Best val loss: 7.56078 at epoch 61
+loss: 7.905 
+
+Epoch 145, lr: 4.322727117869962e-06
+Train loss: 8.09861
+loss: 8.099 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 73%|███████▎  | 146/200 [02:03<00:58,  1.09s/it]Val loss:   8.06884.   Best val loss: 7.56078 at epoch 61
+loss: 8.069 
+
+Epoch 146, lr: 5.85262035705364e-06
+Train loss: 7.88802
+loss: 7.888 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 74%|███████▎  | 147/200 [02:05<01:02,  1.19s/it]Val loss:   8.11563.   Best val loss: 7.56078 at epoch 61
+loss: 8.116 
+
+Epoch 147, lr: 7.597595192178664e-06
+Train loss: 7.95083
+loss: 7.951 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 74%|███████▍  | 148/200 [02:06<01:00,  1.16s/it]Val loss:   8.28448.   Best val loss: 7.56078 at epoch 61
+loss: 8.284 
+
+Epoch 148, lr: 9.549150281252616e-06
+Train loss: 7.90617
+loss: 7.906 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 74%|███████▍  | 149/200 [02:07<00:57,  1.13s/it]Val loss:   7.91839.   Best val loss: 7.56078 at epoch 61
+loss: 7.918 
+
+Epoch 149, lr: 1.1697777844051117e-05
+Train loss: 7.96140
+loss: 7.961 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 75%|███████▌  | 150/200 [02:08<00:55,  1.12s/it]Val loss:   7.83599.   Best val loss: 7.56078 at epoch 61
+loss: 7.836 
+
+Epoch 150, lr: 1.4033009983067435e-05
+Train loss: 7.90967
+loss: 7.910 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 76%|███████▌  | 151/200 [02:09<00:54,  1.12s/it]Val loss:   7.94752.   Best val loss: 7.56078 at epoch 61
+loss: 7.948 
+
+Epoch 151, lr: 1.6543469682057055e-05
+Train loss: 8.04274
+loss: 8.043 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 76%|███████▌  | 152/200 [02:10<00:54,  1.13s/it]Val loss:   8.03166.   Best val loss: 7.56078 at epoch 61
+loss: 8.032 
+
+Epoch 152, lr: 1.9216926233717085e-05
+Train loss: 8.12781
+loss: 8.128 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 76%|███████▋  | 153/200 [02:11<00:53,  1.14s/it]Val loss:   7.86295.   Best val loss: 7.56078 at epoch 61
+loss: 7.863 
+
+Epoch 153, lr: 2.2040354826462628e-05
+Train loss: 8.00689
+loss: 8.007 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 77%|███████▋  | 154/200 [02:12<00:52,  1.15s/it]Val loss:   8.29708.   Best val loss: 7.56078 at epoch 61
+loss: 8.297 
+
+Epoch 154, lr: 2.500000000000001e-05
+Train loss: 8.16321
+loss: 8.163 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 78%|███████▊  | 155/200 [02:14<00:51,  1.14s/it]Val loss:   8.08306.   Best val loss: 7.56078 at epoch 61
+loss: 8.083 
+
+Epoch 155, lr: 2.8081442660546105e-05
+Train loss: 8.06087
+loss: 8.061 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 78%|███████▊  | 156/200 [02:15<00:50,  1.14s/it]Val loss:   7.91373.   Best val loss: 7.56078 at epoch 61
+loss: 7.914 
+
+Epoch 156, lr: 3.126967032920442e-05
+Train loss: 7.91096
+loss: 7.911 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 78%|███████▊  | 157/200 [02:16<00:49,  1.14s/it]Val loss:   8.12376.   Best val loss: 7.56078 at epoch 61
+loss: 8.124 
+
+Epoch 157, lr: 3.454915028125261e-05
+Train loss: 7.99960
+loss: 8.000 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 79%|███████▉  | 158/200 [02:17<00:47,  1.13s/it]Val loss:   7.64980.   Best val loss: 7.56078 at epoch 61
+loss: 7.650 
+
+Epoch 158, lr: 3.790390522001655e-05
+Train loss: 8.00636
+loss: 8.006 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 80%|███████▉  | 159/200 [02:18<00:46,  1.13s/it]Val loss:   8.19618.   Best val loss: 7.56078 at epoch 61
+loss: 8.196 
+
+Epoch 159, lr: 4.131759111665347e-05
+Train loss: 8.00079
+loss: 8.001 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 80%|████████  | 160/200 [02:19<00:45,  1.14s/it]Val loss:   7.96525.   Best val loss: 7.56078 at epoch 61
+loss: 7.965 
+
+Epoch 160, lr: 4.4773576836617365e-05
+Train loss: 7.98874
+loss: 7.989 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 80%|████████  | 161/200 [02:20<00:44,  1.15s/it]Val loss:   7.98280.   Best val loss: 7.56078 at epoch 61
+loss: 7.983 
+
+Epoch 161, lr: 4.825502516487495e-05
+Train loss: 7.87689
+loss: 7.877 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 81%|████████  | 162/200 [02:22<00:44,  1.17s/it]Val loss:   8.01158.   Best val loss: 7.56078 at epoch 61
+loss: 8.012 
+
+Epoch 162, lr: 5.1744974835125015e-05
+Train loss: 7.82562
+loss: 7.826 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 82%|████████▏ | 163/200 [02:23<00:43,  1.17s/it]Val loss:   8.08994.   Best val loss: 7.56078 at epoch 61
+loss: 8.090 
+
+Epoch 163, lr: 5.52264231633826e-05
+Train loss: 7.99459
+loss: 7.995 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 82%|████████▏ | 164/200 [02:24<00:42,  1.19s/it]Val loss:   7.99851.   Best val loss: 7.56078 at epoch 61
+loss: 7.999 
+
+Epoch 164, lr: 5.8682408883346484e-05
+Train loss: 8.07623
+loss: 8.076 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 82%|████████▎ | 165/200 [02:25<00:42,  1.21s/it]Val loss:   8.12878.   Best val loss: 7.56078 at epoch 61
+loss: 8.129 
+
+Epoch 165, lr: 6.20960947799834e-05
+Train loss: 7.99207
+loss: 7.992 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 83%|████████▎ | 166/200 [02:27<00:41,  1.23s/it]Val loss:   7.81655.   Best val loss: 7.56078 at epoch 61
+loss: 7.817 
+
+Epoch 166, lr: 6.545084971874736e-05
+Train loss: 7.89347
+loss: 7.893 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 84%|████████▎ | 167/200 [02:28<00:42,  1.29s/it]Val loss:   7.78450.   Best val loss: 7.56078 at epoch 61
+loss: 7.785 
+
+Epoch 167, lr: 6.873032967079555e-05
+Train loss: 7.92513
+loss: 7.925 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 84%|████████▍ | 168/200 [02:29<00:43,  1.35s/it]Val loss:   7.96829.   Best val loss: 7.56078 at epoch 61
+loss: 7.968 
+
+Epoch 168, lr: 7.191855733945386e-05
+Train loss: 8.01318
+loss: 8.013 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 84%|████████▍ | 169/200 [02:31<00:43,  1.40s/it]Val loss:   7.83884.   Best val loss: 7.56078 at epoch 61
+loss: 7.839 
+
+Epoch 169, lr: 7.499999999999995e-05
+Train loss: 7.89837
+loss: 7.898 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 85%|████████▌ | 170/200 [02:32<00:42,  1.42s/it]Val loss:   8.09338.   Best val loss: 7.56078 at epoch 61
+loss: 8.093 
+
+Epoch 170, lr: 7.795964517353735e-05
+Train loss: 7.99854
+loss: 7.999 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 86%|████████▌ | 171/200 [02:34<00:42,  1.45s/it]Val loss:   7.95000.   Best val loss: 7.56078 at epoch 61
+loss: 7.950 
+
+Epoch 171, lr: 8.078307376628289e-05
+Train loss: 7.92877
+loss: 7.929 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 86%|████████▌ | 172/200 [02:35<00:39,  1.42s/it]Val loss:   7.84972.   Best val loss: 7.56078 at epoch 61
+loss: 7.850 
+
+Epoch 172, lr: 8.345653031794292e-05
+Train loss: 8.07996
+loss: 8.080 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 86%|████████▋ | 173/200 [02:37<00:38,  1.42s/it]Val loss:   8.06375.   Best val loss: 7.56078 at epoch 61
+loss: 8.064 
+
+Epoch 173, lr: 8.596699001693254e-05
+Train loss: 7.96894
+loss: 7.969 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 87%|████████▋ | 174/200 [02:38<00:37,  1.45s/it]Val loss:   8.06776.   Best val loss: 7.56078 at epoch 61
+loss: 8.068 
+
+Epoch 174, lr: 8.830222215594885e-05
+Train loss: 7.89603
+loss: 7.896 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 88%|████████▊ | 175/200 [02:40<00:36,  1.46s/it]Val loss:   7.81301.   Best val loss: 7.56078 at epoch 61
+loss: 7.813 
+
+Epoch 175, lr: 9.045084971874735e-05
+Train loss: 7.96747
+loss: 7.967 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 88%|████████▊ | 176/200 [02:41<00:35,  1.50s/it]Val loss:   7.89369.   Best val loss: 7.56078 at epoch 61
+loss: 7.894 
+
+Epoch 176, lr: 9.240240480782132e-05
+Train loss: 8.00505
+loss: 8.005 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 88%|████████▊ | 177/200 [02:43<00:34,  1.50s/it]Val loss:   8.25200.   Best val loss: 7.56078 at epoch 61
+loss: 8.252 
+
+Epoch 177, lr: 9.414737964294634e-05
+Train loss: 7.98285
+loss: 7.983 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 89%|████████▉ | 178/200 [02:44<00:33,  1.52s/it]Val loss:   7.75360.   Best val loss: 7.56078 at epoch 61
+loss: 7.754 
+
+Epoch 178, lr: 9.567727288213002e-05
+Train loss: 7.98722
+loss: 7.987 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 90%|████████▉ | 179/200 [02:46<00:31,  1.52s/it]Val loss:   8.09621.   Best val loss: 7.56078 at epoch 61
+loss: 8.096 
+
+Epoch 179, lr: 9.698463103929542e-05
+Train loss: 7.93955
+loss: 7.940 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 90%|█████████ | 180/200 [02:48<00:30,  1.53s/it]Val loss:   8.14407.   Best val loss: 7.56078 at epoch 61
+loss: 8.144 
+
+Epoch 180, lr: 9.806308479691593e-05
+Train loss: 7.93299
+loss: 7.933 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 90%|█████████ | 181/200 [02:49<00:28,  1.51s/it]Val loss:   8.45404.   Best val loss: 7.56078 at epoch 61
+loss: 8.454 
+
+Epoch 181, lr: 9.890738003669026e-05
+Train loss: 8.05266
+loss: 8.053 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 91%|█████████ | 182/200 [02:51<00:27,  1.53s/it]Val loss:   8.15303.   Best val loss: 7.56078 at epoch 61
+loss: 8.153 
+
+Epoch 182, lr: 9.951340343707851e-05
+Train loss: 8.00981
+loss: 8.010 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 92%|█████████▏| 183/200 [02:52<00:25,  1.52s/it]Val loss:   8.02533.   Best val loss: 7.56078 at epoch 61
+loss: 8.025 
+
+Epoch 183, lr: 9.987820251299122e-05
+Train loss: 7.92848
+loss: 7.928 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 92%|█████████▏| 184/200 [02:54<00:25,  1.56s/it]Val loss:   8.29082.   Best val loss: 7.56078 at epoch 61
+loss: 8.291 
+
+Epoch 184, lr: 0.0001
+Train loss: 7.92834
+loss: 7.928 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 92%|█████████▎| 185/200 [02:55<00:23,  1.57s/it]Val loss:   8.00578.   Best val loss: 7.56078 at epoch 61
+loss: 8.006 
+
+Epoch 185, lr: 9.987820251299122e-05
+Train loss: 8.00462
+loss: 8.005 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 93%|█████████▎| 186/200 [02:57<00:21,  1.56s/it]Val loss:   7.83923.   Best val loss: 7.56078 at epoch 61
+loss: 7.839 
+
+Epoch 186, lr: 9.951340343707852e-05
+Train loss: 7.99858
+loss: 7.999 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 94%|█████████▎| 187/200 [02:59<00:20,  1.59s/it]Val loss:   8.02739.   Best val loss: 7.56078 at epoch 61
+loss: 8.027 
+
+Epoch 187, lr: 9.89073800366903e-05
+Train loss: 8.06636
+loss: 8.066 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 94%|█████████▍| 188/200 [03:00<00:18,  1.57s/it]Val loss:   8.39647.   Best val loss: 7.56078 at epoch 61
+loss: 8.396 
+
+Epoch 188, lr: 9.806308479691598e-05
+Train loss: 7.91392
+loss: 7.914 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 94%|█████████▍| 189/200 [03:02<00:17,  1.57s/it]Val loss:   8.10848.   Best val loss: 7.56078 at epoch 61
+loss: 8.108 
+
+Epoch 189, lr: 9.698463103929544e-05
+Train loss: 7.98454
+loss: 7.985 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 95%|█████████▌| 190/200 [03:03<00:16,  1.61s/it]Val loss:   8.08691.   Best val loss: 7.56078 at epoch 61
+loss: 8.087 
+
+Epoch 190, lr: 9.567727288213005e-05
+Train loss: 7.90826
+loss: 7.908 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 96%|█████████▌| 191/200 [03:05<00:14,  1.60s/it]Val loss:   7.70840.   Best val loss: 7.56078 at epoch 61
+loss: 7.708 
+
+Epoch 191, lr: 9.414737964294633e-05
+Train loss: 8.01436
+loss: 8.014 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 96%|█████████▌| 192/200 [03:07<00:12,  1.61s/it]Val loss:   8.00453.   Best val loss: 7.56078 at epoch 61
+loss: 8.005 
+
+Epoch 192, lr: 9.24024048078213e-05
+Train loss: 7.99197
+loss: 7.992 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 96%|█████████▋| 193/200 [03:08<00:11,  1.62s/it]Val loss:   7.96924.   Best val loss: 7.56078 at epoch 61
+loss: 7.969 
+
+Epoch 193, lr: 9.04508497187474e-05
+Train loss: 8.02746
+loss: 8.027 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 97%|█████████▋| 194/200 [03:10<00:09,  1.63s/it]Val loss:   7.97673.   Best val loss: 7.56078 at epoch 61
+loss: 7.977 
+
+Epoch 194, lr: 8.830222215594889e-05
+Train loss: 7.95955
+loss: 7.960 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 98%|█████████▊| 195/200 [03:11<00:08,  1.64s/it]Val loss:   8.00849.   Best val loss: 7.56078 at epoch 61
+loss: 8.008 
+
+Epoch 195, lr: 8.596699001693258e-05
+Train loss: 8.03942
+loss: 8.039 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 98%|█████████▊| 196/200 [03:14<00:07,  1.83s/it]Val loss:   7.90347.   Best val loss: 7.56078 at epoch 61
+loss: 7.903 
+
+Epoch 196, lr: 8.345653031794296e-05
+Train loss: 7.98391
+loss: 7.984 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 98%|█████████▊| 197/200 [03:15<00:05,  1.76s/it]Val loss:   7.91360.   Best val loss: 7.56078 at epoch 61
+loss: 7.914 
+
+Epoch 197, lr: 8.078307376628292e-05
+Train loss: 8.01260
+loss: 8.013 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+ 99%|█████████▉| 198/200 [03:17<00:03,  1.73s/it]Val loss:   7.94429.   Best val loss: 7.56078 at epoch 61
+loss: 7.944 
+
+Epoch 198, lr: 7.795964517353737e-05
+Train loss: 8.03779
+loss: 8.038 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+100%|█████████▉| 199/200 [03:19<00:01,  1.69s/it]Val loss:   7.86633.   Best val loss: 7.56078 at epoch 61
+loss: 7.866 
+
+Epoch 199, lr: 7.500000000000007e-05
+Train loss: 8.06681
+loss: 8.067 
+Saved plots to ./ckpt/2025-07-29_19-52-41Diffusion
+100%|██████████| 200/200 [03:20<00:00,  1.70s/it]100%|██████████| 200/200 [03:20<00:00,  1.00s/it]

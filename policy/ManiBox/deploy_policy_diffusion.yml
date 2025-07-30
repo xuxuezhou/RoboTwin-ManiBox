@@ -1,0 +1,60 @@
+# Basic experiment configuration (keep unchanged)
+policy_name: ManiBox
+task_name: null
+task_config: null
+ckpt_setting: "2025-07-30_10-47-21SimpleBBoxDiffusion"  # 指定具体的checkpoint目录
+seed: null
+instruction_type: unseen
+
+# ManiBox Evaluation Configuration
+eval_video_log: true
+render_freq: 1
+num_eval_episodes: 10
+enable_visualization: true
+viz_save_path: './eval_visualization'
+
+# ManiBox SimpleBBoxDiffusion Policy Configuration
+policy_class: SimpleBBoxDiffusion
+batch_size: 32
+lr: 1e-4
+num_epochs: 100
+weight_decay: 1e-4
+loss_function: l1
+gradient_accumulation_steps: 1
+
+# Diffusion specific parameters (replacing RNN)
+action_horizon: 8
+observation_horizon: 1
+num_inference_timesteps: 20
+
+# Data parameters
+use_depth_image: false
+use_robot_base: false
+use_dataset_action: true
+camera_names: ['cam_high', 'cam_left_wrist', 'cam_right_wrist']
+objects: ['bottle']  # Detect 2 bottles of the same type
+max_detections_per_object: 2
+
+# RoboTwin data type configuration
+data_type:
+  rgb: true
+  depth: false
+  pointcloud: false
+  observer: false
+  endpose: false
+  qpos: true
+  mesh_segmentation: false
+  actor_segmentation: false
+
+# Training parameters
+scheduler: cos
+warmup_ratio: 0.1
+use_accelerate: false
+device: cuda:0
+context_len: 90
+episode_begin: 0
+episode_end: 90
+
+# Inference parameters
+max_episode_len: 200
+success_threshold: 0.8 

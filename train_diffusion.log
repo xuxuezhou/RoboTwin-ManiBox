@@ -1,0 +1,97 @@
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/ultralytics/nn/tasks.py:775: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(file, map_location="cpu")
+/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/data_load.py:21: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(dataset_dir, "integration.pkl"), map_location='cpu')
+/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/BBoxHistoryEpisodicDataset.py:59: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.data = torch.load(os.path.join(self.dataset_dir, "integration.pkl"), map_location='cpu')
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+Timestamp: 2025-07-30_13-52-24
+scheduler: cos args.gradient_accumulation_steps 4
+whether use acclerator: False
+cur_path /home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox
+num episodes 500
+🎯 Using custom objects: ['bottle', 'bottle']
+📊 Expected bbox dimension: 24
+
+Data from: policy/ManiBox/processed_data/manibox-pick-diverse-bottles
+
+Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([90, 24]) torch.Size([90, 14]) torch.Size([90, 14])
+Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([90, 24]) torch.Size([90, 14]) torch.Size([90, 14])
+length of train dataloader 15
+You are using DiffusionPolicy.
+policy_config {'lr': 0.0001, 'lr_backbone': 7e-05, 'epochs': 200, 'train_loader_len': 15, 'warmup_ratio': 0.1, 'use_scheduler': 'cos', 'backbone': 'resnet18', 'masks': False, 'weight_decay': 0.0001, 'dilation': False, 'position_embedding': 'sine', 'loss_function': 'l1', 'chunk_size': 1, 'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist'], 'num_next_action': 0, 'use_depth_image': False, 'use_robot_base': False, 'hidden_dim': 512, 'device': 'cuda:0', 'state_dim': 14, 'action_dim': 14, 'observation_horizon': 1, 'action_horizon': 8, 'num_inference_timesteps': 10, 'ema_power': 0.75, 'alpha': 3.0, 'max_time_steps': 1000, 'time_embed_dim': 128, 'context_len': 90, 'num_samples_per_traj': 10, 'policy_class': 'Diffusion', 'gradient_accumulation_steps': 4}
+backbone visual encoder. number of parameters: 33.50M
+diffusion model. number of parameters: 0.80M
+  0%|          | 0/200 [00:00<?, ?it/s]
+0it [00:00, ?it/s][A
+                  [A  0%|          | 0/200 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 1215, in <module>
+    main()
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 1211, in main
+    train(args)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 811, in train
+    best_ckpt_info = train_process(train_dataloader, val_dataloader, config, stats)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 917, in train_process
+    forward_dict, result = forward_pass(policy_config, data, policy)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 1097, in forward_pass
+    result = policy(image_data, image_depth_data, qpos_data, None, None, action_data, action_is_pad)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/policy/DiffusionPolicy.py", line 124, in __call__
+    return self._training_forward(image, robot_state, actions, action_is_pad)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/policy/DiffusionPolicy.py", line 133, in _training_forward
+    loss = self.model(image, robot_state, actions, action_is_pad)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/policy/DiffusionPolicy.py", line 242, in forward
+    bbox_features = self._extract_bbox_features(bbox_data)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/policy/DiffusionPolicy.py", line 317, in _extract_bbox_features
+    bbox_features = self.bbox_encoder(bbox_data)  # batch_size * 256
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/container.py", line 219, in forward
+    input = module(input)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (32x24 and 12x256)
+Exception in thread Thread-2 (_pin_memory_loop):
+Traceback (most recent call last):
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/utils/data/_utils/pin_memory.py", line 55, in _pin_memory_loop
+    do_one_step()
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/utils/data/_utils/pin_memory.py", line 32, in do_one_step
+    r = in_queue.get(timeout=MP_STATUS_CHECK_INTERVAL)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/multiprocessing/reductions.py", line 496, in rebuild_storage_fd
+    fd = df.detach()
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/resource_sharer.py", line 86, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 508, in Client
+    answer_challenge(c, authkey)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 752, in answer_challenge
+    message = connection.recv_bytes(256)         # reject large message
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 414, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+ConnectionResetError: [Errno 104] Connection reset by peer

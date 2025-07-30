@@ -25,4 +25,5 @@ python script/eval_policy.py --config policy/$policy_name/deploy_policy.yml \
     --seed ${seed} \
     --num_eval_episodes ${expert_data_num} \
     --policy_name ${policy_name} \
-    --objects "['bottle', 'bottle']"
+    --objects "['bottle']" \
+    --max_detections_per_object 2
