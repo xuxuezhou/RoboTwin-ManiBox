@@ -312,7 +312,7 @@ def main():
                 
                 # Get bounding box predictions
                 bbox_result = yolo_preprocess_data.process(*images)
-                bbox_array.append(bbox_result)
+                bbox_array.append(bbox_result.squeeze(0)) 
                 state_array.append(joint_state)
                 
                 # Visualization
