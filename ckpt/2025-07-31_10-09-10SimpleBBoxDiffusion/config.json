@@ -1,0 +1,32 @@
+{
+    "num_epochs": 200,
+    "num_episodes": 50,
+    "ckpt_stats_name": "dataset_stats.pkl",
+    "use_dataset_action": true,
+    "ckpt_dir": "./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion",
+    "policy_class": "SimpleBBoxDiffusion",
+    "policy_config": {
+        "lr": 0.001,
+        "epochs": 200,
+        "train_loader_len": 2,
+        "weight_decay": 0.0001,
+        "device": "cuda:0",
+        "state_dim": 14,
+        "action_dim": 14,
+        "policy_class": "SimpleBBoxDiffusion",
+        "action_horizon": 8,
+        "observation_horizon": 1,
+        "num_inference_timesteps": 10,
+        "num_objects": 2,
+        "gradient_accumulation_steps": 4
+    },
+    "seed": 0,
+    "pretrain_timestamp": "",
+    "pretrain_ckpt_dir": "",
+    "num_eval_step": 1,
+    "num_train_step": 5,
+    "use_scheduler": "cos",
+    "use_accelerate": false,
+    "device": "cuda:0",
+    "aug": null
+}

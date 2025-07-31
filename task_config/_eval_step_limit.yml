@@ -9,7 +9,7 @@ grab_roller: 400
 handover_block: 800
 handover_mic: 600
 lift_pot: 400
-move_can_pot: 400
+move_can_pot: 200
 move_playingcard_away: 400
 move_stapler_pad: 400
 hanging_mug: 900
@@ -45,6 +45,6 @@ shake_bottle_horizontally: 700
 stack_blocks_three: 1200
 stack_blocks_two: 800
 stack_bowls_three: 1200
-stack_bowls_two: 900
+stack_bowls_two: 360
 stamp_seal: 400
 turn_switch: 400

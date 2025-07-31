@@ -15,6 +15,9 @@ import torch
 import subprocess
 import tempfile
 
+OBJECT = "bottle" 
+# OBJECT = "bowl"
+
 def load_hdf5(dataset_path):
     if not os.path.isfile(dataset_path):
         print(f"Dataset does not exist at \n{dataset_path}\n")
@@ -38,15 +41,16 @@ def load_hdf5(dataset_path):
 
 def pad_array(array, max_length):
     """
-    Pads the input array to the specified max_length with zeros.
+    Pads the input array to the specified max_length with the last element.
     If the array is longer than max_length, it will be truncated.
     """
     if len(array) > max_length:
-        return array[:max_length]
+        array = array[:max_length]
     else:
         for _ in range(max_length - len(array)):
             array.append(copy.deepcopy(array[-1]))
-        return array
+    return np.stack(array, axis=0)
+
 
 def draw_bboxes_on_image(image, bboxes, colors=None, labels=None):
     """
@@ -263,7 +267,7 @@ def main():
     hdf5_files = sorted(glob(os.path.join(load_dir, "**", "*.hdf5"), recursive=True))
 
     bbox_arrays, state_arrays, joint_action_arrays = [], [], []
-    yolo_preprocess_data = YoloProcessDataByTimeStep(objects_names=["bottle"], max_detections_per_object=2)
+    yolo_preprocess_data = YoloProcessDataByTimeStep(objects_names=[OBJECT], max_detections_per_object=2)
     max_eps_len, current_ep = 0, 0
     tot_ep = min(len(hdf5_files), args.max_episodes)
 
@@ -342,7 +346,7 @@ def main():
                         image_with_bbox = draw_bboxes_on_image(
                             image, 
                             cam_bboxes, 
-                            labels=[f"bottle_{i+1}" for i in range(detections_per_camera)]
+                            labels=[f"{OBJECT}_{i+1}" for i in range(detections_per_camera)]
                         )
                         
                         # Add camera label
@@ -399,7 +403,7 @@ def main():
         "image_data": torch.from_numpy(bbox_arrays),
         "qpos_data": torch.from_numpy(state_arrays),
         "action_data": torch.from_numpy(joint_action_arrays)
-    }, os.path.join(load_dir, "manibox_data.pkl"))
+    }, os.path.join(load_dir, "integration.pkl"))
     
     if args.visualize:
         print(f"Visualization complete. {current_ep} videos saved to {args.output_dir}")

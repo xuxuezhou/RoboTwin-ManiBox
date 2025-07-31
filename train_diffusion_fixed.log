@@ -1,0 +1,300 @@
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/ultralytics/nn/tasks.py:775: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(file, map_location="cpu")
+/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/data_load.py:21: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(os.path.join(dataset_dir, "integration.pkl"), map_location='cpu')
+/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/BBoxHistoryEpisodicDataset.py:59: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.data = torch.load(os.path.join(self.dataset_dir, "integration.pkl"), map_location='cpu')
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+Timestamp: 2025-07-31_10-08-37
+scheduler: cos args.gradient_accumulation_steps 4
+whether use acclerator: False
+cur_path /home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox
+num episodes 50
+🎯 Using custom objects: ['bottle', 'bottle']
+📊 Expected bbox dimension: 24
+
+Data from: /home/xuxuezhou/code/RoboTwin/data/move_can_pot
+
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 24]) torch.Size([170, 14]) torch.Size([170, 14])
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 24]) torch.Size([170, 14]) torch.Size([170, 14])
+length of train dataloader 2
+You are using DiffusionPolicy.
+policy_config {'lr': 0.001, 'lr_backbone': 7e-05, 'epochs': 200, 'train_loader_len': 2, 'warmup_ratio': 0.1, 'use_scheduler': 'cos', 'backbone': 'resnet18', 'masks': False, 'weight_decay': 0.0001, 'dilation': False, 'position_embedding': 'sine', 'loss_function': 'l1', 'chunk_size': 1, 'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist'], 'num_next_action': 0, 'use_depth_image': False, 'use_robot_base': False, 'hidden_dim': 512, 'device': 'cuda:0', 'state_dim': 14, 'action_dim': 14, 'observation_horizon': 1, 'action_horizon': 8, 'num_inference_timesteps': 10, 'ema_power': 0.75, 'alpha': 3.0, 'max_time_steps': 1000, 'time_embed_dim': 128, 'context_len': 90, 'num_samples_per_traj': 10, 'policy_class': 'Diffusion', 'gradient_accumulation_steps': 4}
+backbone visual encoder. number of parameters: 33.50M
+diffusion model. number of parameters: 0.81M
+  0%|          | 0/200 [00:00<?, ?it/s]
+0it [00:00, ?it/s][A
+                  [A/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3474: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/numpy/core/_methods.py:189: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/numpy/core/_methods.py:264: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/numpy/core/_methods.py:222: RuntimeWarning: invalid value encountered in true_divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean, casting='unsafe',
+/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/numpy/core/_methods.py:256: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+
+Epoch 0, lr: 0.0002
+Train loss: 8.16234
+loss: 8.162 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  0%|          | 1/200 [00:01<04:14,  1.28s/it]Best ckpt saved, val loss 7.409244 @ epoch0
+Val loss:   7.40924.   Best val loss: 7.40924 at epoch 0
+loss: 7.409 
+
+Epoch 1, lr: 0.0004
+Train loss: 8.04608
+loss: 8.046 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  1%|          | 2/200 [00:02<03:32,  1.07s/it]Val loss:   8.27627.   Best val loss: 7.40924 at epoch 0
+loss: 8.276 
+
+Epoch 2, lr: 0.0006
+Train loss: 7.84792
+loss: 7.848 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  2%|▏         | 3/200 [00:03<03:12,  1.03it/s]Val loss:   8.10851.   Best val loss: 7.40924 at epoch 0
+loss: 8.109 
+
+Epoch 3, lr: 0.0008
+Train loss: 7.85049
+loss: 7.850 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  2%|▏         | 4/200 [00:03<03:03,  1.07it/s]Val loss:   8.20782.   Best val loss: 7.40924 at epoch 0
+loss: 8.208 
+
+Epoch 4, lr: 0.001
+Train loss: 8.17970
+loss: 8.180 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  2%|▎         | 5/200 [00:04<02:59,  1.09it/s]Val loss:   8.51703.   Best val loss: 7.40924 at epoch 0
+loss: 8.517 
+
+Epoch 5, lr: 0.0009987820251299122
+Train loss: 7.97707
+loss: 7.977 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  3%|▎         | 6/200 [00:05<02:56,  1.10it/s]Val loss:   7.62880.   Best val loss: 7.40924 at epoch 0
+loss: 7.629 
+
+Epoch 6, lr: 0.0009951340343707852
+Train loss: 7.92422
+loss: 7.924 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  4%|▎         | 7/200 [00:06<03:17,  1.02s/it]Best ckpt saved, val loss 7.404039 @ epoch6
+Val loss:   7.40404.   Best val loss: 7.40404 at epoch 6
+loss: 7.404 
+
+Epoch 7, lr: 0.0009890738003669028
+Train loss: 8.00095
+loss: 8.001 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  4%|▍         | 8/200 [00:07<03:09,  1.02it/s]Val loss:   7.59536.   Best val loss: 7.40404 at epoch 6
+loss: 7.595 
+
+Epoch 8, lr: 0.0009806308479691594
+Train loss: 8.07553
+loss: 8.076 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  4%|▍         | 9/200 [00:08<03:10,  1.00it/s]Val loss:   7.75823.   Best val loss: 7.40404 at epoch 6
+loss: 7.758 
+
+Epoch 9, lr: 0.0009698463103929542
+Train loss: 7.67072
+loss: 7.671 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  5%|▌         | 10/200 [00:09<03:05,  1.02it/s]Val loss:   8.08276.   Best val loss: 7.40404 at epoch 6
+loss: 8.083 
+
+Epoch 10, lr: 0.0009567727288213005
+Train loss: 8.18038
+loss: 8.180 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  6%|▌         | 11/200 [00:10<03:01,  1.04it/s]Val loss:   9.34399.   Best val loss: 7.40404 at epoch 6
+loss: 9.344 
+
+Epoch 11, lr: 0.0009414737964294635
+Train loss: 8.16307
+loss: 8.163 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  6%|▌         | 12/200 [00:11<02:53,  1.08it/s]Val loss:   7.85366.   Best val loss: 7.40404 at epoch 6
+loss: 7.854 
+
+Epoch 12, lr: 0.0009240240480782129
+Train loss: 8.14927
+loss: 8.149 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  6%|▋         | 13/200 [00:12<02:47,  1.12it/s]Val loss:   7.85449.   Best val loss: 7.40404 at epoch 6
+loss: 7.854 
+
+Epoch 13, lr: 0.0009045084971874737
+Train loss: 7.98007
+loss: 7.980 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  7%|▋         | 14/200 [00:13<02:41,  1.15it/s]Val loss:   7.66105.   Best val loss: 7.40404 at epoch 6
+loss: 7.661 
+
+Epoch 14, lr: 0.000883022221559489
+Train loss: 7.76743
+loss: 7.767 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  8%|▊         | 15/200 [00:14<03:01,  1.02it/s]Best ckpt saved, val loss 6.874474 @ epoch14
+Val loss:   6.87447.   Best val loss: 6.87447 at epoch 14
+loss: 6.874 
+
+Epoch 15, lr: 0.0008596699001693256
+Train loss: 8.04223
+loss: 8.042 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  8%|▊         | 16/200 [00:15<02:53,  1.06it/s]Val loss:   7.37725.   Best val loss: 6.87447 at epoch 14
+loss: 7.377 
+
+Epoch 16, lr: 0.0008345653031794292
+Train loss: 8.21736
+loss: 8.217 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  8%|▊         | 17/200 [00:16<02:51,  1.06it/s]Val loss:   8.14299.   Best val loss: 6.87447 at epoch 14
+loss: 8.143 
+
+Epoch 17, lr: 0.0008078307376628291
+Train loss: 8.07912
+loss: 8.079 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+  9%|▉         | 18/200 [00:17<02:46,  1.10it/s]Val loss:   7.59595.   Best val loss: 6.87447 at epoch 14
+loss: 7.596 
+
+Epoch 18, lr: 0.0007795964517353734
+Train loss: 7.92712
+loss: 7.927 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 10%|▉         | 19/200 [00:18<02:48,  1.07it/s]Val loss:   7.85909.   Best val loss: 6.87447 at epoch 14
+loss: 7.859 
+
+Epoch 19, lr: 0.00075
+Train loss: 8.12432
+loss: 8.124 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 10%|█         | 20/200 [00:18<02:43,  1.10it/s]Val loss:   7.60059.   Best val loss: 6.87447 at epoch 14
+loss: 7.601 
+
+Epoch 20, lr: 0.0007191855733945387
+Train loss: 8.14266
+loss: 8.143 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 10%|█         | 21/200 [00:19<02:43,  1.10it/s]Val loss:   7.65634.   Best val loss: 6.87447 at epoch 14
+loss: 7.656 
+
+Epoch 21, lr: 0.0006873032967079561
+Train loss: 7.95586
+loss: 7.956 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 11%|█         | 22/200 [00:20<02:40,  1.11it/s]Val loss:   8.12916.   Best val loss: 6.87447 at epoch 14
+loss: 8.129 
+
+Epoch 22, lr: 0.0006545084971874737
+Train loss: 7.75712
+loss: 7.757 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 12%|█▏        | 23/200 [00:21<02:37,  1.13it/s]Val loss:   7.88051.   Best val loss: 6.87447 at epoch 14
+loss: 7.881 
+
+Epoch 23, lr: 0.0006209609477998338
+Train loss: 7.99495
+loss: 7.995 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 12%|█▏        | 24/200 [00:22<02:33,  1.14it/s]Val loss:   7.89792.   Best val loss: 6.87447 at epoch 14
+loss: 7.898 
+
+Epoch 24, lr: 0.0005868240888334653
+Train loss: 7.87187
+loss: 7.872 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 12%|█▎        | 25/200 [00:23<02:33,  1.14it/s]Val loss:   8.02031.   Best val loss: 6.87447 at epoch 14
+loss: 8.020 
+
+Epoch 25, lr: 0.0005522642316338268
+Train loss: 8.00925
+loss: 8.009 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 13%|█▎        | 26/200 [00:24<02:32,  1.14it/s]Val loss:   8.00748.   Best val loss: 6.87447 at epoch 14
+loss: 8.007 
+
+Epoch 26, lr: 0.0005174497483512506
+Train loss: 8.02213
+loss: 8.022 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 14%|█▎        | 27/200 [00:25<02:31,  1.14it/s]Val loss:   7.44012.   Best val loss: 6.87447 at epoch 14
+loss: 7.440 
+
+Epoch 27, lr: 0.0004825502516487497
+Train loss: 7.89787
+loss: 7.898 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 14%|█▍        | 28/200 [00:25<02:30,  1.14it/s]Val loss:   7.37268.   Best val loss: 6.87447 at epoch 14
+loss: 7.373 
+
+Epoch 28, lr: 0.00044773576836617336
+Train loss: 8.06841
+loss: 8.068 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 14%|█▍        | 29/200 [00:26<02:30,  1.14it/s]Val loss:   8.39323.   Best val loss: 6.87447 at epoch 14
+loss: 8.393 
+
+Epoch 29, lr: 0.00041317591116653486
+Train loss: 8.25126
+loss: 8.251 
+Saved enhanced plots to ./ckpt/2025-07-31_10-08-37Diffusion
+ 15%|█▌        | 30/200 [00:27<02:27,  1.15it/s]Val loss:   7.35834.   Best val loss: 6.87447 at epoch 14
+loss: 7.358 
+ 15%|█▌        | 30/200 [00:28<02:40,  1.06it/s]
+
+Epoch 30, lr: 0.0003790390522001662
+Train loss: 8.20531
+loss: 8.205 
+Traceback (most recent call last):
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/PIL/ImageFile.py", line 644, in _save
+    fh = fp.fileno()
+AttributeError: '_idat' object has no attribute 'fileno'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 1215, in <module>
+    main()
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 1211, in main
+    train(args)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 811, in train
+    best_ckpt_info = train_process(train_dataloader, val_dataloader, config, stats)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 968, in train_process
+    plot_history(train_history, validation_history, epoch, ckpt_dir, seed)
+  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 232, in plot_history
+    plt.savefig(plot_path, dpi=300, bbox_inches='tight')
+  File "/home/xuxuezhou/.local/lib/python3.10/site-packages/matplotlib/pyplot.py", line 1023, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "/home/xuxuezhou/.local/lib/python3.10/site-packages/matplotlib/figure.py", line 3378, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/xuxuezhou/.local/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2366, in print_figure
+    result = print_method(
+  File "/home/xuxuezhou/.local/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2232, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "/home/xuxuezhou/.local/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 509, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/xuxuezhou/.local/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 458, in _print_pil
+    mpl.image.imsave(
+  File "/home/xuxuezhou/.local/lib/python3.10/site-packages/matplotlib/image.py", line 1689, in imsave
+    image.save(fname, **pil_kwargs)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/PIL/Image.py", line 2588, in save
+    save_handler(self, fp, filename)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/PIL/PngImagePlugin.py", line 1495, in _save
+    ImageFile._save(
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/PIL/ImageFile.py", line 648, in _save
+    _encode_tile(im, fp, tile, bufsize, None, exc)
+  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/PIL/ImageFile.py", line 674, in _encode_tile
+    errcode, data = encoder.encode(bufsize)[1:]
+KeyboardInterrupt

@@ -1,0 +1,355 @@
+Timestamp: 2025-07-31_10-49-17
+scheduler: cos args.gradient_accumulation_steps 4
+whether use acclerator: False
+cur_path /home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox
+num episodes 50
+🎯 Using custom objects: ['bottle']
+📊 Expected bbox dimension: 12
+
+Data from: /home/xuxuezhou/code/RoboTwin/data/move_can_pot
+
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 12]) torch.Size([170, 14]) torch.Size([170, 14])
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 12]) torch.Size([170, 14]) torch.Size([170, 14])
+length of train dataloader 2
+Initializing SimpleBBoxDiffusionPolicy...
+SimpleBBoxDiffusionPolicy initialized with action_dim=14, bbox_dim=4
+  0%|          | 0/5 [00:00<?, ?it/s]
+0it [00:00, ?it/s][A/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+                  [A/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:206: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:163: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:198: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+
+Epoch 0, lr: 0.0
+Train loss: 0.79052
+loss: 0.791 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-17SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+ 20%|██        | 1/5 [00:01<00:04,  1.04s/it]Best ckpt saved, val loss 0.783843 @ epoch0
+Val loss:   0.78384.   Best val loss: 0.78384 at epoch 0
+loss: 0.784 
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+Epoch 1, lr: 0.001
+Train loss: 0.79433
+loss: 0.794 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-17SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+ 40%|████      | 2/5 [00:01<00:02,  1.06it/s]Best ckpt saved, val loss 0.753953 @ epoch1
+Val loss:   0.75395.   Best val loss: 0.75395 at epoch 1
+loss: 0.754 
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+Epoch 2, lr: 0.0
+Train loss: 0.77643
+loss: 0.776 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-17SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+ 60%|██████    | 3/5 [00:02<00:01,  1.10it/s]Val loss:   0.80391.   Best val loss: 0.75395 at epoch 1
+loss: 0.804 
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+Epoch 3, lr: 0.001
+Train loss: 0.77569
+loss: 0.776 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-17SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+ 80%|████████  | 4/5 [00:03<00:00,  1.12it/s]Val loss:   0.77457.   Best val loss: 0.75395 at epoch 1
+loss: 0.775 
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+Epoch 4, lr: 0.0
+Train loss: 0.78406
+loss: 0.784 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-17SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+100%|██████████| 5/5 [00:04<00:00,  1.13it/s]100%|██████████| 5/5 [00:04<00:00,  1.11it/s]
+Val loss:   0.80084.   Best val loss: 0.75395 at epoch 1
+loss: 0.801 
+Training finished:
+Seed 0, val loss 0.753953 at epoch 1
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-17SimpleBBoxDiffusion
+Saved real-time loss plot to ./ckpt/2025-07-31_10-49-17SimpleBBoxDiffusion/realtime_loss_seed_0.png
+
+=== Training Analysis Report (Seed 0) ===
+
+Basic Statistics:
+- Train Loss: μ=0.784207, σ=0.009416
+- Val Loss: μ=0.783425, σ=0.018277
+
+Best/Worst Points:
+- Best Val Loss: 0.753953 at epoch 1
+- Worst Val Loss: 0.803914 at epoch 2
+- Best Train Loss: 0.768520 at epoch 7
+- Worst Train Loss: 0.799279 at epoch 1
+
+Trend Analysis:
+- Train Loss Trend: -0.001535 (negative = improving)
+- Val Loss Trend: 0.005462 (negative = improving)
+
+Training analysis saved to ./ckpt/2025-07-31_10-49-17SimpleBBoxDiffusion/training_analysis_seed_0.txt
+train.log File copied to ./ckpt/2025-07-31_10-49-17SimpleBBoxDiffusion/train.log
+Best ckpt, val loss 0.753953 @ epoch1

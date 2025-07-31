@@ -4,26 +4,26 @@
   data = torch.load(os.path.join(dataset_dir, "integration.pkl"), map_location='cpu')
 /home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/BBoxHistoryEpisodicDataset.py:59: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   self.data = torch.load(os.path.join(self.dataset_dir, "integration.pkl"), map_location='cpu')
-Timestamp: 2025-07-30_14-15-16
+Timestamp: 2025-07-31_12-42-06
 scheduler: cos args.gradient_accumulation_steps 1
 whether use acclerator: False
 cur_path /home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox
-num episodes 500
-🎯 Using custom objects: ['bottle', 'bottle']
-📊 Expected bbox dimension: 24
+num episodes 50
+🎯 Using custom objects: ['bottle']
+📊 Expected bbox dimension: 12
 
-Data from: policy/ManiBox/processed_data/manibox-pick-diverse-bottles
+Data from: /home/xuxuezhou/code/RoboTwin/data/move_can_pot
 
-Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
-image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([158, 24]) torch.Size([158, 14]) torch.Size([158, 14])
-Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
-image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([158, 24]) torch.Size([158, 14]) torch.Size([158, 14])
-length of train dataloader 5
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 12]) torch.Size([170, 14]) torch.Size([170, 14])
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 12]) torch.Size([170, 14]) torch.Size([170, 14])
+length of train dataloader 1
 You are using RNNPolicy.
-policy_config {'lr': 0.001, 'lr_backbone': 7e-05, 'epochs': 100, 'train_loader_len': 5, 'warmup_ratio': 0.1, 'use_scheduler': 'cos', 'backbone': 'resnet18', 'masks': False, 'weight_decay': 0.0001, 'dilation': False, 'position_embedding': 'sine', 'loss_function': 'l1', 'chunk_size': 1, 'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist'], 'num_next_action': 0, 'use_depth_image': False, 'use_robot_base': False, 'hidden_dim': 512, 'device': 'cuda:0', 'state_dim': 14, 'action_dim': 14, 'rnn_layers': 5, 'rnn_hidden_dim': 1024, 'actor_hidden_dim': 1024, 'policy_class': 'RNN', 'gradient_accumulation_steps': 1}
+policy_config {'lr': 0.001, 'lr_backbone': 7e-05, 'epochs': 200, 'train_loader_len': 1, 'warmup_ratio': 0.1, 'use_scheduler': 'cos', 'backbone': 'resnet18', 'masks': False, 'weight_decay': 0.0001, 'dilation': False, 'position_embedding': 'sine', 'loss_function': 'l1', 'chunk_size': 1, 'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist'], 'num_next_action': 0, 'use_depth_image': False, 'use_robot_base': False, 'hidden_dim': 512, 'device': 'cuda:0', 'state_dim': 14, 'action_dim': 14, 'rnn_layers': 5, 'rnn_hidden_dim': 1024, 'actor_hidden_dim': 1024, 'policy_class': 'RNN', 'gradient_accumulation_steps': 1}
 backbone visual encoder. number of parameters: 0.00M
-temporal model. number of parameters: 39.01M
-  0%|          | 0/100 [00:00<?, ?it/s]
+temporal model. number of parameters: 29.49M
+  0%|          | 0/200 [00:00<?, ?it/s]
 0it [00:00, ?it/s][A
                   [A/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3474: RuntimeWarning: Mean of empty slice.
   return _methods._mean(a, axis=axis, dtype=dtype,
@@ -35,803 +35,1966 @@ temporal model. number of parameters: 39.01M
   arrmean = um.true_divide(arrmean, div, out=arrmean, casting='unsafe',
 /home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/numpy/core/_methods.py:256: RuntimeWarning: invalid value encountered in double_scalars
   ret = ret.dtype.type(ret / rcount)
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 0, lr: 0.0001
-Train loss: 0.64114
-loss: 0.641 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-  1%|          | 1/100 [00:04<07:45,  4.70s/it]Best ckpt saved, val loss 0.623512 @ epoch0
-Val loss:   0.62351.   Best val loss: 0.62351 at epoch 0
-loss: 0.624 
+Epoch 0, lr: 5e-05
+Train loss: 0.50511
+loss: 0.505 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  0%|          | 1/200 [00:01<04:30,  1.36s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.502787 @ epoch0
+Val loss:   0.50279.   Best val loss: 0.50279 at epoch 0
+loss: 0.503 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 1, lr: 0.0002
-Train loss: 0.61831
-loss: 0.618 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-  2%|▏         | 2/100 [00:13<12:02,  7.37s/it]Best ckpt saved, val loss 0.545649 @ epoch1
-Val loss:   0.54565.   Best val loss: 0.54565 at epoch 1
-loss: 0.546 
+Epoch 1, lr: 0.0001
+Train loss: 0.50513
+loss: 0.505 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  1%|          | 2/200 [00:02<04:18,  1.31s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.497187 @ epoch1
+Val loss:   0.49719.   Best val loss: 0.49719 at epoch 1
+loss: 0.497 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 2, lr: 0.0003
-Train loss: 0.41648
-loss: 0.416 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-  3%|▎         | 3/100 [00:22<13:07,  8.12s/it]Best ckpt saved, val loss 0.291255 @ epoch2
-Val loss:   0.29125.   Best val loss: 0.29125 at epoch 2
-loss: 0.291 
+Epoch 2, lr: 0.00015
+Train loss: 0.49949
+loss: 0.499 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  2%|▏         | 3/200 [00:04<04:23,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.491451 @ epoch2
+Val loss:   0.49145.   Best val loss: 0.49145 at epoch 2
+loss: 0.491 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 3, lr: 0.0004
-Train loss: 0.28167
-loss: 0.282 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-  4%|▍         | 4/100 [00:30<12:45,  7.98s/it]Best ckpt saved, val loss 0.271502 @ epoch3
-Val loss:   0.27150.   Best val loss: 0.27150 at epoch 3
-loss: 0.272 
+Epoch 3, lr: 0.0002
+Train loss: 0.49319
+loss: 0.493 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  2%|▏         | 4/200 [00:05<04:18,  1.32s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.484469 @ epoch3
+Val loss:   0.48447.   Best val loss: 0.48447 at epoch 3
+loss: 0.484 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 4, lr: 0.0005
-Train loss: 0.25554
-loss: 0.256 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-  5%|▌         | 5/100 [00:39<13:11,  8.33s/it]Best ckpt saved, val loss 0.217199 @ epoch4
-Val loss:   0.21720.   Best val loss: 0.21720 at epoch 4
-loss: 0.217 
+Epoch 4, lr: 0.00025
+Train loss: 0.48899
+loss: 0.489 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  2%|▎         | 5/200 [00:06<04:12,  1.29s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.471590 @ epoch4
+Val loss:   0.47159.   Best val loss: 0.47159 at epoch 4
+loss: 0.472 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 5, lr: 0.0006
-Train loss: 0.24264
-loss: 0.243 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-  6%|▌         | 6/100 [00:47<13:01,  8.32s/it]Val loss:   0.26911.   Best val loss: 0.21720 at epoch 4
-loss: 0.269 
+Epoch 5, lr: 0.0003
+Train loss: 0.47924
+loss: 0.479 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  3%|▎         | 6/200 [00:07<04:13,  1.30s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.449242 @ epoch5
+Val loss:   0.44924.   Best val loss: 0.44924 at epoch 5
+loss: 0.449 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 6, lr: 0.0007
-Train loss: 0.24451
-loss: 0.245 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-  7%|▋         | 7/100 [00:56<13:02,  8.41s/it]Val loss:   0.23782.   Best val loss: 0.21720 at epoch 4
-loss: 0.238 
+Epoch 6, lr: 0.00035
+Train loss: 0.45793
+loss: 0.458 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  4%|▎         | 7/200 [00:09<04:12,  1.31s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.375672 @ epoch6
+Val loss:   0.37567.   Best val loss: 0.37567 at epoch 6
+loss: 0.376 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 7, lr: 0.0008
-Train loss: 0.22872
+Epoch 7, lr: 0.0004
+Train loss: 0.40086
+loss: 0.401 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  4%|▍         | 8/200 [00:10<04:12,  1.31s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.368450 @ epoch7
+Val loss:   0.36845.   Best val loss: 0.36845 at epoch 7
+loss: 0.368 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 8, lr: 0.00045000000000000004
+Train loss: 0.37689
+loss: 0.377 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  4%|▍         | 9/200 [00:11<03:59,  1.25s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.39975.   Best val loss: 0.36845 at epoch 7
+loss: 0.400 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 9, lr: 0.0005
+Train loss: 0.45766
+loss: 0.458 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  5%|▌         | 10/200 [00:13<04:07,  1.30s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.303581 @ epoch9
+Val loss:   0.30358.   Best val loss: 0.30358 at epoch 9
+loss: 0.304 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 10, lr: 0.00055
+Train loss: 0.33579
+loss: 0.336 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  6%|▌         | 11/200 [00:14<04:06,  1.30s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.246801 @ epoch10
+Val loss:   0.24680.   Best val loss: 0.24680 at epoch 10
+loss: 0.247 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 11, lr: 0.0006
+Train loss: 0.30425
+loss: 0.304 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  6%|▌         | 12/200 [00:15<04:03,  1.30s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.232602 @ epoch11
+Val loss:   0.23260.   Best val loss: 0.23260 at epoch 11
+loss: 0.233 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 12, lr: 0.0006500000000000001
+Train loss: 0.26280
+loss: 0.263 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  6%|▋         | 13/200 [00:16<03:48,  1.22s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.23426.   Best val loss: 0.23260 at epoch 11
+loss: 0.234 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 13, lr: 0.0007
+Train loss: 0.24723
+loss: 0.247 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  7%|▋         | 14/200 [00:17<03:38,  1.17s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.24797.   Best val loss: 0.23260 at epoch 11
+loss: 0.248 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 14, lr: 0.00075
+Train loss: 0.27903
+loss: 0.279 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  8%|▊         | 15/200 [00:18<03:31,  1.14s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.25052.   Best val loss: 0.23260 at epoch 11
+loss: 0.251 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 15, lr: 0.0008
+Train loss: 0.27798
+loss: 0.278 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  8%|▊         | 16/200 [00:20<03:37,  1.18s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.228515 @ epoch15
+Val loss:   0.22851.   Best val loss: 0.22851 at epoch 15
 loss: 0.229 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-  8%|▊         | 8/100 [01:06<13:52,  9.05s/it]Best ckpt saved, val loss 0.199712 @ epoch7
-Val loss:   0.19971.   Best val loss: 0.19971 at epoch 7
-loss: 0.200 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 8, lr: 0.0009000000000000001
-Train loss: 0.20356
-loss: 0.204 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-  9%|▉         | 9/100 [01:17<14:29,  9.56s/it]Best ckpt saved, val loss 0.191515 @ epoch8
-Val loss:   0.19152.   Best val loss: 0.19152 at epoch 8
+Epoch 16, lr: 0.00085
+Train loss: 0.25745
+loss: 0.257 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  8%|▊         | 17/200 [00:21<03:30,  1.15s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.31695.   Best val loss: 0.22851 at epoch 15
+loss: 0.317 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 17, lr: 0.0009000000000000001
+Train loss: 0.29394
+loss: 0.294 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+  9%|▉         | 18/200 [00:22<03:25,  1.13s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.29335.   Best val loss: 0.22851 at epoch 15
+loss: 0.293 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 18, lr: 0.00095
+Train loss: 0.28993
+loss: 0.290 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 10%|▉         | 19/200 [00:23<03:31,  1.17s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.212284 @ epoch18
+Val loss:   0.21228.   Best val loss: 0.21228 at epoch 18
+loss: 0.212 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 19, lr: 0.001
+Train loss: 0.23261
+loss: 0.233 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 10%|█         | 20/200 [00:24<03:32,  1.18s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.28040.   Best val loss: 0.21228 at epoch 18
+loss: 0.280 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 20, lr: 0.0009999238475781956
+Train loss: 0.28991
+loss: 0.290 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 10%|█         | 21/200 [00:25<03:30,  1.18s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.25295.   Best val loss: 0.21228 at epoch 18
+loss: 0.253 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 21, lr: 0.0009996954135095479
+Train loss: 0.24540
+loss: 0.245 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 11%|█         | 22/200 [00:27<03:36,  1.22s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.188374 @ epoch21
+Val loss:   0.18837.   Best val loss: 0.18837 at epoch 21
+loss: 0.188 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 22, lr: 0.0009993147673772868
+Train loss: 0.21690
+loss: 0.217 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 12%|█▏        | 23/200 [00:28<03:38,  1.24s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.180163 @ epoch22
+Val loss:   0.18016.   Best val loss: 0.18016 at epoch 22
+loss: 0.180 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 23, lr: 0.0009987820251299122
+Train loss: 0.19294
+loss: 0.193 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 12%|█▏        | 24/200 [00:29<03:31,  1.20s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.19179.   Best val loss: 0.18016 at epoch 22
 loss: 0.192 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 9, lr: 0.001
-Train loss: 0.18662
-loss: 0.187 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 10%|█         | 10/100 [01:28<15:07, 10.08s/it]Best ckpt saved, val loss 0.166333 @ epoch9
-Val loss:   0.16633.   Best val loss: 0.16633 at epoch 9
-loss: 0.166 
+Epoch 24, lr: 0.0009980973490458728
+Train loss: 0.20755
+loss: 0.208 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 12%|█▎        | 25/200 [00:30<03:25,  1.17s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.18584.   Best val loss: 0.18016 at epoch 22
+loss: 0.186 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 10, lr: 0.0009996954135095479
-Train loss: 0.17502
-loss: 0.175 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 11%|█         | 11/100 [01:37<14:17,  9.63s/it]Val loss:   0.17034.   Best val loss: 0.16633 at epoch 9
-loss: 0.170 
+Epoch 25, lr: 0.0009972609476841367
+Train loss: 0.19165
+loss: 0.192 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 13%|█▎        | 26/200 [00:32<03:31,  1.22s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.162838 @ epoch25
+Val loss:   0.16284.   Best val loss: 0.16284 at epoch 25
+loss: 0.163 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 11, lr: 0.0009987820251299122
-Train loss: 0.16702
-loss: 0.167 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 12%|█▏        | 12/100 [01:47<14:09,  9.65s/it]Best ckpt saved, val loss 0.153565 @ epoch11
-Val loss:   0.15357.   Best val loss: 0.15357 at epoch 11
-loss: 0.154 
+Epoch 26, lr: 0.0009962730758206612
+Train loss: 0.17953
+loss: 0.180 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 14%|█▎        | 27/200 [00:33<03:25,  1.19s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.17289.   Best val loss: 0.16284 at epoch 25
+loss: 0.173 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 12, lr: 0.0009972609476841367
-Train loss: 0.15231
+Epoch 27, lr: 0.0009951340343707852
+Train loss: 0.18079
+loss: 0.181 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 14%|█▍        | 28/200 [00:34<03:20,  1.16s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.16947.   Best val loss: 0.16284 at epoch 25
+loss: 0.169 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 28, lr: 0.0009938441702975688
+Train loss: 0.17414
+loss: 0.174 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 14%|█▍        | 29/200 [00:35<03:26,  1.21s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.151783 @ epoch28
+Val loss:   0.15178.   Best val loss: 0.15178 at epoch 28
 loss: 0.152 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 13%|█▎        | 13/100 [01:57<14:05,  9.72s/it]Best ckpt saved, val loss 0.143235 @ epoch12
-Val loss:   0.14324.   Best val loss: 0.14324 at epoch 12
-loss: 0.143 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 13, lr: 0.0009951340343707852
-Train loss: 0.15271
+Epoch 29, lr: 0.000992403876506104
+Train loss: 0.16440
+loss: 0.164 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 15%|█▌        | 30/200 [00:36<03:32,  1.25s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.146554 @ epoch29
+Val loss:   0.14655.   Best val loss: 0.14655 at epoch 29
+loss: 0.147 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 30, lr: 0.000990813591723832
+Train loss: 0.15602
+loss: 0.156 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 16%|█▌        | 31/200 [00:38<03:46,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.141752 @ epoch30
+Val loss:   0.14175.   Best val loss: 0.14175 at epoch 30
+loss: 0.142 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 31, lr: 0.0009890738003669028
+Train loss: 0.15310
 loss: 0.153 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 14%|█▍        | 14/100 [02:05<13:18,  9.29s/it]Val loss:   0.15897.   Best val loss: 0.14324 at epoch 12
-loss: 0.159 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 16%|█▌        | 32/200 [00:39<03:34,  1.28s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.16998.   Best val loss: 0.14175 at epoch 30
+loss: 0.170 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 14, lr: 0.000992403876506104
-Train loss: 0.14552
-loss: 0.146 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 15%|█▌        | 15/100 [02:15<13:22,  9.44s/it]Best ckpt saved, val loss 0.136314 @ epoch14
-Val loss:   0.13631.   Best val loss: 0.13631 at epoch 14
-loss: 0.136 
-
-Epoch 15, lr: 0.0009890738003669028
-Train loss: 0.13492
+Epoch 32, lr: 0.0009871850323926177
+Train loss: 0.16887
+loss: 0.169 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 16%|█▋        | 33/200 [00:40<03:34,  1.29s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.135100 @ epoch32
+Val loss:   0.13510.   Best val loss: 0.13510 at epoch 32
 loss: 0.135 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 16%|█▌        | 16/100 [02:25<13:29,  9.64s/it]Best ckpt saved, val loss 0.131975 @ epoch15
-Val loss:   0.13197.   Best val loss: 0.13197 at epoch 15
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 33, lr: 0.0009851478631379982
+Train loss: 0.14970
+loss: 0.150 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 17%|█▋        | 34/200 [00:42<03:40,  1.33s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.129524 @ epoch33
+Val loss:   0.12952.   Best val loss: 0.12952 at epoch 33
+loss: 0.130 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 34, lr: 0.0009829629131445341
+Train loss: 0.14926
+loss: 0.149 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 18%|█▊        | 35/200 [00:43<03:39,  1.33s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.124774 @ epoch34
+Val loss:   0.12477.   Best val loss: 0.12477 at epoch 34
+loss: 0.125 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 35, lr: 0.0009806308479691594
+Train loss: 0.13774
+loss: 0.138 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 18%|█▊        | 36/200 [00:45<03:39,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.119135 @ epoch35
+Val loss:   0.11913.   Best val loss: 0.11913 at epoch 35
+loss: 0.119 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 36, lr: 0.0009781523779815178
+Train loss: 0.13656
+loss: 0.137 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 18%|█▊        | 37/200 [00:46<03:32,  1.30s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.12249.   Best val loss: 0.11913 at epoch 35
+loss: 0.122 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 37, lr: 0.0009755282581475768
+Train loss: 0.14231
+loss: 0.142 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 19%|█▉        | 38/200 [00:47<03:32,  1.31s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.117058 @ epoch37
+Val loss:   0.11706.   Best val loss: 0.11706 at epoch 37
+loss: 0.117 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 38, lr: 0.0009727592877996585
+Train loss: 0.13220
 loss: 0.132 
-
-Epoch 16, lr: 0.0009851478631379982
-Train loss: 0.12709
-loss: 0.127 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 17%|█▋        | 17/100 [02:35<13:22,  9.67s/it]Best ckpt saved, val loss 0.110863 @ epoch16
-Val loss:   0.11086.   Best val loss: 0.11086 at epoch 16
-loss: 0.111 
-
-Epoch 17, lr: 0.0009806308479691594
-Train loss: 0.11625
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 20%|█▉        | 39/200 [00:48<03:34,  1.33s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.115920 @ epoch38
+Val loss:   0.11592.   Best val loss: 0.11592 at epoch 38
 loss: 0.116 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 18%|█▊        | 18/100 [02:43<12:39,  9.27s/it]Val loss:   0.11574.   Best val loss: 0.11086 at epoch 16
-loss: 0.116 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 18, lr: 0.0009755282581475768
-Train loss: 0.11275
+Epoch 39, lr: 0.0009698463103929542
+Train loss: 0.12826
+loss: 0.128 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 20%|██        | 40/200 [00:50<03:33,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.113248 @ epoch39
+Val loss:   0.11325.   Best val loss: 0.11325 at epoch 39
 loss: 0.113 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 19%|█▉        | 19/100 [02:51<12:13,  9.05s/it]Val loss:   0.11097.   Best val loss: 0.11086 at epoch 16
-loss: 0.111 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 19, lr: 0.0009698463103929542
-Train loss: 0.10990
-loss: 0.110 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 20%|██        | 20/100 [03:02<12:42,  9.53s/it]Best ckpt saved, val loss 0.104836 @ epoch19
-Val loss:   0.10484.   Best val loss: 0.10484 at epoch 19
-loss: 0.105 
+Epoch 40, lr: 0.0009667902132486009
+Train loss: 0.12496
+loss: 0.125 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 20%|██        | 41/200 [00:51<03:33,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.11527.   Best val loss: 0.11325 at epoch 39
+loss: 0.115 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 20, lr: 0.0009635919272833937
-Train loss: 0.10640
-loss: 0.106 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 21%|██        | 21/100 [03:12<12:50,  9.75s/it]Best ckpt saved, val loss 0.103642 @ epoch20
-Val loss:   0.10364.   Best val loss: 0.10364 at epoch 20
+Epoch 41, lr: 0.0009635919272833937
+Train loss: 0.12701
+loss: 0.127 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 21%|██        | 42/200 [00:52<03:31,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.109444 @ epoch41
+Val loss:   0.10944.   Best val loss: 0.10944 at epoch 41
+loss: 0.109 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 42, lr: 0.0009602524267262203
+Train loss: 0.12056
+loss: 0.121 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 22%|██▏       | 43/200 [00:54<03:29,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.100999 @ epoch42
+Val loss:   0.10100.   Best val loss: 0.10100 at epoch 42
+loss: 0.101 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 43, lr: 0.0009567727288213005
+Train loss: 0.11726
+loss: 0.117 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 22%|██▏       | 44/200 [00:55<03:20,  1.28s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.10261.   Best val loss: 0.10100 at epoch 42
+loss: 0.103 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 44, lr: 0.0009531538935183251
+Train loss: 0.11901
+loss: 0.119 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 22%|██▎       | 45/200 [00:56<03:12,  1.24s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.10112.   Best val loss: 0.10100 at epoch 42
+loss: 0.101 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 45, lr: 0.0009493970231495835
+Train loss: 0.11360
+loss: 0.114 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 23%|██▎       | 46/200 [00:57<03:06,  1.21s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.10354.   Best val loss: 0.10100 at epoch 42
 loss: 0.104 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 21, lr: 0.0009567727288213005
-Train loss: 0.10477
-loss: 0.105 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 22%|██▏       | 22/100 [03:22<12:48,  9.86s/it]Best ckpt saved, val loss 0.101273 @ epoch21
-Val loss:   0.10127.   Best val loss: 0.10127 at epoch 21
-loss: 0.101 
-
-Epoch 22, lr: 0.0009493970231495835
-Train loss: 0.10286
-loss: 0.103 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 23%|██▎       | 23/100 [03:31<12:04,  9.42s/it]Val loss:   0.10317.   Best val loss: 0.10127 at epoch 21
-loss: 0.103 
-
-Epoch 23, lr: 0.0009414737964294635
-Train loss: 0.10139
-loss: 0.101 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 24%|██▍       | 24/100 [03:41<12:07,  9.57s/it]Best ckpt saved, val loss 0.099261 @ epoch23
-Val loss:   0.09926.   Best val loss: 0.09926 at epoch 23
+Epoch 46, lr: 0.0009455032620941839
+Train loss: 0.11187
+loss: 0.112 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 24%|██▎       | 47/200 [00:59<03:13,  1.26s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.098942 @ epoch46
+Val loss:   0.09894.   Best val loss: 0.09894 at epoch 46
 loss: 0.099 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 24, lr: 0.0009330127018922195
-Train loss: 0.09840
-loss: 0.098 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 25%|██▌       | 25/100 [03:51<12:10,  9.74s/it]Best ckpt saved, val loss 0.097930 @ epoch24
-Val loss:   0.09793.   Best val loss: 0.09793 at epoch 24
-loss: 0.098 
+Epoch 47, lr: 0.0009414737964294635
+Train loss: 0.11157
+loss: 0.112 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 24%|██▍       | 48/200 [01:00<03:07,  1.23s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.10328.   Best val loss: 0.09894 at epoch 46
+loss: 0.103 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 25, lr: 0.0009240240480782129
-Train loss: 0.09837
-loss: 0.098 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 26%|██▌       | 26/100 [03:59<11:30,  9.33s/it]Val loss:   0.10045.   Best val loss: 0.09793 at epoch 24
-loss: 0.100 
+Epoch 48, lr: 0.0009373098535696979
+Train loss: 0.11473
+loss: 0.115 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 24%|██▍       | 49/200 [01:01<03:02,  1.21s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.10981.   Best val loss: 0.09894 at epoch 46
+loss: 0.110 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 26, lr: 0.0009145187862775209
-Train loss: 0.09912
-loss: 0.099 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 27%|██▋       | 27/100 [04:07<10:56,  8.99s/it]Val loss:   0.10005.   Best val loss: 0.09793 at epoch 24
-loss: 0.100 
-
-Epoch 27, lr: 0.0009045084971874737
-Train loss: 0.09744
-loss: 0.097 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 28%|██▊       | 28/100 [04:17<11:10,  9.31s/it]Best ckpt saved, val loss 0.095422 @ epoch27
-Val loss:   0.09542.   Best val loss: 0.09542 at epoch 27
-loss: 0.095 
-
-Epoch 28, lr: 0.0008940053768033609
-Train loss: 0.09707
-loss: 0.097 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 29%|██▉       | 29/100 [04:26<10:41,  9.04s/it]Val loss:   0.09620.   Best val loss: 0.09542 at epoch 27
-loss: 0.096 
-
-Epoch 29, lr: 0.000883022221559489
-Train loss: 0.09515
-loss: 0.095 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 30%|███       | 30/100 [04:37<11:13,  9.62s/it]Best ckpt saved, val loss 0.091265 @ epoch29
-Val loss:   0.09126.   Best val loss: 0.09126 at epoch 29
-loss: 0.091 
-
-Epoch 30, lr: 0.0008715724127386971
-Train loss: 0.09300
-loss: 0.093 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 31%|███       | 31/100 [04:48<11:27,  9.96s/it]Best ckpt saved, val loss 0.090392 @ epoch30
-Val loss:   0.09039.   Best val loss: 0.09039 at epoch 30
-loss: 0.090 
-
-Epoch 31, lr: 0.0008596699001693256
-Train loss: 0.09364
-loss: 0.094 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 32%|███▏      | 32/100 [04:58<11:24, 10.06s/it]Best ckpt saved, val loss 0.089049 @ epoch31
-Val loss:   0.08905.   Best val loss: 0.08905 at epoch 31
-loss: 0.089 
-
-Epoch 32, lr: 0.0008473291852294987
-Train loss: 0.09260
-loss: 0.093 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 33%|███▎      | 33/100 [05:06<10:39,  9.55s/it]Val loss:   0.09301.   Best val loss: 0.08905 at epoch 31
-loss: 0.093 
-
-Epoch 33, lr: 0.0008345653031794292
-Train loss: 0.09216
+Epoch 49, lr: 0.0009330127018922195
+Train loss: 0.12525
+loss: 0.125 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 25%|██▌       | 50/200 [01:02<03:07,  1.25s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.091764 @ epoch49
+Val loss:   0.09176.   Best val loss: 0.09176 at epoch 49
 loss: 0.092 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 34%|███▍      | 34/100 [05:14<10:03,  9.15s/it]Val loss:   0.08911.   Best val loss: 0.08905 at epoch 31
-loss: 0.089 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 34, lr: 0.0008213938048432696
-Train loss: 0.08989
-loss: 0.090 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 35%|███▌      | 35/100 [05:24<10:10,  9.39s/it]Best ckpt saved, val loss 0.086753 @ epoch34
-Val loss:   0.08675.   Best val loss: 0.08675 at epoch 34
-loss: 0.087 
+Epoch 50, lr: 0.0009285836503510562
+Train loss: 0.10328
+loss: 0.103 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 26%|██▌       | 51/200 [01:04<03:17,  1.32s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.09491.   Best val loss: 0.09176 at epoch 49
+loss: 0.095 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 35, lr: 0.0008078307376628291
-Train loss: 0.08990
-loss: 0.090 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 36%|███▌      | 36/100 [05:33<09:48,  9.20s/it]Val loss:   0.08790.   Best val loss: 0.08675 at epoch 34
-loss: 0.088 
+Epoch 51, lr: 0.0009240240480782129
+Train loss: 0.11138
+loss: 0.111 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 26%|██▌       | 52/200 [01:05<03:07,  1.26s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.11574.   Best val loss: 0.09176 at epoch 49
+loss: 0.116 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 36, lr: 0.0007938926261462366
-Train loss: 0.08937
-loss: 0.089 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 37%|███▋      | 37/100 [05:43<09:56,  9.46s/it]Best ckpt saved, val loss 0.085272 @ epoch36
-Val loss:   0.08527.   Best val loss: 0.08527 at epoch 36
+Epoch 52, lr: 0.0009193352839727121
+Train loss: 0.12534
+loss: 0.125 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 26%|██▋       | 53/200 [01:06<03:09,  1.29s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.085450 @ epoch52
+Val loss:   0.08545.   Best val loss: 0.08545 at epoch 52
 loss: 0.085 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 37, lr: 0.0007795964517353734
-Train loss: 0.08740
-loss: 0.087 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 38%|███▊      | 38/100 [05:53<10:01,  9.70s/it]Best ckpt saved, val loss 0.084772 @ epoch37
-Val loss:   0.08477.   Best val loss: 0.08477 at epoch 37
+Epoch 53, lr: 0.0009145187862775209
+Train loss: 0.10091
+loss: 0.101 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 27%|██▋       | 54/200 [01:07<03:01,  1.24s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.10866.   Best val loss: 0.08545 at epoch 52
+loss: 0.109 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 54, lr: 0.0009095760221444959
+Train loss: 0.12274
+loss: 0.123 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 28%|██▊       | 55/200 [01:08<02:54,  1.20s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.09868.   Best val loss: 0.08545 at epoch 52
+loss: 0.099 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 55, lr: 0.0009045084971874737
+Train loss: 0.11223
+loss: 0.112 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 28%|██▊       | 56/200 [01:10<02:58,  1.24s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.084715 @ epoch55
+Val loss:   0.08472.   Best val loss: 0.08472 at epoch 55
 loss: 0.085 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 38, lr: 0.0007649596321166025
-Train loss: 0.08700
-loss: 0.087 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 39%|███▉      | 39/100 [06:04<10:04,  9.91s/it]Best ckpt saved, val loss 0.079248 @ epoch38
-Val loss:   0.07925.   Best val loss: 0.07925 at epoch 38
-loss: 0.079 
+Epoch 56, lr: 0.0008993177550236464
+Train loss: 0.09921
+loss: 0.099 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 28%|██▊       | 57/200 [01:11<02:53,  1.21s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.09181.   Best val loss: 0.08472 at epoch 55
+loss: 0.092 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 39, lr: 0.00075
-Train loss: 0.08412
-loss: 0.084 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 40%|████      | 40/100 [06:13<09:31,  9.53s/it]Val loss:   0.08056.   Best val loss: 0.07925 at epoch 38
+Epoch 57, lr: 0.0008940053768033609
+Train loss: 0.10258
+loss: 0.103 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 29%|██▉       | 58/200 [01:12<03:00,  1.27s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.080317 @ epoch57
+Val loss:   0.08032.   Best val loss: 0.08032 at epoch 57
+loss: 0.080 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 58, lr: 0.0008885729807284854
+Train loss: 0.09587
+loss: 0.096 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 30%|██▉       | 59/200 [01:14<02:54,  1.24s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.08057.   Best val loss: 0.08032 at epoch 57
 loss: 0.081 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 40, lr: 0.0007347357813929454
-Train loss: 0.08711
+Epoch 59, lr: 0.000883022221559489
+Train loss: 0.09526
+loss: 0.095 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 30%|███       | 60/200 [01:15<02:59,  1.28s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.079603 @ epoch59
+Val loss:   0.07960.   Best val loss: 0.07960 at epoch 59
+loss: 0.080 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 60, lr: 0.000877354790111386
+Train loss: 0.09144
+loss: 0.091 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 30%|███       | 61/200 [01:16<03:06,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.072274 @ epoch60
+Val loss:   0.07227.   Best val loss: 0.07227 at epoch 60
+loss: 0.072 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 61, lr: 0.0008715724127386971
+Train loss: 0.08592
+loss: 0.086 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 31%|███       | 62/200 [01:18<03:13,  1.40s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.071896 @ epoch61
+Val loss:   0.07190.   Best val loss: 0.07190 at epoch 61
+loss: 0.072 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 62, lr: 0.0008656768508095852
+Train loss: 0.08453
+loss: 0.085 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 32%|███▏      | 63/200 [01:19<03:03,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.07346.   Best val loss: 0.07190 at epoch 61
+loss: 0.073 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 63, lr: 0.0008596699001693256
+Train loss: 0.08493
+loss: 0.085 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 32%|███▏      | 64/200 [01:20<02:57,  1.30s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.07834.   Best val loss: 0.07190 at epoch 61
+loss: 0.078 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 64, lr: 0.0008535533905932737
+Train loss: 0.08650
 loss: 0.087 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 41%|████      | 41/100 [06:22<09:28,  9.64s/it]Val loss:   0.07992.   Best val loss: 0.07925 at epoch 38
-loss: 0.080 
-
-Epoch 41, lr: 0.0007191855733945387
-Train loss: 0.08393
-loss: 0.084 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 42%|████▏     | 42/100 [06:31<09:04,  9.39s/it]Val loss:   0.08026.   Best val loss: 0.07925 at epoch 38
-loss: 0.080 
-
-Epoch 42, lr: 0.0007033683215379002
-Train loss: 0.08292
-loss: 0.083 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 43%|████▎     | 43/100 [06:42<09:12,  9.70s/it]Best ckpt saved, val loss 0.078580 @ epoch42
-Val loss:   0.07858.   Best val loss: 0.07858 at epoch 42
-loss: 0.079 
-
-Epoch 43, lr: 0.0006873032967079561
-Train loss: 0.08373
-loss: 0.084 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 44%|████▍     | 44/100 [06:52<09:08,  9.79s/it]Best ckpt saved, val loss 0.078082 @ epoch43
-Val loss:   0.07808.   Best val loss: 0.07808 at epoch 43
-loss: 0.078 
-
-Epoch 44, lr: 0.0006710100716628344
-Train loss: 0.07972
-loss: 0.080 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 45%|████▌     | 45/100 [07:02<09:02,  9.87s/it]Best ckpt saved, val loss 0.074722 @ epoch44
-Val loss:   0.07472.   Best val loss: 0.07472 at epoch 44
-loss: 0.075 
-
-Epoch 45, lr: 0.0006545084971874737
-Train loss: 0.07771
-loss: 0.078 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 46%|████▌     | 46/100 [07:12<08:56,  9.94s/it]Best ckpt saved, val loss 0.070329 @ epoch45
-Val loss:   0.07033.   Best val loss: 0.07033 at epoch 45
-loss: 0.070 
-
-Epoch 46, lr: 0.0006378186779084996
-Train loss: 0.07666
-loss: 0.077 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 47%|████▋     | 47/100 [07:20<08:23,  9.49s/it]Val loss:   0.07268.   Best val loss: 0.07033 at epoch 45
-loss: 0.073 
-
-Epoch 47, lr: 0.0006209609477998338
-Train loss: 0.07635
-loss: 0.076 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 48%|████▊     | 48/100 [07:30<08:22,  9.66s/it]Best ckpt saved, val loss 0.064553 @ epoch47
-Val loss:   0.06455.   Best val loss: 0.06455 at epoch 47
-loss: 0.065 
-
-Epoch 48, lr: 0.0006039558454088796
-Train loss: 0.07294
-loss: 0.073 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 49%|████▉     | 49/100 [07:39<07:56,  9.33s/it]Val loss:   0.06624.   Best val loss: 0.06455 at epoch 47
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 32%|███▎      | 65/200 [01:22<03:00,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.066015 @ epoch64
+Val loss:   0.06601.   Best val loss: 0.06601 at epoch 64
 loss: 0.066 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 49, lr: 0.0005868240888334653
-Train loss: 0.06741
-loss: 0.067 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 50%|█████     | 50/100 [07:49<07:58,  9.58s/it]Best ckpt saved, val loss 0.062714 @ epoch49
-Val loss:   0.06271.   Best val loss: 0.06271 at epoch 49
+Epoch 65, lr: 0.0008473291852294987
+Train loss: 0.08030
+loss: 0.080 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 33%|███▎      | 66/200 [01:23<03:02,  1.37s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.063821 @ epoch65
+Val loss:   0.06382.   Best val loss: 0.06382 at epoch 65
+loss: 0.064 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 66, lr: 0.0008409991800312493
+Train loss: 0.07864
+loss: 0.079 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 34%|███▎      | 67/200 [01:25<03:04,  1.39s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.062512 @ epoch66
+Val loss:   0.06251.   Best val loss: 0.06251 at epoch 66
 loss: 0.063 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 50, lr: 0.0005695865504800327
-Train loss: 0.06722
-loss: 0.067 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 51%|█████     | 51/100 [08:01<08:17, 10.15s/it]Best ckpt saved, val loss 0.059721 @ epoch50
-Val loss:   0.05972.   Best val loss: 0.05972 at epoch 50
-loss: 0.060 
+Epoch 67, lr: 0.0008345653031794292
+Train loss: 0.07567
+loss: 0.076 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 34%|███▍      | 68/200 [01:26<03:06,  1.41s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.060727 @ epoch67
+Val loss:   0.06073.   Best val loss: 0.06073 at epoch 67
+loss: 0.061 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 51, lr: 0.0005522642316338268
-Train loss: 0.06550
-loss: 0.065 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 52%|█████▏    | 52/100 [08:09<07:41,  9.61s/it]Val loss:   0.06166.   Best val loss: 0.05972 at epoch 50
-loss: 0.062 
-
-Epoch 52, lr: 0.0005348782368720626
-Train loss: 0.06349
+Epoch 68, lr: 0.0008280295144952537
+Train loss: 0.07544
+loss: 0.075 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 34%|███▍      | 69/200 [01:27<02:57,  1.35s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.06304.   Best val loss: 0.06073 at epoch 67
 loss: 0.063 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 53%|█████▎    | 53/100 [08:19<07:38,  9.75s/it]Best ckpt saved, val loss 0.058843 @ epoch52
-Val loss:   0.05884.   Best val loss: 0.05884 at epoch 52
-loss: 0.059 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 53, lr: 0.0005174497483512506
-Train loss: 0.06173
-loss: 0.062 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 54%|█████▍    | 54/100 [08:29<07:33,  9.86s/it]Best ckpt saved, val loss 0.057217 @ epoch53
-Val loss:   0.05722.   Best val loss: 0.05722 at epoch 53
-loss: 0.057 
-
-Epoch 54, lr: 0.0005
-Train loss: 0.05901
-loss: 0.059 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 55%|█████▌    | 55/100 [08:39<07:26,  9.91s/it]Best ckpt saved, val loss 0.055122 @ epoch54
-Val loss:   0.05512.   Best val loss: 0.05512 at epoch 54
-loss: 0.055 
-
-Epoch 55, lr: 0.0004825502516487497
-Train loss: 0.05755
+Epoch 69, lr: 0.0008213938048432696
+Train loss: 0.07608
+loss: 0.076 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 35%|███▌      | 70/200 [01:29<02:58,  1.37s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.058217 @ epoch69
+Val loss:   0.05822.   Best val loss: 0.05822 at epoch 69
 loss: 0.058 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 56%|█████▌    | 56/100 [08:49<07:20, 10.00s/it]Best ckpt saved, val loss 0.053695 @ epoch55
-Val loss:   0.05370.   Best val loss: 0.05370 at epoch 55
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 70, lr: 0.0008146601955249188
+Train loss: 0.07211
+loss: 0.072 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 36%|███▌      | 71/200 [01:30<03:04,  1.43s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.053557 @ epoch70
+Val loss:   0.05356.   Best val loss: 0.05356 at epoch 70
 loss: 0.054 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 56, lr: 0.00046512176312793734
-Train loss: 0.05926
-loss: 0.059 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 57%|█████▋    | 57/100 [08:58<06:53,  9.61s/it]Val loss:   0.05488.   Best val loss: 0.05370 at epoch 55
-loss: 0.055 
-
-Epoch 57, lr: 0.00044773576836617336
-Train loss: 0.05826
-loss: 0.058 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 58%|█████▊    | 58/100 [09:08<06:51,  9.81s/it]Best ckpt saved, val loss 0.052818 @ epoch57
-Val loss:   0.05282.   Best val loss: 0.05282 at epoch 57
-loss: 0.053 
-
-Epoch 58, lr: 0.0004304134495199674
-Train loss: 0.05592
-loss: 0.056 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 59%|█████▉    | 59/100 [09:17<06:28,  9.47s/it]Val loss:   0.05346.   Best val loss: 0.05282 at epoch 57
-loss: 0.053 
-
-Epoch 59, lr: 0.00041317591116653486
-Train loss: 0.05718
-loss: 0.057 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 60%|██████    | 60/100 [09:27<06:26,  9.67s/it]Best ckpt saved, val loss 0.049715 @ epoch59
-Val loss:   0.04971.   Best val loss: 0.04971 at epoch 59
-loss: 0.050 
-
-Epoch 60, lr: 0.0003960441545911204
-Train loss: 0.05507
-loss: 0.055 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 61%|██████    | 61/100 [09:36<06:09,  9.46s/it]Val loss:   0.05023.   Best val loss: 0.04971 at epoch 59
-loss: 0.050 
-
-Epoch 61, lr: 0.0003790390522001662
-Train loss: 0.05403
+Epoch 71, lr: 0.0008078307376628291
+Train loss: 0.06865
+loss: 0.069 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 36%|███▌      | 72/200 [01:32<02:56,  1.38s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.05412.   Best val loss: 0.05356 at epoch 70
 loss: 0.054 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 62%|██████▏   | 62/100 [09:48<06:23, 10.09s/it]Best ckpt saved, val loss 0.049430 @ epoch61
-Val loss:   0.04943.   Best val loss: 0.04943 at epoch 61
-loss: 0.049 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 62, lr: 0.00036218132209150044
-Train loss: 0.05344
-loss: 0.053 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 63%|██████▎   | 63/100 [09:58<06:17, 10.20s/it]Best ckpt saved, val loss 0.047881 @ epoch62
-Val loss:   0.04788.   Best val loss: 0.04788 at epoch 62
-loss: 0.048 
+Epoch 72, lr: 0.0008009075115760243
+Train loss: 0.06907
+loss: 0.069 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 36%|███▋      | 73/200 [01:33<02:53,  1.37s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.05359.   Best val loss: 0.05356 at epoch 70
+loss: 0.054 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 63, lr: 0.00034549150281252633
-Train loss: 0.05178
+Epoch 73, lr: 0.0007938926261462366
+Train loss: 0.06868
+loss: 0.069 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 37%|███▋      | 74/200 [01:34<02:54,  1.38s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.051719 @ epoch73
+Val loss:   0.05172.   Best val loss: 0.05172 at epoch 73
 loss: 0.052 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 64%|██████▍   | 64/100 [10:09<06:10, 10.28s/it]Best ckpt saved, val loss 0.047459 @ epoch63
-Val loss:   0.04746.   Best val loss: 0.04746 at epoch 63
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 74, lr: 0.0007867882181755231
+Train loss: 0.06665
+loss: 0.067 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 38%|███▊      | 75/200 [01:36<02:56,  1.41s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.050789 @ epoch74
+Val loss:   0.05079.   Best val loss: 0.05079 at epoch 74
+loss: 0.051 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 75, lr: 0.0007795964517353734
+Train loss: 0.06532
+loss: 0.065 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 38%|███▊      | 76/200 [01:37<03:00,  1.46s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.049687 @ epoch75
+Val loss:   0.04969.   Best val loss: 0.04969 at epoch 75
+loss: 0.050 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 76, lr: 0.0007723195175075137
+Train loss: 0.06469
+loss: 0.065 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 38%|███▊      | 77/200 [01:39<02:58,  1.45s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.048324 @ epoch76
+Val loss:   0.04832.   Best val loss: 0.04832 at epoch 76
+loss: 0.048 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 77, lr: 0.0007649596321166025
+Train loss: 0.06353
+loss: 0.064 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 39%|███▉      | 78/200 [01:40<03:00,  1.48s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.046504 @ epoch77
+Val loss:   0.04650.   Best val loss: 0.04650 at epoch 77
 loss: 0.047 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 64, lr: 0.0003289899283371657
-Train loss: 0.04948
-loss: 0.049 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 65%|██████▌   | 65/100 [10:19<06:00, 10.30s/it]Best ckpt saved, val loss 0.043752 @ epoch64
-Val loss:   0.04375.   Best val loss: 0.04375 at epoch 64
-loss: 0.044 
-
-Epoch 65, lr: 0.00031269670329204396
-Train loss: 0.04573
-loss: 0.046 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 66%|██████▌   | 66/100 [10:29<05:48, 10.25s/it]Best ckpt saved, val loss 0.041289 @ epoch65
-Val loss:   0.04129.   Best val loss: 0.04129 at epoch 65
-loss: 0.041 
-
-Epoch 66, lr: 0.0002966316784621
-Train loss: 0.04479
+Epoch 78, lr: 0.0007575190374550272
+Train loss: 0.06282
+loss: 0.063 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 40%|███▉      | 79/200 [01:42<03:02,  1.51s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.044842 @ epoch78
+Val loss:   0.04484.   Best val loss: 0.04484 at epoch 78
 loss: 0.045 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 67%|██████▋   | 67/100 [10:40<05:40, 10.31s/it]Best ckpt saved, val loss 0.040460 @ epoch66
-Val loss:   0.04046.   Best val loss: 0.04046 at epoch 66
-loss: 0.040 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 67, lr: 0.00028081442660546124
-Train loss: 0.04430
+Epoch 79, lr: 0.00075
+Train loss: 0.06178
+loss: 0.062 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 40%|████      | 80/200 [01:43<03:02,  1.52s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.044656 @ epoch79
+Val loss:   0.04466.   Best val loss: 0.04466 at epoch 79
+loss: 0.045 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 80, lr: 0.0007424048101231686
+Train loss: 0.06016
+loss: 0.060 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 40%|████      | 81/200 [01:45<03:01,  1.53s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.044257 @ epoch80
+Val loss:   0.04426.   Best val loss: 0.04426 at epoch 80
 loss: 0.044 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 68%|██████▊   | 68/100 [10:48<05:13,  9.80s/it]Val loss:   0.04109.   Best val loss: 0.04046 at epoch 66
-loss: 0.041 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 68, lr: 0.00026526421860705474
-Train loss: 0.04313
+Epoch 81, lr: 0.0007347357813929454
+Train loss: 0.06031
+loss: 0.060 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 41%|████      | 82/200 [01:47<02:59,  1.52s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.044087 @ epoch81
+Val loss:   0.04409.   Best val loss: 0.04409 at epoch 81
+loss: 0.044 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 82, lr: 0.0007269952498697733
+Train loss: 0.06038
+loss: 0.060 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 42%|████▏     | 83/200 [01:48<02:59,  1.54s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.043674 @ epoch82
+Val loss:   0.04367.   Best val loss: 0.04367 at epoch 82
+loss: 0.044 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 83, lr: 0.0007191855733945387
+Train loss: 0.06028
+loss: 0.060 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 42%|████▏     | 84/200 [01:50<02:54,  1.51s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.04548.   Best val loss: 0.04367 at epoch 82
+loss: 0.045 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 84, lr: 0.0007113091308703497
+Train loss: 0.05898
+loss: 0.059 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 42%|████▎     | 85/200 [01:51<02:51,  1.49s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.043105 @ epoch84
+Val loss:   0.04311.   Best val loss: 0.04311 at epoch 84
 loss: 0.043 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 69%|██████▉   | 69/100 [10:58<05:07,  9.91s/it]Best ckpt saved, val loss 0.040024 @ epoch68
-Val loss:   0.04002.   Best val loss: 0.04002 at epoch 68
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 85, lr: 0.0007033683215379002
+Train loss: 0.05925
+loss: 0.059 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 43%|████▎     | 86/200 [01:52<02:43,  1.44s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.04468.   Best val loss: 0.04311 at epoch 84
+loss: 0.045 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 86, lr: 0.0006953655642446368
+Train loss: 0.05887
+loss: 0.059 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 44%|████▎     | 87/200 [01:54<02:43,  1.45s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.041259 @ epoch86
+Val loss:   0.04126.   Best val loss: 0.04126 at epoch 86
+loss: 0.041 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 87, lr: 0.0006873032967079561
+Train loss: 0.05793
+loss: 0.058 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 44%|████▍     | 88/200 [01:55<02:38,  1.42s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.04133.   Best val loss: 0.04126 at epoch 86
+loss: 0.041 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 88, lr: 0.0006791839747726501
+Train loss: 0.05542
+loss: 0.055 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 44%|████▍     | 89/200 [01:57<02:39,  1.44s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.039890 @ epoch88
+Val loss:   0.03989.   Best val loss: 0.03989 at epoch 88
 loss: 0.040 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 69, lr: 0.0002500000000000001
-Train loss: 0.04261
-loss: 0.043 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 70%|███████   | 70/100 [11:09<05:02, 10.09s/it]Best ckpt saved, val loss 0.038923 @ epoch69
-Val loss:   0.03892.   Best val loss: 0.03892 at epoch 69
-loss: 0.039 
-
-Epoch 70, lr: 0.0002350403678833976
-Train loss: 0.04090
+Epoch 89, lr: 0.0006710100716628344
+Train loss: 0.05420
+loss: 0.054 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 45%|████▌     | 90/200 [01:58<02:35,  1.41s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.04091.   Best val loss: 0.03989 at epoch 88
 loss: 0.041 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 71%|███████   | 71/100 [11:20<05:01, 10.39s/it]Best ckpt saved, val loss 0.036405 @ epoch70
-Val loss:   0.03640.   Best val loss: 0.03640 at epoch 70
-loss: 0.036 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 71, lr: 0.00022040354826462666
-Train loss: 0.03923
-loss: 0.039 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 72%|███████▏  | 72/100 [11:32<05:07, 11.00s/it]Best ckpt saved, val loss 0.034913 @ epoch71
-Val loss:   0.03491.   Best val loss: 0.03491 at epoch 71
-loss: 0.035 
+Epoch 90, lr: 0.0006627840772285784
+Train loss: 0.05372
+loss: 0.054 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 46%|████▌     | 91/200 [01:59<02:31,  1.39s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.04311.   Best val loss: 0.03989 at epoch 88
+loss: 0.043 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 72, lr: 0.00020610737385376348
-Train loss: 0.03827
+Epoch 91, lr: 0.0006545084971874737
+Train loss: 0.05283
+loss: 0.053 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 46%|████▌     | 92/200 [02:01<02:29,  1.38s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.04161.   Best val loss: 0.03989 at epoch 88
+loss: 0.042 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 92, lr: 0.0006461858523613684
+Train loss: 0.05102
+loss: 0.051 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 46%|████▋     | 93/200 [02:02<02:33,  1.43s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.038019 @ epoch92
+Val loss:   0.03802.   Best val loss: 0.03802 at epoch 92
 loss: 0.038 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 73%|███████▎  | 73/100 [11:43<04:57, 11.03s/it]Best ckpt saved, val loss 0.034663 @ epoch72
-Val loss:   0.03466.   Best val loss: 0.03466 at epoch 72
-loss: 0.035 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 73, lr: 0.00019216926233717085
-Train loss: 0.03710
-loss: 0.037 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 74%|███████▍  | 74/100 [11:54<04:41, 10.84s/it]Best ckpt saved, val loss 0.033759 @ epoch73
-Val loss:   0.03376.   Best val loss: 0.03376 at epoch 73
-loss: 0.034 
+Epoch 93, lr: 0.0006378186779084996
+Train loss: 0.04990
+loss: 0.050 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 47%|████▋     | 94/200 [02:04<02:27,  1.39s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.03956.   Best val loss: 0.03802 at epoch 92
+loss: 0.040 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 74, lr: 0.0001786061951567303
-Train loss: 0.03634
+Epoch 94, lr: 0.0006294095225512603
+Train loss: 0.04991
+loss: 0.050 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 48%|████▊     | 95/200 [02:05<02:21,  1.35s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.03841.   Best val loss: 0.03802 at epoch 92
+loss: 0.038 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 95, lr: 0.0006209609477998338
+Train loss: 0.04968
+loss: 0.050 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 48%|████▊     | 96/200 [02:06<02:20,  1.35s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.04022.   Best val loss: 0.03802 at epoch 92
+loss: 0.040 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 96, lr: 0.0006124755271719325
+Train loss: 0.04905
+loss: 0.049 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 48%|████▊     | 97/200 [02:08<02:23,  1.39s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.036421 @ epoch96
+Val loss:   0.03642.   Best val loss: 0.03642 at epoch 96
 loss: 0.036 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 75%|███████▌  | 75/100 [12:04<04:26, 10.65s/it]Best ckpt saved, val loss 0.032422 @ epoch74
-Val loss:   0.03242.   Best val loss: 0.03242 at epoch 74
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 97, lr: 0.0006039558454088796
+Train loss: 0.04796
+loss: 0.048 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 49%|████▉     | 98/200 [02:09<02:21,  1.38s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.03743.   Best val loss: 0.03642 at epoch 96
+loss: 0.037 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 98, lr: 0.0005954044976882724
+Train loss: 0.04715
+loss: 0.047 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 50%|████▉     | 99/200 [02:10<02:15,  1.34s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.03747.   Best val loss: 0.03642 at epoch 96
+loss: 0.037 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 99, lr: 0.0005868240888334653
+Train loss: 0.04685
+loss: 0.047 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 50%|█████     | 100/200 [02:11<02:12,  1.32s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.03788.   Best val loss: 0.03642 at epoch 96
+loss: 0.038 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 100, lr: 0.0005782172325201155
+Train loss: 0.04660
+loss: 0.047 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 50%|█████     | 101/200 [02:13<02:23,  1.45s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.035842 @ epoch100
+Val loss:   0.03584.   Best val loss: 0.03584 at epoch 100
+loss: 0.036 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 101, lr: 0.0005695865504800327
+Train loss: 0.04595
+loss: 0.046 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 51%|█████     | 102/200 [02:15<02:30,  1.54s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.034631 @ epoch101
+Val loss:   0.03463.   Best val loss: 0.03463 at epoch 101
+loss: 0.035 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 102, lr: 0.0005609346717025737
+Train loss: 0.04417
+loss: 0.044 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 52%|█████▏    | 103/200 [02:17<02:43,  1.69s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.032035 @ epoch102
+Val loss:   0.03204.   Best val loss: 0.03204 at epoch 102
 loss: 0.032 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 75, lr: 0.00016543469682057105
-Train loss: 0.03528
+Epoch 103, lr: 0.0005522642316338268
+Train loss: 0.04316
+loss: 0.043 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 52%|█████▏    | 104/200 [02:18<02:31,  1.58s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.03502.   Best val loss: 0.03204 at epoch 102
 loss: 0.035 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 76%|███████▌  | 76/100 [12:14<04:13, 10.54s/it]Best ckpt saved, val loss 0.032111 @ epoch75
-Val loss:   0.03211.   Best val loss: 0.03211 at epoch 75
-loss: 0.032 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 76, lr: 0.00015267081477050133
-Train loss: 0.03465
-loss: 0.035 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 77%|███████▋  | 77/100 [12:24<03:58, 10.37s/it]Best ckpt saved, val loss 0.031370 @ epoch76
-Val loss:   0.03137.   Best val loss: 0.03137 at epoch 76
-loss: 0.031 
+Epoch 104, lr: 0.0005435778713738292
+Train loss: 0.04434
+loss: 0.044 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 52%|█████▎    | 105/200 [02:20<02:25,  1.53s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.03655.   Best val loss: 0.03204 at epoch 102
+loss: 0.037 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 77, lr: 0.00014033009983067452
-Train loss: 0.03424
-loss: 0.034 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 78%|███████▊  | 78/100 [12:34<03:47, 10.33s/it]Best ckpt saved, val loss 0.030461 @ epoch77
-Val loss:   0.03046.   Best val loss: 0.03046 at epoch 77
-loss: 0.030 
-
-Epoch 78, lr: 0.00012842758726130281
-Train loss: 0.03391
-loss: 0.034 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 79%|███████▉  | 79/100 [12:43<03:25,  9.77s/it]Val loss:   0.03119.   Best val loss: 0.03046 at epoch 77
-loss: 0.031 
-
-Epoch 79, lr: 0.00011697777844051105
-Train loss: 0.03467
-loss: 0.035 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 80%|████████  | 80/100 [12:53<03:17,  9.89s/it]Best ckpt saved, val loss 0.030400 @ epoch79
-Val loss:   0.03040.   Best val loss: 0.03040 at epoch 79
-loss: 0.030 
-
-Epoch 80, lr: 0.00010599462319663906
-Train loss: 0.03360
-loss: 0.034 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 81%|████████  | 81/100 [13:04<03:13, 10.19s/it]Best ckpt saved, val loss 0.030175 @ epoch80
-Val loss:   0.03017.   Best val loss: 0.03017 at epoch 80
-loss: 0.030 
-
-Epoch 81, lr: 9.549150281252633e-05
-Train loss: 0.03373
-loss: 0.034 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 82%|████████▏ | 82/100 [13:14<03:04, 10.23s/it]Best ckpt saved, val loss 0.029581 @ epoch81
-Val loss:   0.02958.   Best val loss: 0.02958 at epoch 81
-loss: 0.030 
-
-Epoch 82, lr: 8.548121372247918e-05
-Train loss: 0.03328
+Epoch 105, lr: 0.0005348782368720626
+Train loss: 0.04456
+loss: 0.045 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 53%|█████▎    | 106/200 [02:21<02:21,  1.50s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.03297.   Best val loss: 0.03204 at epoch 102
 loss: 0.033 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 83%|████████▎ | 83/100 [13:25<02:54, 10.25s/it]Best ckpt saved, val loss 0.029166 @ epoch82
-Val loss:   0.02917.   Best val loss: 0.02917 at epoch 82
-loss: 0.029 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 83, lr: 7.597595192178702e-05
-Train loss: 0.03215
-loss: 0.032 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 84%|████████▍ | 84/100 [13:36<02:47, 10.48s/it]Best ckpt saved, val loss 0.028970 @ epoch83
-Val loss:   0.02897.   Best val loss: 0.02897 at epoch 83
-loss: 0.029 
+Epoch 106, lr: 0.000526167978121472
+Train loss: 0.04291
+loss: 0.043 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 54%|█████▎    | 107/200 [02:23<02:25,  1.56s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.030841 @ epoch106
+Val loss:   0.03084.   Best val loss: 0.03084 at epoch 106
+loss: 0.031 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 84, lr: 6.698729810778065e-05
-Train loss: 0.03208
-loss: 0.032 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 85%|████████▌ | 85/100 [13:46<02:36, 10.41s/it]Best ckpt saved, val loss 0.028658 @ epoch84
-Val loss:   0.02866.   Best val loss: 0.02866 at epoch 84
-loss: 0.029 
+Epoch 107, lr: 0.0005174497483512506
+Train loss: 0.04180
+loss: 0.042 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 54%|█████▍    | 108/200 [02:25<02:24,  1.58s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.030633 @ epoch107
+Val loss:   0.03063.   Best val loss: 0.03063 at epoch 107
+loss: 0.031 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 85, lr: 5.852620357053651e-05
-Train loss: 0.03164
-loss: 0.032 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 86%|████████▌ | 86/100 [13:56<02:24, 10.35s/it]Best ckpt saved, val loss 0.028459 @ epoch85
-Val loss:   0.02846.   Best val loss: 0.02846 at epoch 85
+Epoch 108, lr: 0.0005087262032186418
+Train loss: 0.04173
+loss: 0.042 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 55%|█████▍    | 109/200 [02:26<02:17,  1.51s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.03085.   Best val loss: 0.03063 at epoch 107
+loss: 0.031 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 109, lr: 0.0005
+Train loss: 0.04137
+loss: 0.041 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 55%|█████▌    | 110/200 [02:28<02:19,  1.55s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.030032 @ epoch109
+Val loss:   0.03003.   Best val loss: 0.03003 at epoch 109
+loss: 0.030 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 110, lr: 0.0004912737967813582
+Train loss: 0.04066
+loss: 0.041 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 56%|█████▌    | 111/200 [02:29<02:19,  1.57s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.029328 @ epoch110
+Val loss:   0.02933.   Best val loss: 0.02933 at epoch 110
+loss: 0.029 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 111, lr: 0.0004825502516487497
+Train loss: 0.03967
+loss: 0.040 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 56%|█████▌    | 112/200 [02:31<02:19,  1.59s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.028626 @ epoch111
+Val loss:   0.02863.   Best val loss: 0.02863 at epoch 111
+loss: 0.029 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 112, lr: 0.0004738320218785281
+Train loss: 0.03967
+loss: 0.040 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 56%|█████▋    | 113/200 [02:32<02:18,  1.59s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.028609 @ epoch112
+Val loss:   0.02861.   Best val loss: 0.02861 at epoch 112
+loss: 0.029 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 113, lr: 0.00046512176312793734
+Train loss: 0.03949
+loss: 0.039 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 57%|█████▋    | 114/200 [02:34<02:14,  1.56s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.027949 @ epoch113
+Val loss:   0.02795.   Best val loss: 0.02795 at epoch 113
 loss: 0.028 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 86, lr: 5.060297685041659e-05
+Epoch 114, lr: 0.00045642212862617086
+Train loss: 0.03940
+loss: 0.039 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 57%|█████▊    | 115/200 [02:35<02:12,  1.56s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.026633 @ epoch114
+Val loss:   0.02663.   Best val loss: 0.02663 at epoch 114
+loss: 0.027 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 115, lr: 0.00044773576836617336
+Train loss: 0.03847
+loss: 0.038 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 58%|█████▊    | 116/200 [02:37<02:06,  1.51s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02684.   Best val loss: 0.02663 at epoch 114
+loss: 0.027 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 116, lr: 0.00043906532829742634
+Train loss: 0.03852
+loss: 0.039 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 58%|█████▊    | 117/200 [02:38<01:58,  1.43s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02674.   Best val loss: 0.02663 at epoch 114
+loss: 0.027 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 117, lr: 0.0004304134495199674
+Train loss: 0.03836
+loss: 0.038 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 59%|█████▉    | 118/200 [02:40<02:00,  1.48s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.026245 @ epoch117
+Val loss:   0.02624.   Best val loss: 0.02624 at epoch 117
+loss: 0.026 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 118, lr: 0.0004217827674798845
+Train loss: 0.03812
+loss: 0.038 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 60%|█████▉    | 119/200 [02:41<02:06,  1.56s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.025106 @ epoch118
+Val loss:   0.02511.   Best val loss: 0.02511 at epoch 118
+loss: 0.025 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 119, lr: 0.00041317591116653486
+Train loss: 0.03730
+loss: 0.037 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 60%|██████    | 120/200 [02:43<02:01,  1.52s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02527.   Best val loss: 0.02511 at epoch 118
+loss: 0.025 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 120, lr: 0.0004045955023117276
+Train loss: 0.03746
+loss: 0.037 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 60%|██████    | 121/200 [02:44<01:56,  1.47s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02525.   Best val loss: 0.02511 at epoch 118
+loss: 0.025 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 121, lr: 0.0003960441545911204
+Train loss: 0.03723
+loss: 0.037 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 61%|██████    | 122/200 [02:46<01:56,  1.49s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.024674 @ epoch121
+Val loss:   0.02467.   Best val loss: 0.02467 at epoch 121
+loss: 0.025 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 122, lr: 0.0003875244728280676
+Train loss: 0.03670
+loss: 0.037 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 62%|██████▏   | 123/200 [02:47<01:53,  1.47s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02514.   Best val loss: 0.02467 at epoch 121
+loss: 0.025 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 123, lr: 0.0003790390522001662
+Train loss: 0.03657
+loss: 0.037 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 62%|██████▏   | 124/200 [02:49<01:54,  1.50s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.024353 @ epoch123
+Val loss:   0.02435.   Best val loss: 0.02435 at epoch 123
+loss: 0.024 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 124, lr: 0.0003705904774487396
+Train loss: 0.03639
+loss: 0.036 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 62%|██████▎   | 125/200 [02:50<01:52,  1.50s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02453.   Best val loss: 0.02435 at epoch 123
+loss: 0.025 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 125, lr: 0.00036218132209150044
+Train loss: 0.03620
+loss: 0.036 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 63%|██████▎   | 126/200 [02:52<01:50,  1.49s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.023895 @ epoch125
+Val loss:   0.02389.   Best val loss: 0.02389 at epoch 125
+loss: 0.024 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 126, lr: 0.00035381414763863166
+Train loss: 0.03612
+loss: 0.036 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 64%|██████▎   | 127/200 [02:53<01:53,  1.56s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.023851 @ epoch126
+Val loss:   0.02385.   Best val loss: 0.02385 at epoch 126
+loss: 0.024 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 127, lr: 0.00034549150281252633
+Train loss: 0.03584
+loss: 0.036 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 64%|██████▍   | 128/200 [02:55<01:52,  1.56s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.023192 @ epoch127
+Val loss:   0.02319.   Best val loss: 0.02319 at epoch 127
+loss: 0.023 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 128, lr: 0.00033721592277142175
+Train loss: 0.03557
+loss: 0.036 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 64%|██████▍   | 129/200 [02:56<01:50,  1.55s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.023134 @ epoch128
+Val loss:   0.02313.   Best val loss: 0.02313 at epoch 128
+loss: 0.023 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 129, lr: 0.0003289899283371657
+Train loss: 0.03540
+loss: 0.035 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 65%|██████▌   | 130/200 [02:58<01:53,  1.63s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.022768 @ epoch129
+Val loss:   0.02277.   Best val loss: 0.02277 at epoch 129
+loss: 0.023 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 130, lr: 0.00032081602522734986
+Train loss: 0.03506
+loss: 0.035 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 66%|██████▌   | 131/200 [03:00<01:51,  1.61s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02278.   Best val loss: 0.02277 at epoch 129
+loss: 0.023 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 131, lr: 0.00031269670329204396
+Train loss: 0.03521
+loss: 0.035 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 66%|██████▌   | 132/200 [03:01<01:46,  1.57s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.022398 @ epoch131
+Val loss:   0.02240.   Best val loss: 0.02240 at epoch 131
+loss: 0.022 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 132, lr: 0.0003046344357553632
+Train loss: 0.03479
+loss: 0.035 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 66%|██████▋   | 133/200 [03:03<01:46,  1.59s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.021997 @ epoch132
+Val loss:   0.02200.   Best val loss: 0.02200 at epoch 132
+loss: 0.022 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 133, lr: 0.0002966316784621
+Train loss: 0.03477
+loss: 0.035 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 67%|██████▋   | 134/200 [03:05<01:44,  1.58s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.021914 @ epoch133
+Val loss:   0.02191.   Best val loss: 0.02191 at epoch 133
+loss: 0.022 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 134, lr: 0.0002886908691296504
+Train loss: 0.03452
+loss: 0.035 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 68%|██████▊   | 135/200 [03:06<01:43,  1.60s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.021849 @ epoch134
+Val loss:   0.02185.   Best val loss: 0.02185 at epoch 134
+loss: 0.022 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 135, lr: 0.00028081442660546124
+Train loss: 0.03449
+loss: 0.034 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 68%|██████▊   | 136/200 [03:08<01:42,  1.61s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.021318 @ epoch135
+Val loss:   0.02132.   Best val loss: 0.02132 at epoch 135
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 136, lr: 0.00027300475013022663
+Train loss: 0.03419
+loss: 0.034 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 68%|██████▊   | 137/200 [03:09<01:41,  1.60s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.021304 @ epoch136
+Val loss:   0.02130.   Best val loss: 0.02130 at epoch 136
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 137, lr: 0.00026526421860705474
+Train loss: 0.03425
+loss: 0.034 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 69%|██████▉   | 138/200 [03:11<01:37,  1.58s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.020946 @ epoch137
+Val loss:   0.02095.   Best val loss: 0.02095 at epoch 137
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 138, lr: 0.0002575951898768315
+Train loss: 0.03389
+loss: 0.034 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 70%|██████▉   | 139/200 [03:12<01:34,  1.55s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02103.   Best val loss: 0.02095 at epoch 137
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 139, lr: 0.0002500000000000001
+Train loss: 0.03395
+loss: 0.034 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 70%|███████   | 140/200 [03:14<01:28,  1.47s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02109.   Best val loss: 0.02095 at epoch 137
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 140, lr: 0.00024248096254497287
+Train loss: 0.03372
+loss: 0.034 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 70%|███████   | 141/200 [03:15<01:31,  1.56s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.020845 @ epoch140
+Val loss:   0.02084.   Best val loss: 0.02084 at epoch 140
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 141, lr: 0.0002350403678833976
+Train loss: 0.03364
+loss: 0.034 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 71%|███████   | 142/200 [03:17<01:31,  1.58s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02107.   Best val loss: 0.02084 at epoch 140
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 142, lr: 0.00022768048249248646
+Train loss: 0.03347
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 72%|███████▏  | 143/200 [03:19<01:27,  1.54s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02094.   Best val loss: 0.02084 at epoch 140
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 143, lr: 0.00022040354826462666
+Train loss: 0.03345
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 72%|███████▏  | 144/200 [03:20<01:22,  1.48s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.02099.   Best val loss: 0.02084 at epoch 140
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 144, lr: 0.00021321178182447708
+Train loss: 0.03347
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 72%|███████▎  | 145/200 [03:21<01:23,  1.52s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.020567 @ epoch144
+Val loss:   0.02057.   Best val loss: 0.02057 at epoch 144
+loss: 0.021 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 145, lr: 0.00020610737385376348
+Train loss: 0.03329
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 73%|███████▎  | 146/200 [03:23<01:28,  1.65s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.020456 @ epoch145
+Val loss:   0.02046.   Best val loss: 0.02046 at epoch 145
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 146, lr: 0.00019909248842397582
+Train loss: 0.03318
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 74%|███████▎  | 147/200 [03:25<01:27,  1.66s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.020284 @ epoch146
+Val loss:   0.02028.   Best val loss: 0.02028 at epoch 146
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 147, lr: 0.00019216926233717085
+Train loss: 0.03320
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 74%|███████▍  | 148/200 [03:27<01:25,  1.64s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019987 @ epoch147
+Val loss:   0.01999.   Best val loss: 0.01999 at epoch 147
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 148, lr: 0.00018533980447508135
+Train loss: 0.03296
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 74%|███████▍  | 149/200 [03:28<01:24,  1.66s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019950 @ epoch148
+Val loss:   0.01995.   Best val loss: 0.01995 at epoch 148
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 149, lr: 0.0001786061951567303
+Train loss: 0.03283
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 75%|███████▌  | 150/200 [03:30<01:22,  1.65s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019873 @ epoch149
+Val loss:   0.01987.   Best val loss: 0.01987 at epoch 149
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 150, lr: 0.00017197048550474643
+Train loss: 0.03276
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 76%|███████▌  | 151/200 [03:32<01:22,  1.68s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.01992.   Best val loss: 0.01987 at epoch 149
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 151, lr: 0.00016543469682057105
+Train loss: 0.03273
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 76%|███████▌  | 152/200 [03:33<01:18,  1.64s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019850 @ epoch151
+Val loss:   0.01985.   Best val loss: 0.01985 at epoch 151
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 152, lr: 0.00015900081996875082
+Train loss: 0.03271
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 76%|███████▋  | 153/200 [03:35<01:18,  1.68s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019766 @ epoch152
+Val loss:   0.01977.   Best val loss: 0.01977 at epoch 152
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 153, lr: 0.00015267081477050133
+Train loss: 0.03272
+loss: 0.033 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 77%|███████▋  | 154/200 [03:37<01:15,  1.65s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019737 @ epoch153
+Val loss:   0.01974.   Best val loss: 0.01974 at epoch 153
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 154, lr: 0.00014644660940672628
+Train loss: 0.03248
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 78%|███████▊  | 155/200 [03:38<01:14,  1.66s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019611 @ epoch154
+Val loss:   0.01961.   Best val loss: 0.01961 at epoch 154
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 155, lr: 0.00014033009983067452
+Train loss: 0.03246
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 78%|███████▊  | 156/200 [03:41<01:20,  1.82s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019559 @ epoch155
+Val loss:   0.01956.   Best val loss: 0.01956 at epoch 155
+loss: 0.020 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 156, lr: 0.00013432314919041476
+Train loss: 0.03248
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 78%|███████▊  | 157/200 [03:42<01:17,  1.79s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019487 @ epoch156
+Val loss:   0.01949.   Best val loss: 0.01949 at epoch 156
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 157, lr: 0.00012842758726130281
+Train loss: 0.03242
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 79%|███████▉  | 158/200 [03:44<01:13,  1.75s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019369 @ epoch157
+Val loss:   0.01937.   Best val loss: 0.01937 at epoch 157
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 158, lr: 0.000122645209888614
+Train loss: 0.03239
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 80%|███████▉  | 159/200 [03:46<01:11,  1.73s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019322 @ epoch158
+Val loss:   0.01932.   Best val loss: 0.01932 at epoch 158
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 159, lr: 0.00011697777844051105
+Train loss: 0.03211
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 80%|████████  | 160/200 [03:47<01:05,  1.65s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.01933.   Best val loss: 0.01932 at epoch 158
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 160, lr: 0.00011142701927151455
+Train loss: 0.03223
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 80%|████████  | 161/200 [03:49<01:07,  1.74s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019232 @ epoch160
+Val loss:   0.01923.   Best val loss: 0.01923 at epoch 160
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 161, lr: 0.00010599462319663906
+Train loss: 0.03223
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 81%|████████  | 162/200 [03:51<01:10,  1.86s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.019054 @ epoch161
+Val loss:   0.01905.   Best val loss: 0.01905 at epoch 161
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 162, lr: 0.00010068224497635369
+Train loss: 0.03222
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 82%|████████▏ | 163/200 [03:53<01:07,  1.83s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018981 @ epoch162
+Val loss:   0.01898.   Best val loss: 0.01898 at epoch 162
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 163, lr: 9.549150281252633e-05
+Train loss: 0.03203
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 82%|████████▏ | 164/200 [03:54<01:02,  1.74s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.01899.   Best val loss: 0.01898 at epoch 162
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 164, lr: 9.042397785550405e-05
+Train loss: 0.03201
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 82%|████████▎ | 165/200 [03:56<00:56,  1.63s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.01901.   Best val loss: 0.01898 at epoch 162
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 165, lr: 8.548121372247918e-05
+Train loss: 0.03207
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 83%|████████▎ | 166/200 [03:57<00:54,  1.62s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018940 @ epoch165
+Val loss:   0.01894.   Best val loss: 0.01894 at epoch 165
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 166, lr: 8.066471602728804e-05
+Train loss: 0.03195
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 84%|████████▎ | 167/200 [03:59<00:52,  1.60s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.01897.   Best val loss: 0.01894 at epoch 165
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 167, lr: 7.597595192178702e-05
+Train loss: 0.03192
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 84%|████████▍ | 168/200 [04:00<00:49,  1.54s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.01898.   Best val loss: 0.01894 at epoch 165
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 168, lr: 7.14163496489439e-05
+Train loss: 0.03198
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 84%|████████▍ | 169/200 [04:02<00:46,  1.51s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.01896.   Best val loss: 0.01894 at epoch 165
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 169, lr: 6.698729810778065e-05
+Train loss: 0.03177
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 85%|████████▌ | 170/200 [04:04<00:47,  1.59s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018905 @ epoch169
+Val loss:   0.01891.   Best val loss: 0.01891 at epoch 169
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 170, lr: 6.269014643030213e-05
+Train loss: 0.03177
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 86%|████████▌ | 171/200 [04:05<00:48,  1.67s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018882 @ epoch170
+Val loss:   0.01888.   Best val loss: 0.01888 at epoch 170
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 171, lr: 5.852620357053651e-05
+Train loss: 0.03175
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 86%|████████▌ | 172/200 [04:07<00:47,  1.71s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018832 @ epoch171
+Val loss:   0.01883.   Best val loss: 0.01883 at epoch 171
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 172, lr: 5.449673790581611e-05
+Train loss: 0.03181
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 86%|████████▋ | 173/200 [04:09<00:46,  1.73s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018729 @ epoch172
+Val loss:   0.01873.   Best val loss: 0.01873 at epoch 172
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 173, lr: 5.060297685041659e-05
+Train loss: 0.03180
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 87%|████████▋ | 174/200 [04:11<00:44,  1.72s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018674 @ epoch173
+Val loss:   0.01867.   Best val loss: 0.01867 at epoch 173
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 174, lr: 4.684610648167503e-05
+Train loss: 0.03171
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 88%|████████▊ | 175/200 [04:12<00:43,  1.73s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018641 @ epoch174
+Val loss:   0.01864.   Best val loss: 0.01864 at epoch 174
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 175, lr: 4.322727117869951e-05
+Train loss: 0.03166
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 88%|████████▊ | 176/200 [04:14<00:41,  1.74s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018633 @ epoch175
+Val loss:   0.01863.   Best val loss: 0.01863 at epoch 175
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 176, lr: 3.974757327377981e-05
+Train loss: 0.03178
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 88%|████████▊ | 177/200 [04:16<00:40,  1.77s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018624 @ epoch176
+Val loss:   0.01862.   Best val loss: 0.01862 at epoch 176
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 177, lr: 3.6408072716606344e-05
+Train loss: 0.03173
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 89%|████████▉ | 178/200 [04:18<00:41,  1.90s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018604 @ epoch177
+Val loss:   0.01860.   Best val loss: 0.01860 at epoch 177
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 178, lr: 3.3209786751399184e-05
+Train loss: 0.03173
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 90%|████████▉ | 179/200 [04:21<00:42,  2.01s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018570 @ epoch178
+Val loss:   0.01857.   Best val loss: 0.01857 at epoch 178
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 179, lr: 3.0153689607045842e-05
+Train loss: 0.03163
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 90%|█████████ | 180/200 [04:22<00:37,  1.90s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018552 @ epoch179
+Val loss:   0.01855.   Best val loss: 0.01855 at epoch 179
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 180, lr: 2.724071220034158e-05
+Train loss: 0.03173
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 90%|█████████ | 181/200 [04:24<00:33,  1.78s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.01855.   Best val loss: 0.01855 at epoch 179
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 181, lr: 2.4471741852423235e-05
+Train loss: 0.03151
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 91%|█████████ | 182/200 [04:25<00:29,  1.64s/it]all_state.shape: torch.Size([5, 170, 26])
+Val loss:   0.01855.   Best val loss: 0.01855 at epoch 179
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 182, lr: 2.1847622018482283e-05
+Train loss: 0.03157
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 92%|█████████▏| 183/200 [04:27<00:28,  1.67s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018542 @ epoch182
+Val loss:   0.01854.   Best val loss: 0.01854 at epoch 182
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 183, lr: 1.9369152030840554e-05
+Train loss: 0.03170
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 92%|█████████▏| 184/200 [04:28<00:27,  1.69s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018530 @ epoch183
+Val loss:   0.01853.   Best val loss: 0.01853 at epoch 183
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 184, lr: 1.70370868554659e-05
+Train loss: 0.03166
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 92%|█████████▎| 185/200 [04:30<00:25,  1.72s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018511 @ epoch184
+Val loss:   0.01851.   Best val loss: 0.01851 at epoch 184
+loss: 0.019 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 185, lr: 1.4852136862001764e-05
+Train loss: 0.03174
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 93%|█████████▎| 186/200 [04:32<00:24,  1.74s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018497 @ epoch185
+Val loss:   0.01850.   Best val loss: 0.01850 at epoch 185
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 186, lr: 1.2814967607382432e-05
+Train loss: 0.03156
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 94%|█████████▎| 187/200 [04:34<00:22,  1.72s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018493 @ epoch186
+Val loss:   0.01849.   Best val loss: 0.01849 at epoch 186
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 187, lr: 1.0926199633097156e-05
+Train loss: 0.03156
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 94%|█████████▍| 188/200 [04:35<00:20,  1.69s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018488 @ epoch187
+Val loss:   0.01849.   Best val loss: 0.01849 at epoch 187
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 188, lr: 9.186408276168012e-06
 Train loss: 0.03144
 loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 87%|████████▋ | 87/100 [14:06<02:14, 10.32s/it]Best ckpt saved, val loss 0.028245 @ epoch86
-Val loss:   0.02824.   Best val loss: 0.02824 at epoch 86
-loss: 0.028 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 94%|█████████▍| 189/200 [04:37<00:18,  1.71s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018479 @ epoch188
+Val loss:   0.01848.   Best val loss: 0.01848 at epoch 188
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 87, lr: 4.322727117869951e-05
-Train loss: 0.03194
+Epoch 189, lr: 7.59612349389599e-06
+Train loss: 0.03157
 loss: 0.032 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 88%|████████▊ | 88/100 [14:17<02:03, 10.31s/it]Best ckpt saved, val loss 0.028156 @ epoch87
-Val loss:   0.02816.   Best val loss: 0.02816 at epoch 87
-loss: 0.028 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 95%|█████████▌| 190/200 [04:39<00:17,  1.76s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018473 @ epoch189
+Val loss:   0.01847.   Best val loss: 0.01847 at epoch 189
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 88, lr: 3.6408072716606344e-05
-Train loss: 0.03187
+Epoch 190, lr: 6.15582970243117e-06
+Train loss: 0.03165
 loss: 0.032 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 89%|████████▉ | 89/100 [14:27<01:52, 10.25s/it]Best ckpt saved, val loss 0.027936 @ epoch88
-Val loss:   0.02794.   Best val loss: 0.02794 at epoch 88
-loss: 0.028 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 96%|█████████▌| 191/200 [04:41<00:16,  1.79s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018468 @ epoch190
+Val loss:   0.01847.   Best val loss: 0.01847 at epoch 190
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 89, lr: 3.0153689607045842e-05
-Train loss: 0.03114
-loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 90%|█████████ | 90/100 [14:35<01:37,  9.71s/it]Val loss:   0.02795.   Best val loss: 0.02794 at epoch 88
-loss: 0.028 
-
-Epoch 90, lr: 2.4471741852423235e-05
-Train loss: 0.03172
+Epoch 191, lr: 4.865965629214819e-06
+Train loss: 0.03153
 loss: 0.032 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 91%|█████████ | 91/100 [14:46<01:30, 10.05s/it]Best ckpt saved, val loss 0.027787 @ epoch90
-Val loss:   0.02779.   Best val loss: 0.02779 at epoch 90
-loss: 0.028 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 96%|█████████▌| 192/200 [04:42<00:13,  1.75s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018463 @ epoch191
+Val loss:   0.01846.   Best val loss: 0.01846 at epoch 191
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 91, lr: 1.9369152030840554e-05
-Train loss: 0.03080
+Epoch 192, lr: 3.7269241793390084e-06
+Train loss: 0.03147
 loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 92%|█████████▏| 92/100 [14:56<01:20, 10.09s/it]Best ckpt saved, val loss 0.027724 @ epoch91
-Val loss:   0.02772.   Best val loss: 0.02772 at epoch 91
-loss: 0.028 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 96%|█████████▋| 193/200 [04:44<00:12,  1.78s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018461 @ epoch192
+Val loss:   0.01846.   Best val loss: 0.01846 at epoch 192
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
 
-Epoch 92, lr: 1.4852136862001764e-05
-Train loss: 0.03072
+Epoch 193, lr: 2.739052315863355e-06
+Train loss: 0.03155
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 97%|█████████▋| 194/200 [04:46<00:10,  1.83s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018459 @ epoch193
+Val loss:   0.01846.   Best val loss: 0.01846 at epoch 193
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 194, lr: 1.9026509541272275e-06
+Train loss: 0.03158
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 98%|█████████▊| 195/200 [04:48<00:09,  1.82s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018458 @ epoch194
+Val loss:   0.01846.   Best val loss: 0.01846 at epoch 194
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 195, lr: 1.2179748700879012e-06
+Train loss: 0.03165
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 98%|█████████▊| 196/200 [04:50<00:07,  1.79s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018456 @ epoch195
+Val loss:   0.01846.   Best val loss: 0.01846 at epoch 195
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 196, lr: 6.852326227130834e-07
+Train loss: 0.03161
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 98%|█████████▊| 197/200 [04:52<00:05,  1.78s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018455 @ epoch196
+Val loss:   0.01845.   Best val loss: 0.01845 at epoch 196
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 197, lr: 3.0458649045211895e-07
+Train loss: 0.03160
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+ 99%|█████████▉| 198/200 [04:53<00:03,  1.78s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018454 @ epoch197
+Val loss:   0.01845.   Best val loss: 0.01845 at epoch 197
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 198, lr: 7.615242180436521e-08
+Train loss: 0.03161
+loss: 0.032 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+100%|█████████▉| 199/200 [04:55<00:01,  1.80s/it]all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018453 @ epoch198
+Val loss:   0.01845.   Best val loss: 0.01845 at epoch 198
+loss: 0.018 
+all_state.shape: torch.Size([45, 170, 26])
+
+Epoch 199, lr: 0.0
+Train loss: 0.03145
 loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 93%|█████████▎| 93/100 [15:07<01:11, 10.19s/it]Best ckpt saved, val loss 0.027695 @ epoch92
-Val loss:   0.02769.   Best val loss: 0.02769 at epoch 92
-loss: 0.028 
-
-Epoch 93, lr: 1.0926199633097156e-05
-Train loss: 0.03062
-loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 94%|█████████▍| 94/100 [15:17<01:01, 10.26s/it]Best ckpt saved, val loss 0.027580 @ epoch93
-Val loss:   0.02758.   Best val loss: 0.02758 at epoch 93
-loss: 0.028 
-
-Epoch 94, lr: 7.59612349389599e-06
-Train loss: 0.03076
-loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 95%|█████████▌| 95/100 [15:28<00:52, 10.45s/it]Best ckpt saved, val loss 0.027567 @ epoch94
-Val loss:   0.02757.   Best val loss: 0.02757 at epoch 94
-loss: 0.028 
-
-Epoch 95, lr: 4.865965629214819e-06
-Train loss: 0.03059
-loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 96%|█████████▌| 96/100 [15:38<00:41, 10.38s/it]Best ckpt saved, val loss 0.027566 @ epoch95
-Val loss:   0.02757.   Best val loss: 0.02757 at epoch 95
-loss: 0.028 
-
-Epoch 96, lr: 2.739052315863355e-06
-Train loss: 0.03054
-loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 97%|█████████▋| 97/100 [15:49<00:31, 10.37s/it]Best ckpt saved, val loss 0.027522 @ epoch96
-Val loss:   0.02752.   Best val loss: 0.02752 at epoch 96
-loss: 0.028 
-
-Epoch 97, lr: 1.2179748700879012e-06
-Train loss: 0.03078
-loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 98%|█████████▊| 98/100 [15:59<00:20, 10.27s/it]Best ckpt saved, val loss 0.027509 @ epoch97
-Val loss:   0.02751.   Best val loss: 0.02751 at epoch 97
-loss: 0.028 
-
-Epoch 98, lr: 3.0458649045211895e-07
-Train loss: 0.03067
-loss: 0.031 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
- 99%|█████████▉| 99/100 [16:09<00:10, 10.22s/it]Best ckpt saved, val loss 0.027500 @ epoch98
-Val loss:   0.02750.   Best val loss: 0.02750 at epoch 98
-loss: 0.028 
-
-Epoch 99, lr: 0.0
-Train loss: 0.03049
-loss: 0.030 
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-100%|██████████| 100/100 [16:19<00:00, 10.22s/it]100%|██████████| 100/100 [16:19<00:00,  9.79s/it]
-Best ckpt saved, val loss 0.027500 @ epoch99
-Val loss:   0.02750.   Best val loss: 0.02750 at epoch 99
-loss: 0.027 
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+100%|██████████| 200/200 [04:57<00:00,  1.80s/it]100%|██████████| 200/200 [04:57<00:00,  1.49s/it]
+all_state.shape: torch.Size([5, 170, 26])
+Best ckpt saved, val loss 0.018453 @ epoch199
+Val loss:   0.01845.   Best val loss: 0.01845 at epoch 199
+loss: 0.018 
 Training finished:
-Seed 0, val loss 0.027500 at epoch 99
-Saved enhanced plots to ./ckpt/2025-07-30_14-15-16RNN
-Saved real-time loss plot to ./ckpt/2025-07-30_14-15-16RNN/realtime_loss_seed_0.png
+Seed 0, val loss 0.018453 at epoch 199
+Saved enhanced plots to ./ckpt/2025-07-31_12-42-06RNN
+Saved real-time loss plot to ./ckpt/2025-07-31_12-42-06RNN/realtime_loss_seed_0.png
 
 === Training Analysis Report (Seed 0) ===
 
 Basic Statistics:
-- Train Loss: μ=0.094858, σ=0.100319
-- Val Loss: μ=0.088218, σ=0.091344
+- Train Loss: μ=0.096134, σ=0.107669
+- Val Loss: μ=0.080646, σ=0.103329
 
 Best/Worst Points:
-- Best Val Loss: 0.027500 at epoch 99
-- Worst Val Loss: 0.623512 at epoch 0
-- Best Train Loss: 0.027044 at epoch 491
-- Worst Train Loss: 0.649672 at epoch 1
+- Best Val Loss: 0.018453 at epoch 199
+- Worst Val Loss: 0.502787 at epoch 0
+- Best Train Loss: 0.031439 at epoch 188
+- Worst Train Loss: 0.505126 at epoch 1
 
 Trend Analysis:
-- Train Loss Trend: -0.000483 (negative = improving)
-- Val Loss Trend: -0.002262 (negative = improving)
+- Train Loss Trend: -0.001405 (negative = improving)
+- Val Loss Trend: -0.001342 (negative = improving)
 
-Training analysis saved to ./ckpt/2025-07-30_14-15-16RNN/training_analysis_seed_0.txt
-Source file '/home/xuxuezhou/code/RoboTwin/train.log' does not exist.
-Best ckpt, val loss 0.027500 @ epoch99
+Overfitting Analysis:
+- Average Overfitting: 0.015488 (positive = overfitting)
+- Overfitting Trend: -0.000063 (positive = increasing overfitting)
+
+Recommendations:
+
+Training analysis saved to ./ckpt/2025-07-31_12-42-06RNN/training_analysis_seed_0.txt
+train.log File copied to ./ckpt/2025-07-31_12-42-06RNN/train.log
+Best ckpt, val loss 0.018453 @ epoch199

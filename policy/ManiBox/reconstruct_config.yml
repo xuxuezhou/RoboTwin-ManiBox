@@ -3,7 +3,7 @@
 
 # Basic experiment configuration
 policy_name: ManiBox
-task_name: pick_diverse_bottles
+task_name: move_can_pot
 task_config: demo_randomized
 ckpt_setting: null
 seed: 42
@@ -13,7 +13,7 @@ instruction_type: unseen
 episode_id: 0
 max_steps: 50  # Limit reconstruction to first 50 steps
 output_dir: './reconstruction_output'
-data_path: 'policy/ManiBox/processed_data/manibox-pick-diverse-bottles'
+data_path: '/home/xuxuezhou/code/RoboTwin/data/move_can_pot'
 
 # Robot configuration
 embodiment_type: ['aloha-agilex']  # Use aloha-agilex robot

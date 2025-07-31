@@ -92,7 +92,7 @@ class DataReconstructor:
         """Load episode data from integration.pkl"""
         try:
             # Get data path from config or use default
-            data_path = self.config.get('data_path', 'policy/ManiBox/processed_data/manibox-pick-diverse-bottles')
+            data_path = self.config.get('data_path', '/home/xuxuezhou/code/RoboTwin/data/move_can_pot')
             data_file = os.path.join(data_path, "integration.pkl")
             
             if not os.path.exists(data_file):
@@ -491,7 +491,7 @@ class DataReconstructor:
 def parse_args_and_config():
     """Parse arguments and load config file"""
     parser = argparse.ArgumentParser(description='Reconstruct robot demonstrations with bounding box visualization')
-    parser.add_argument("--config", type=str, default="policy/ManiBox/deploy_policy_diffusion.yml",
+    parser.add_argument("--config", type=str, default="policy/ManiBox/reconstruct_config.yml",
                        help='Path to config file')
     parser.add_argument("--overrides", nargs=argparse.REMAINDER)
     parser.add_argument('--episode-id', type=int, default=0,
@@ -503,7 +503,7 @@ def parse_args_and_config():
     parser.add_argument('--output-dir', type=str, default='./reconstruction_output',
                        help='Output directory for videos (default: ./reconstruction_output)')
     parser.add_argument('--data-path', type=str, 
-                       default='policy/ManiBox/processed_data/manibox-pick-diverse-bottles',
+                       default='/home/xuxuezhou/code/RoboTwin/data/move_can_pot',
                        help='Path to processed data directory')
     
     args = parser.parse_args()

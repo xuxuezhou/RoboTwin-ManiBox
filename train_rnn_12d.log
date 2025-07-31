@@ -1,0 +1,347 @@
+Timestamp: 2025-07-31_10-49-05
+scheduler: cos args.gradient_accumulation_steps 4
+whether use acclerator: False
+cur_path /home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox
+num episodes 50
+🎯 Using custom objects: ['bottle']
+📊 Expected bbox dimension: 12
+
+Data from: /home/xuxuezhou/code/RoboTwin/data/move_can_pot
+
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 12]) torch.Size([170, 14]) torch.Size([170, 14])
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 12]) torch.Size([170, 14]) torch.Size([170, 14])
+length of train dataloader 2
+You are using RNNPolicy.
+policy_config {'lr': 0.001, 'lr_backbone': 7e-05, 'epochs': 5, 'train_loader_len': 2, 'warmup_ratio': 0.1, 'use_scheduler': 'cos', 'backbone': 'resnet18', 'masks': False, 'weight_decay': 0.0001, 'dilation': False, 'position_embedding': 'sine', 'loss_function': 'l1', 'chunk_size': 1, 'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist'], 'num_next_action': 0, 'use_depth_image': False, 'use_robot_base': False, 'hidden_dim': 512, 'device': 'cuda:0', 'state_dim': 14, 'action_dim': 14, 'rnn_layers': 3, 'rnn_hidden_dim': 512, 'actor_hidden_dim': 512, 'policy_class': 'RNN', 'gradient_accumulation_steps': 4}
+backbone visual encoder. number of parameters: 0.00M
+temporal model. number of parameters: 4.25M
+  0%|          | 0/5 [00:00<?, ?it/s]
+0it [00:00, ?it/s][A🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+                  [A/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:206: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:163: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:198: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+
+Epoch 0, lr: 0.0
+Train loss: 0.49650
+loss: 0.497 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-05RNN
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+ 20%|██        | 1/5 [00:00<00:03,  1.04it/s]Best ckpt saved, val loss 0.463800 @ epoch0
+Val loss:   0.46380.   Best val loss: 0.46380 at epoch 0
+loss: 0.464 
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+Epoch 1, lr: 0.001
+Train loss: 0.46620
+loss: 0.466 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-05RNN
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+ 40%|████      | 2/5 [00:01<00:02,  1.14it/s]Best ckpt saved, val loss 0.439653 @ epoch1
+Val loss:   0.43965.   Best val loss: 0.43965 at epoch 1
+loss: 0.440 
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+Epoch 2, lr: 0.0
+Train loss: 0.39817
+loss: 0.398 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-05RNN
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+ 60%|██████    | 3/5 [00:02<00:01,  1.15it/s]Best ckpt saved, val loss 0.325422 @ epoch2
+Val loss:   0.32542.   Best val loss: 0.32542 at epoch 2
+loss: 0.325 
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+Epoch 3, lr: 0.001
+Train loss: 0.31545
+loss: 0.315 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-05RNN
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+ 80%|████████  | 4/5 [00:03<00:00,  1.13it/s]Best ckpt saved, val loss 0.299136 @ epoch3
+Val loss:   0.29914.   Best val loss: 0.29914 at epoch 3
+loss: 0.299 
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+
+Epoch 4, lr: 0.0
+Train loss: 0.28518
+loss: 0.285 
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-05RNN
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+🔄 Using first 12 dimensions of bbox data (shape: torch.Size([170, 12]))
+100%|██████████| 5/5 [00:04<00:00,  1.14it/s]100%|██████████| 5/5 [00:04<00:00,  1.13it/s]
+Val loss:   0.31064.   Best val loss: 0.29914 at epoch 3
+loss: 0.311 
+Training finished:
+Seed 0, val loss 0.299136 at epoch 3
+Saved enhanced plots to ./ckpt/2025-07-31_10-49-05RNN
+Saved real-time loss plot to ./ckpt/2025-07-31_10-49-05RNN/realtime_loss_seed_0.png
+
+=== Training Analysis Report (Seed 0) ===
+
+Basic Statistics:
+- Train Loss: μ=0.392299, σ=0.083871
+- Val Loss: μ=0.367729, σ=0.069509
+
+Best/Worst Points:
+- Best Val Loss: 0.299136 at epoch 3
+- Worst Val Loss: 0.463800 at epoch 0
+- Best Train Loss: 0.282170 at epoch 8
+- Worst Train Loss: 0.504376 at epoch 0
+
+Trend Analysis:
+- Train Loss Trend: -0.028257 (negative = improving)
+- Val Loss Trend: -0.044685 (negative = improving)
+
+Training analysis saved to ./ckpt/2025-07-31_10-49-05RNN/training_analysis_seed_0.txt
+train.log File copied to ./ckpt/2025-07-31_10-49-05RNN/train.log
+Best ckpt, val loss 0.299136 @ epoch3

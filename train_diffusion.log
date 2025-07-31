@@ -1,97 +1,1889 @@
-/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/ultralytics/nn/tasks.py:775: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  ckpt = torch.load(file, map_location="cpu")
-/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/data_load.py:21: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  data = torch.load(os.path.join(dataset_dir, "integration.pkl"), map_location='cpu')
-/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/dataloader/BBoxHistoryEpisodicDataset.py:59: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  self.data = torch.load(os.path.join(self.dataset_dir, "integration.pkl"), map_location='cpu')
-/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
-  warnings.warn(
-/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
-  warnings.warn(msg)
-Timestamp: 2025-07-30_13-52-24
+Timestamp: 2025-07-31_10-09-10
 scheduler: cos args.gradient_accumulation_steps 4
 whether use acclerator: False
 cur_path /home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox
-num episodes 500
+num episodes 50
 🎯 Using custom objects: ['bottle', 'bottle']
 📊 Expected bbox dimension: 24
 
-Data from: policy/ManiBox/processed_data/manibox-pick-diverse-bottles
+Data from: /home/xuxuezhou/code/RoboTwin/data/move_can_pot
 
-Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
-image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([90, 24]) torch.Size([90, 14]) torch.Size([90, 14])
-Load data from policy/ManiBox/processed_data/manibox-pick-diverse-bottles/integration.pkl Shape:  torch.Size([500, 158, 1, 24])
-image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([90, 24]) torch.Size([90, 14]) torch.Size([90, 14])
-length of train dataloader 15
-You are using DiffusionPolicy.
-policy_config {'lr': 0.0001, 'lr_backbone': 7e-05, 'epochs': 200, 'train_loader_len': 15, 'warmup_ratio': 0.1, 'use_scheduler': 'cos', 'backbone': 'resnet18', 'masks': False, 'weight_decay': 0.0001, 'dilation': False, 'position_embedding': 'sine', 'loss_function': 'l1', 'chunk_size': 1, 'camera_names': ['cam_high', 'cam_left_wrist', 'cam_right_wrist'], 'num_next_action': 0, 'use_depth_image': False, 'use_robot_base': False, 'hidden_dim': 512, 'device': 'cuda:0', 'state_dim': 14, 'action_dim': 14, 'observation_horizon': 1, 'action_horizon': 8, 'num_inference_timesteps': 10, 'ema_power': 0.75, 'alpha': 3.0, 'max_time_steps': 1000, 'time_embed_dim': 128, 'context_len': 90, 'num_samples_per_traj': 10, 'policy_class': 'Diffusion', 'gradient_accumulation_steps': 4}
-backbone visual encoder. number of parameters: 33.50M
-diffusion model. number of parameters: 0.80M
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 24]) torch.Size([170, 14]) torch.Size([170, 14])
+Load data from /home/xuxuezhou/code/RoboTwin/data/move_can_pot/integration.pkl Shape:  torch.Size([50, 170, 24])
+image_data.shape, qpos_data.shape, action_data.shape:  torch.Size([170, 24]) torch.Size([170, 14]) torch.Size([170, 14])
+length of train dataloader 2
+Initializing SimpleBBoxDiffusionPolicy...
+SimpleBBoxDiffusionPolicy initialized with action_dim=14, bbox_dim=4
   0%|          | 0/200 [00:00<?, ?it/s]
-0it [00:00, ?it/s][A
-                  [A  0%|          | 0/200 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 1215, in <module>
-    main()
-  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 1211, in main
-    train(args)
-  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 811, in train
-    best_ckpt_info = train_process(train_dataloader, val_dataloader, config, stats)
-  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 917, in train_process
-    forward_dict, result = forward_pass(policy_config, data, policy)
-  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/train.py", line 1097, in forward_pass
-    result = policy(image_data, image_depth_data, qpos_data, None, None, action_data, action_is_pad)
-  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/policy/DiffusionPolicy.py", line 124, in __call__
-    return self._training_forward(image, robot_state, actions, action_is_pad)
-  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/policy/DiffusionPolicy.py", line 133, in _training_forward
-    loss = self.model(image, robot_state, actions, action_is_pad)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/policy/DiffusionPolicy.py", line 242, in forward
-    bbox_features = self._extract_bbox_features(bbox_data)
-  File "/home/xuxuezhou/code/RoboTwin/policy/ManiBox/manibox/ManiBox/policy/DiffusionPolicy.py", line 317, in _extract_bbox_features
-    bbox_features = self.bbox_encoder(bbox_data)  # batch_size * 256
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/container.py", line 219, in forward
-    input = module(input)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 117, in forward
-    return F.linear(input, self.weight, self.bias)
-RuntimeError: mat1 and mat2 shapes cannot be multiplied (32x24 and 12x256)
-Exception in thread Thread-2 (_pin_memory_loop):
-Traceback (most recent call last):
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
-    self.run()
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/threading.py", line 953, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/utils/data/_utils/pin_memory.py", line 55, in _pin_memory_loop
-    do_one_step()
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/utils/data/_utils/pin_memory.py", line 32, in do_one_step
-    r = in_queue.get(timeout=MP_STATUS_CHECK_INTERVAL)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/queues.py", line 122, in get
-    return _ForkingPickler.loads(res)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/site-packages/torch/multiprocessing/reductions.py", line 496, in rebuild_storage_fd
-    fd = df.detach()
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/resource_sharer.py", line 57, in detach
-    with _resource_sharer.get_connection(self._id) as conn:
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/resource_sharer.py", line 86, in get_connection
-    c = Client(address, authkey=process.current_process().authkey)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 508, in Client
-    answer_challenge(c, authkey)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 752, in answer_challenge
-    message = connection.recv_bytes(256)         # reject large message
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 216, in recv_bytes
-    buf = self._recv_bytes(maxlength)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 414, in _recv_bytes
-    buf = self._recv(4)
-  File "/home/xuxuezhou/miniconda3/envs/RoboTwin/lib/python3.10/multiprocessing/connection.py", line 379, in _recv
-    chunk = read(handle, remaining)
-ConnectionResetError: [Errno 104] Connection reset by peer
+0it [00:00, ?it/s][A/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+
+                  [A/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:206: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:163: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/numpy/core/_methods.py:198: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+
+Epoch 0, lr: 0.0002
+Train loss: 0.79207
+loss: 0.792 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  0%|          | 1/200 [00:01<03:29,  1.05s/it]Best ckpt saved, val loss 0.786904 @ epoch0
+Val loss:   0.78690.   Best val loss: 0.78690 at epoch 0
+loss: 0.787 
+
+Epoch 1, lr: 0.0004
+Train loss: 0.79597
+loss: 0.796 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  1%|          | 2/200 [00:01<03:03,  1.08it/s]Best ckpt saved, val loss 0.756539 @ epoch1
+Val loss:   0.75654.   Best val loss: 0.75654 at epoch 1
+loss: 0.757 
+
+Epoch 2, lr: 0.0006
+Train loss: 0.78047
+loss: 0.780 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  2%|▏         | 3/200 [00:02<02:57,  1.11it/s]Val loss:   0.81153.   Best val loss: 0.75654 at epoch 1
+loss: 0.812 
+
+Epoch 3, lr: 0.0008
+Train loss: 0.78170
+loss: 0.782 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  2%|▏         | 4/200 [00:03<02:53,  1.13it/s]Val loss:   0.77973.   Best val loss: 0.75654 at epoch 1
+loss: 0.780 
+
+Epoch 4, lr: 0.001
+Train loss: 0.79192
+loss: 0.792 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  2%|▎         | 5/200 [00:04<02:51,  1.14it/s]Val loss:   0.81343.   Best val loss: 0.75654 at epoch 1
+loss: 0.813 
+
+Epoch 5, lr: 0.0009987820251299122
+Train loss: 0.77772
+loss: 0.778 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  3%|▎         | 6/200 [00:05<02:55,  1.11it/s]Val loss:   0.78683.   Best val loss: 0.75654 at epoch 1
+loss: 0.787 
+
+Epoch 6, lr: 0.0009951340343707852
+Train loss: 0.75620
+loss: 0.756 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  4%|▎         | 7/200 [00:06<02:54,  1.11it/s]Val loss:   0.77956.   Best val loss: 0.75654 at epoch 1
+loss: 0.780 
+
+Epoch 7, lr: 0.0009890738003669028
+Train loss: 0.72812
+loss: 0.728 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  4%|▍         | 8/200 [00:07<02:53,  1.11it/s]Best ckpt saved, val loss 0.714242 @ epoch7
+Val loss:   0.71424.   Best val loss: 0.71424 at epoch 7
+loss: 0.714 
+
+Epoch 8, lr: 0.0009806308479691594
+Train loss: 0.69667
+loss: 0.697 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  4%|▍         | 9/200 [00:08<02:55,  1.09it/s]Best ckpt saved, val loss 0.653970 @ epoch8
+Val loss:   0.65397.   Best val loss: 0.65397 at epoch 8
+loss: 0.654 
+
+Epoch 9, lr: 0.0009698463103929542
+Train loss: 0.67294
+loss: 0.673 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  5%|▌         | 10/200 [00:09<02:54,  1.09it/s]Best ckpt saved, val loss 0.643616 @ epoch9
+Val loss:   0.64362.   Best val loss: 0.64362 at epoch 9
+loss: 0.644 
+
+Epoch 10, lr: 0.0009567727288213005
+Train loss: 0.65189
+loss: 0.652 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  6%|▌         | 11/200 [00:10<02:53,  1.09it/s]Best ckpt saved, val loss 0.588541 @ epoch10
+Val loss:   0.58854.   Best val loss: 0.58854 at epoch 10
+loss: 0.589 
+
+Epoch 11, lr: 0.0009414737964294635
+Train loss: 0.60125
+loss: 0.601 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  6%|▌         | 12/200 [00:10<02:50,  1.10it/s]Best ckpt saved, val loss 0.569757 @ epoch11
+Val loss:   0.56976.   Best val loss: 0.56976 at epoch 11
+loss: 0.570 
+
+Epoch 12, lr: 0.0009240240480782129
+Train loss: 0.56944
+loss: 0.569 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  6%|▋         | 13/200 [00:11<02:46,  1.12it/s]Best ckpt saved, val loss 0.542266 @ epoch12
+Val loss:   0.54227.   Best val loss: 0.54227 at epoch 12
+loss: 0.542 
+
+Epoch 13, lr: 0.0009045084971874737
+Train loss: 0.52793
+loss: 0.528 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  7%|▋         | 14/200 [00:12<02:50,  1.09it/s]Best ckpt saved, val loss 0.471979 @ epoch13
+Val loss:   0.47198.   Best val loss: 0.47198 at epoch 13
+loss: 0.472 
+
+Epoch 14, lr: 0.000883022221559489
+Train loss: 0.53877
+loss: 0.539 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  8%|▊         | 15/200 [00:13<02:47,  1.11it/s]Best ckpt saved, val loss 0.430752 @ epoch14
+Val loss:   0.43075.   Best val loss: 0.43075 at epoch 14
+loss: 0.431 
+
+Epoch 15, lr: 0.0008596699001693256
+Train loss: 0.45699
+loss: 0.457 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  8%|▊         | 16/200 [00:14<02:41,  1.14it/s]Best ckpt saved, val loss 0.411336 @ epoch15
+Val loss:   0.41134.   Best val loss: 0.41134 at epoch 15
+loss: 0.411 
+
+Epoch 16, lr: 0.0008345653031794292
+Train loss: 0.45568
+loss: 0.456 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  8%|▊         | 17/200 [00:15<02:38,  1.15it/s]Val loss:   0.42212.   Best val loss: 0.41134 at epoch 15
+loss: 0.422 
+
+Epoch 17, lr: 0.0008078307376628291
+Train loss: 0.41662
+loss: 0.417 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+  9%|▉         | 18/200 [00:16<02:39,  1.14it/s]Best ckpt saved, val loss 0.336787 @ epoch17
+Val loss:   0.33679.   Best val loss: 0.33679 at epoch 17
+loss: 0.337 
+
+Epoch 18, lr: 0.0007795964517353734
+Train loss: 0.39468
+loss: 0.395 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 10%|▉         | 19/200 [00:17<02:37,  1.15it/s]Best ckpt saved, val loss 0.333228 @ epoch18
+Val loss:   0.33323.   Best val loss: 0.33323 at epoch 18
+loss: 0.333 
+
+Epoch 19, lr: 0.00075
+Train loss: 0.37924
+loss: 0.379 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 10%|█         | 20/200 [00:17<02:35,  1.16it/s]Val loss:   0.38133.   Best val loss: 0.33323 at epoch 18
+loss: 0.381 
+
+Epoch 20, lr: 0.0007191855733945387
+Train loss: 0.39909
+loss: 0.399 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 10%|█         | 21/200 [00:18<02:38,  1.13it/s]Best ckpt saved, val loss 0.261892 @ epoch20
+Val loss:   0.26189.   Best val loss: 0.26189 at epoch 20
+loss: 0.262 
+
+Epoch 21, lr: 0.0006873032967079561
+Train loss: 0.31730
+loss: 0.317 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 11%|█         | 22/200 [00:19<02:38,  1.13it/s]Best ckpt saved, val loss 0.234779 @ epoch21
+Val loss:   0.23478.   Best val loss: 0.23478 at epoch 21
+loss: 0.235 
+
+Epoch 22, lr: 0.0006545084971874737
+Train loss: 0.31125
+loss: 0.311 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 12%|█▏        | 23/200 [00:20<02:35,  1.14it/s]Best ckpt saved, val loss 0.218895 @ epoch22
+Val loss:   0.21889.   Best val loss: 0.21889 at epoch 22
+loss: 0.219 
+
+Epoch 23, lr: 0.0006209609477998338
+Train loss: 0.27997
+loss: 0.280 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 12%|█▏        | 24/200 [00:21<02:33,  1.15it/s]Best ckpt saved, val loss 0.186090 @ epoch23
+Val loss:   0.18609.   Best val loss: 0.18609 at epoch 23
+loss: 0.186 
+
+Epoch 24, lr: 0.0005868240888334653
+Train loss: 0.29982
+loss: 0.300 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 12%|█▎        | 25/200 [00:22<02:32,  1.14it/s]Val loss:   0.37131.   Best val loss: 0.18609 at epoch 23
+loss: 0.371 
+
+Epoch 25, lr: 0.0005522642316338268
+Train loss: 0.28576
+loss: 0.286 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 13%|█▎        | 26/200 [00:23<02:34,  1.13it/s]Best ckpt saved, val loss 0.153247 @ epoch25
+Val loss:   0.15325.   Best val loss: 0.15325 at epoch 25
+loss: 0.153 
+
+Epoch 26, lr: 0.0005174497483512506
+Train loss: 0.30874
+loss: 0.309 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 14%|█▎        | 27/200 [00:24<02:33,  1.13it/s]Val loss:   0.19042.   Best val loss: 0.15325 at epoch 25
+loss: 0.190 
+
+Epoch 27, lr: 0.0004825502516487497
+Train loss: 0.24657
+loss: 0.247 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 14%|█▍        | 28/200 [00:25<02:34,  1.12it/s]Best ckpt saved, val loss 0.147479 @ epoch27
+Val loss:   0.14748.   Best val loss: 0.14748 at epoch 27
+loss: 0.147 
+
+Epoch 28, lr: 0.00044773576836617336
+Train loss: 0.23745
+loss: 0.237 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 14%|█▍        | 29/200 [00:25<02:36,  1.09it/s]Val loss:   0.15518.   Best val loss: 0.14748 at epoch 27
+loss: 0.155 
+
+Epoch 29, lr: 0.00041317591116653486
+Train loss: 0.24839
+loss: 0.248 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 15%|█▌        | 30/200 [00:26<02:34,  1.10it/s]Best ckpt saved, val loss 0.118707 @ epoch29
+Val loss:   0.11871.   Best val loss: 0.11871 at epoch 29
+loss: 0.119 
+
+Epoch 30, lr: 0.0003790390522001662
+Train loss: 0.27616
+loss: 0.276 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 16%|█▌        | 31/200 [00:27<02:34,  1.09it/s]Val loss:   0.25182.   Best val loss: 0.11871 at epoch 29
+loss: 0.252 
+
+Epoch 31, lr: 0.00034549150281252633
+Train loss: 0.22795
+loss: 0.228 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 16%|█▌        | 32/200 [00:28<02:33,  1.10it/s]Val loss:   0.15103.   Best val loss: 0.11871 at epoch 29
+loss: 0.151 
+
+Epoch 32, lr: 0.00031269670329204396
+Train loss: 0.21259
+loss: 0.213 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 16%|█▋        | 33/200 [00:29<02:29,  1.11it/s]Val loss:   0.28911.   Best val loss: 0.11871 at epoch 29
+loss: 0.289 
+
+Epoch 33, lr: 0.00028081442660546124
+Train loss: 0.25073
+loss: 0.251 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 17%|█▋        | 34/200 [00:30<02:28,  1.12it/s]Best ckpt saved, val loss 0.113000 @ epoch33
+Val loss:   0.11300.   Best val loss: 0.11300 at epoch 33
+loss: 0.113 
+
+Epoch 34, lr: 0.0002500000000000001
+Train loss: 0.22799
+loss: 0.228 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 18%|█▊        | 35/200 [00:31<02:26,  1.13it/s]Val loss:   0.11412.   Best val loss: 0.11300 at epoch 33
+loss: 0.114 
+
+Epoch 35, lr: 0.00022040354826462666
+Train loss: 0.24423
+loss: 0.244 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 18%|█▊        | 36/200 [00:32<02:25,  1.13it/s]Val loss:   0.19894.   Best val loss: 0.11300 at epoch 33
+loss: 0.199 
+
+Epoch 36, lr: 0.00019216926233717085
+Train loss: 0.25078
+loss: 0.251 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 18%|█▊        | 37/200 [00:33<02:24,  1.13it/s]Val loss:   0.14360.   Best val loss: 0.11300 at epoch 33
+loss: 0.144 
+
+Epoch 37, lr: 0.00016543469682057105
+Train loss: 0.22720
+loss: 0.227 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 19%|█▉        | 38/200 [00:34<02:26,  1.11it/s]Val loss:   0.14961.   Best val loss: 0.11300 at epoch 33
+loss: 0.150 
+
+Epoch 38, lr: 0.00014033009983067452
+Train loss: 0.23131
+loss: 0.231 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 20%|█▉        | 39/200 [00:35<02:32,  1.06it/s]Best ckpt saved, val loss 0.100967 @ epoch38
+Val loss:   0.10097.   Best val loss: 0.10097 at epoch 38
+loss: 0.101 
+
+Epoch 39, lr: 0.00011697777844051105
+Train loss: 0.24060
+loss: 0.241 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 20%|██        | 40/200 [00:35<02:29,  1.07it/s]Val loss:   0.21794.   Best val loss: 0.10097 at epoch 38
+loss: 0.218 
+
+Epoch 40, lr: 9.549150281252633e-05
+Train loss: 0.22728
+loss: 0.227 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 20%|██        | 41/200 [00:36<02:30,  1.06it/s]Val loss:   0.13075.   Best val loss: 0.10097 at epoch 38
+loss: 0.131 
+
+Epoch 41, lr: 7.597595192178702e-05
+Train loss: 0.24002
+loss: 0.240 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 21%|██        | 42/200 [00:37<02:26,  1.08it/s]Val loss:   0.21741.   Best val loss: 0.10097 at epoch 38
+loss: 0.217 
+
+Epoch 42, lr: 5.852620357053651e-05
+Train loss: 0.19748
+loss: 0.197 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 22%|██▏       | 43/200 [00:38<02:23,  1.10it/s]Best ckpt saved, val loss 0.098306 @ epoch42
+Val loss:   0.09831.   Best val loss: 0.09831 at epoch 42
+loss: 0.098 
+
+Epoch 43, lr: 4.322727117869951e-05
+Train loss: 0.21415
+loss: 0.214 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 22%|██▏       | 44/200 [00:39<02:23,  1.09it/s]Best ckpt saved, val loss 0.094007 @ epoch43
+Val loss:   0.09401.   Best val loss: 0.09401 at epoch 43
+loss: 0.094 
+
+Epoch 44, lr: 3.0153689607045842e-05
+Train loss: 0.21485
+loss: 0.215 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 22%|██▎       | 45/200 [00:40<02:21,  1.09it/s]Val loss:   0.10225.   Best val loss: 0.09401 at epoch 43
+loss: 0.102 
+
+Epoch 45, lr: 1.9369152030840554e-05
+Train loss: 0.24363
+loss: 0.244 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 23%|██▎       | 46/200 [00:41<02:20,  1.10it/s]Best ckpt saved, val loss 0.092464 @ epoch45
+Val loss:   0.09246.   Best val loss: 0.09246 at epoch 45
+loss: 0.092 
+
+Epoch 46, lr: 1.0926199633097156e-05
+Train loss: 0.23089
+loss: 0.231 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 24%|██▎       | 47/200 [00:42<02:19,  1.10it/s]Val loss:   0.10651.   Best val loss: 0.09246 at epoch 45
+loss: 0.107 
+
+Epoch 47, lr: 4.865965629214819e-06
+Train loss: 0.20447
+loss: 0.204 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 24%|██▍       | 48/200 [00:43<02:16,  1.11it/s]Val loss:   0.10401.   Best val loss: 0.09246 at epoch 45
+loss: 0.104 
+
+Epoch 48, lr: 1.2179748700879012e-06
+Train loss: 0.22074
+loss: 0.221 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 24%|██▍       | 49/200 [00:44<02:20,  1.08it/s]Val loss:   0.09769.   Best val loss: 0.09246 at epoch 45
+loss: 0.098 
+
+Epoch 49, lr: 0.0
+Train loss: 0.21742
+loss: 0.217 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 25%|██▌       | 50/200 [00:45<02:17,  1.09it/s]Val loss:   0.10035.   Best val loss: 0.09246 at epoch 45
+loss: 0.100 
+
+Epoch 50, lr: 1.2179748700878457e-06
+Train loss: 0.19749
+loss: 0.197 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 26%|██▌       | 51/200 [00:46<02:17,  1.08it/s]Val loss:   0.09268.   Best val loss: 0.09246 at epoch 45
+loss: 0.093 
+
+Epoch 51, lr: 4.865965629214875e-06
+Train loss: 0.24872
+loss: 0.249 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 26%|██▌       | 52/200 [00:46<02:16,  1.08it/s]Best ckpt saved, val loss 0.085007 @ epoch51
+Val loss:   0.08501.   Best val loss: 0.08501 at epoch 51
+loss: 0.085 
+
+Epoch 52, lr: 1.0926199633097156e-05
+Train loss: 0.19873
+loss: 0.199 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 26%|██▋       | 53/200 [00:47<02:14,  1.09it/s]Val loss:   0.24202.   Best val loss: 0.08501 at epoch 51
+loss: 0.242 
+
+Epoch 53, lr: 1.9369152030840496e-05
+Train loss: 0.21979
+loss: 0.220 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 27%|██▋       | 54/200 [00:48<02:11,  1.11it/s]Val loss:   0.10877.   Best val loss: 0.08501 at epoch 51
+loss: 0.109 
+
+Epoch 54, lr: 3.0153689607045788e-05
+Train loss: 0.20061
+loss: 0.201 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 28%|██▊       | 55/200 [00:49<02:11,  1.10it/s]Val loss:   0.08763.   Best val loss: 0.08501 at epoch 51
+loss: 0.088 
+
+Epoch 55, lr: 4.3227271178699455e-05
+Train loss: 0.24424
+loss: 0.244 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 28%|██▊       | 56/200 [00:50<02:10,  1.10it/s]Val loss:   0.17216.   Best val loss: 0.08501 at epoch 51
+loss: 0.172 
+
+Epoch 56, lr: 5.8526203570536454e-05
+Train loss: 0.23968
+loss: 0.240 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 28%|██▊       | 57/200 [00:51<02:08,  1.11it/s]Val loss:   0.08680.   Best val loss: 0.08501 at epoch 51
+loss: 0.087 
+
+Epoch 57, lr: 7.597595192178696e-05
+Train loss: 0.20587
+loss: 0.206 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 29%|██▉       | 58/200 [00:52<02:07,  1.11it/s]Val loss:   0.11022.   Best val loss: 0.08501 at epoch 51
+loss: 0.110 
+
+Epoch 58, lr: 9.549150281252622e-05
+Train loss: 0.19894
+loss: 0.199 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 30%|██▉       | 59/200 [00:53<02:06,  1.12it/s]Val loss:   0.09399.   Best val loss: 0.08501 at epoch 51
+loss: 0.094 
+
+Epoch 59, lr: 0.000116977778440511
+Train loss: 0.22013
+loss: 0.220 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 30%|███       | 60/200 [00:54<02:10,  1.07it/s]Val loss:   0.20956.   Best val loss: 0.08501 at epoch 51
+loss: 0.210 
+
+Epoch 60, lr: 0.00014033009983067447
+Train loss: 0.23803
+loss: 0.238 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 30%|███       | 61/200 [00:55<02:09,  1.07it/s]Val loss:   0.15418.   Best val loss: 0.08501 at epoch 51
+loss: 0.154 
+
+Epoch 61, lr: 0.00016543469682057078
+Train loss: 0.22377
+loss: 0.224 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 31%|███       | 62/200 [00:56<02:06,  1.09it/s]Val loss:   0.21402.   Best val loss: 0.08501 at epoch 51
+loss: 0.214 
+
+Epoch 62, lr: 0.00019216926233717096
+Train loss: 0.23686
+loss: 0.237 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 32%|███▏      | 63/200 [00:56<02:04,  1.10it/s]Val loss:   0.18819.   Best val loss: 0.08501 at epoch 51
+loss: 0.188 
+
+Epoch 63, lr: 0.0002204035482646264
+Train loss: 0.26914
+loss: 0.269 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 32%|███▏      | 64/200 [00:57<02:04,  1.10it/s]Val loss:   0.09136.   Best val loss: 0.08501 at epoch 51
+loss: 0.091 
+
+Epoch 64, lr: 0.0002499999999999998
+Train loss: 0.19842
+loss: 0.198 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 32%|███▎      | 65/200 [00:58<02:03,  1.09it/s]Val loss:   0.09864.   Best val loss: 0.08501 at epoch 51
+loss: 0.099 
+
+Epoch 65, lr: 0.00028081442660546113
+Train loss: 0.23524
+loss: 0.235 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 33%|███▎      | 66/200 [00:59<02:01,  1.10it/s]Val loss:   0.14694.   Best val loss: 0.08501 at epoch 51
+loss: 0.147 
+
+Epoch 66, lr: 0.00031269670329204385
+Train loss: 0.22145
+loss: 0.221 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 34%|███▎      | 67/200 [01:00<01:59,  1.11it/s]Val loss:   0.10930.   Best val loss: 0.08501 at epoch 51
+loss: 0.109 
+
+Epoch 67, lr: 0.0003454915028125262
+Train loss: 0.21000
+loss: 0.210 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 34%|███▍      | 68/200 [01:01<01:58,  1.12it/s]Val loss:   0.09600.   Best val loss: 0.08501 at epoch 51
+loss: 0.096 
+
+Epoch 68, lr: 0.0003790390522001661
+Train loss: 0.22338
+loss: 0.223 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 34%|███▍      | 69/200 [01:02<01:57,  1.12it/s]Val loss:   0.11166.   Best val loss: 0.08501 at epoch 51
+loss: 0.112 
+
+Epoch 69, lr: 0.00041317591116653486
+Train loss: 0.21912
+loss: 0.219 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 35%|███▌      | 70/200 [01:03<02:02,  1.06it/s]Val loss:   0.08923.   Best val loss: 0.08501 at epoch 51
+loss: 0.089 
+
+Epoch 70, lr: 0.00044773576836617293
+Train loss: 0.22248
+loss: 0.222 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 36%|███▌      | 71/200 [01:04<02:02,  1.05it/s]Val loss:   0.13490.   Best val loss: 0.08501 at epoch 51
+loss: 0.135 
+
+Epoch 71, lr: 0.00048255025164874963
+Train loss: 0.20311
+loss: 0.203 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 36%|███▌      | 72/200 [01:05<02:00,  1.06it/s]Val loss:   0.10509.   Best val loss: 0.08501 at epoch 51
+loss: 0.105 
+
+Epoch 72, lr: 0.0005174497483512502
+Train loss: 0.23023
+loss: 0.230 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 36%|███▋      | 73/200 [01:06<01:58,  1.07it/s]Val loss:   0.23208.   Best val loss: 0.08501 at epoch 51
+loss: 0.232 
+
+Epoch 73, lr: 0.000552264231633827
+Train loss: 0.22409
+loss: 0.224 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 37%|███▋      | 74/200 [01:07<01:56,  1.08it/s]Val loss:   0.17925.   Best val loss: 0.08501 at epoch 51
+loss: 0.179 
+
+Epoch 74, lr: 0.000586824088833465
+Train loss: 0.25426
+loss: 0.254 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 38%|███▊      | 75/200 [01:08<01:55,  1.08it/s]Val loss:   0.10123.   Best val loss: 0.08501 at epoch 51
+loss: 0.101 
+
+Epoch 75, lr: 0.0006209609477998337
+Train loss: 0.20924
+loss: 0.209 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 38%|███▊      | 76/200 [01:08<01:53,  1.09it/s]Val loss:   0.16128.   Best val loss: 0.08501 at epoch 51
+loss: 0.161 
+
+Epoch 76, lr: 0.0006545084971874736
+Train loss: 0.21734
+loss: 0.217 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 38%|███▊      | 77/200 [01:09<01:52,  1.10it/s]Val loss:   0.09606.   Best val loss: 0.08501 at epoch 51
+loss: 0.096 
+
+Epoch 77, lr: 0.000687303296707956
+Train loss: 0.21988
+loss: 0.220 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 39%|███▉      | 78/200 [01:10<01:49,  1.12it/s]Val loss:   0.10426.   Best val loss: 0.08501 at epoch 51
+loss: 0.104 
+
+Epoch 78, lr: 0.0007191855733945387
+Train loss: 0.24018
+loss: 0.240 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 40%|███▉      | 79/200 [01:11<01:48,  1.12it/s]Val loss:   0.21261.   Best val loss: 0.08501 at epoch 51
+loss: 0.213 
+
+Epoch 79, lr: 0.00075
+Train loss: 0.21095
+loss: 0.211 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 40%|████      | 80/200 [01:12<01:51,  1.08it/s]Val loss:   0.13124.   Best val loss: 0.08501 at epoch 51
+loss: 0.131 
+
+Epoch 80, lr: 0.0007795964517353735
+Train loss: 0.20558
+loss: 0.206 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 40%|████      | 81/200 [01:13<01:52,  1.06it/s]Val loss:   0.20777.   Best val loss: 0.08501 at epoch 51
+loss: 0.208 
+
+Epoch 81, lr: 0.0008078307376628289
+Train loss: 0.23903
+loss: 0.239 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 41%|████      | 82/200 [01:14<01:49,  1.07it/s]Val loss:   0.25563.   Best val loss: 0.08501 at epoch 51
+loss: 0.256 
+
+Epoch 82, lr: 0.0008345653031794293
+Train loss: 0.24574
+loss: 0.246 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 42%|████▏     | 83/200 [01:15<01:47,  1.09it/s]Val loss:   0.12200.   Best val loss: 0.08501 at epoch 51
+loss: 0.122 
+
+Epoch 83, lr: 0.0008596699001693254
+Train loss: 0.20604
+loss: 0.206 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 42%|████▏     | 84/200 [01:16<01:45,  1.10it/s]Val loss:   0.28205.   Best val loss: 0.08501 at epoch 51
+loss: 0.282 
+
+Epoch 84, lr: 0.000883022221559489
+Train loss: 0.25895
+loss: 0.259 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 42%|████▎     | 85/200 [01:17<01:45,  1.09it/s]Val loss:   0.27741.   Best val loss: 0.08501 at epoch 51
+loss: 0.277 
+
+Epoch 85, lr: 0.0009045084971874737
+Train loss: 0.21431
+loss: 0.214 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 43%|████▎     | 86/200 [01:18<01:43,  1.10it/s]Val loss:   0.25017.   Best val loss: 0.08501 at epoch 51
+loss: 0.250 
+
+Epoch 86, lr: 0.0009240240480782129
+Train loss: 0.24031
+loss: 0.240 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 44%|████▎     | 87/200 [01:19<01:43,  1.09it/s]Val loss:   0.17448.   Best val loss: 0.08501 at epoch 51
+loss: 0.174 
+
+Epoch 87, lr: 0.0009414737964294635
+Train loss: 0.21852
+loss: 0.219 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 44%|████▍     | 88/200 [01:19<01:42,  1.09it/s]Val loss:   0.17895.   Best val loss: 0.08501 at epoch 51
+loss: 0.179 
+
+Epoch 88, lr: 0.0009567727288213006
+Train loss: 0.21745
+loss: 0.217 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 44%|████▍     | 89/200 [01:20<01:41,  1.09it/s]Val loss:   0.12900.   Best val loss: 0.08501 at epoch 51
+loss: 0.129 
+
+Epoch 89, lr: 0.000969846310392954
+Train loss: 0.18899
+loss: 0.189 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 45%|████▌     | 90/200 [01:21<01:40,  1.10it/s]Val loss:   0.20844.   Best val loss: 0.08501 at epoch 51
+loss: 0.208 
+
+Epoch 90, lr: 0.0009806308479691594
+Train loss: 0.22993
+loss: 0.230 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 46%|████▌     | 91/200 [01:22<01:46,  1.03it/s]Val loss:   0.13582.   Best val loss: 0.08501 at epoch 51
+loss: 0.136 
+
+Epoch 91, lr: 0.0009890738003669028
+Train loss: 0.20618
+loss: 0.206 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 46%|████▌     | 92/200 [01:23<01:43,  1.04it/s]Val loss:   0.19225.   Best val loss: 0.08501 at epoch 51
+loss: 0.192 
+
+Epoch 92, lr: 0.000995134034370785
+Train loss: 0.19308
+loss: 0.193 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 46%|████▋     | 93/200 [01:24<01:41,  1.06it/s]Val loss:   0.21404.   Best val loss: 0.08501 at epoch 51
+loss: 0.214 
+
+Epoch 93, lr: 0.0009987820251299122
+Train loss: 0.26430
+loss: 0.264 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 47%|████▋     | 94/200 [01:25<01:38,  1.07it/s]Val loss:   0.13792.   Best val loss: 0.08501 at epoch 51
+loss: 0.138 
+
+Epoch 94, lr: 0.001
+Train loss: 0.21163
+loss: 0.212 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 48%|████▊     | 95/200 [01:26<01:36,  1.08it/s]Val loss:   0.10897.   Best val loss: 0.08501 at epoch 51
+loss: 0.109 
+
+Epoch 95, lr: 0.0009987820251299122
+Train loss: 0.17696
+loss: 0.177 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 48%|████▊     | 96/200 [01:27<01:36,  1.08it/s]Val loss:   0.10933.   Best val loss: 0.08501 at epoch 51
+loss: 0.109 
+
+Epoch 96, lr: 0.0009951340343707852
+Train loss: 0.19959
+loss: 0.200 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 48%|████▊     | 97/200 [01:28<01:35,  1.07it/s]Val loss:   0.16103.   Best val loss: 0.08501 at epoch 51
+loss: 0.161 
+
+Epoch 97, lr: 0.0009890738003669028
+Train loss: 0.19224
+loss: 0.192 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 49%|████▉     | 98/200 [01:29<01:35,  1.07it/s]Val loss:   0.12322.   Best val loss: 0.08501 at epoch 51
+loss: 0.123 
+
+Epoch 98, lr: 0.0009806308479691594
+Train loss: 0.19879
+loss: 0.199 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 50%|████▉     | 99/200 [01:30<01:34,  1.06it/s]Val loss:   0.20291.   Best val loss: 0.08501 at epoch 51
+loss: 0.203 
+
+Epoch 99, lr: 0.0009698463103929542
+Train loss: 0.21435
+loss: 0.214 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 50%|█████     | 100/200 [01:31<01:33,  1.07it/s]Val loss:   0.10778.   Best val loss: 0.08501 at epoch 51
+loss: 0.108 
+
+Epoch 100, lr: 0.0009567727288213007
+Train loss: 0.18519
+loss: 0.185 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 50%|█████     | 101/200 [01:32<01:36,  1.02it/s]Val loss:   0.12821.   Best val loss: 0.08501 at epoch 51
+loss: 0.128 
+
+Epoch 101, lr: 0.0009414737964294636
+Train loss: 0.19161
+loss: 0.192 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 51%|█████     | 102/200 [01:33<01:33,  1.04it/s]Val loss:   0.13803.   Best val loss: 0.08501 at epoch 51
+loss: 0.138 
+
+Epoch 102, lr: 0.0009240240480782134
+Train loss: 0.21466
+loss: 0.215 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 52%|█████▏    | 103/200 [01:34<01:33,  1.04it/s]Val loss:   0.09580.   Best val loss: 0.08501 at epoch 51
+loss: 0.096 
+
+Epoch 103, lr: 0.0009045084971874735
+Train loss: 0.18890
+loss: 0.189 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 52%|█████▏    | 104/200 [01:35<01:32,  1.04it/s]Val loss:   0.10058.   Best val loss: 0.08501 at epoch 51
+loss: 0.101 
+
+Epoch 104, lr: 0.0008830222215594891
+Train loss: 0.19435
+loss: 0.194 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 52%|█████▎    | 105/200 [01:36<01:29,  1.06it/s]Val loss:   0.09067.   Best val loss: 0.08501 at epoch 51
+loss: 0.091 
+
+Epoch 105, lr: 0.0008596699001693256
+Train loss: 0.20947
+loss: 0.209 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 53%|█████▎    | 106/200 [01:36<01:27,  1.07it/s]Val loss:   0.13894.   Best val loss: 0.08501 at epoch 51
+loss: 0.139 
+
+Epoch 106, lr: 0.0008345653031794295
+Train loss: 0.22275
+loss: 0.223 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 54%|█████▎    | 107/200 [01:37<01:26,  1.07it/s]Val loss:   0.18652.   Best val loss: 0.08501 at epoch 51
+loss: 0.187 
+
+Epoch 107, lr: 0.0008078307376628294
+Train loss: 0.21337
+loss: 0.213 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 54%|█████▍    | 108/200 [01:38<01:25,  1.07it/s]Val loss:   0.13099.   Best val loss: 0.08501 at epoch 51
+loss: 0.131 
+
+Epoch 108, lr: 0.0007795964517353737
+Train loss: 0.19117
+loss: 0.191 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 55%|█████▍    | 109/200 [01:39<01:24,  1.07it/s]Val loss:   0.28277.   Best val loss: 0.08501 at epoch 51
+loss: 0.283 
+
+Epoch 109, lr: 0.0007499999999999999
+Train loss: 0.19499
+loss: 0.195 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 55%|█████▌    | 110/200 [01:40<01:24,  1.07it/s]Val loss:   0.14213.   Best val loss: 0.08501 at epoch 51
+loss: 0.142 
+
+Epoch 110, lr: 0.0007191855733945389
+Train loss: 0.18301
+loss: 0.183 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 56%|█████▌    | 111/200 [01:41<01:27,  1.01it/s]Val loss:   0.12768.   Best val loss: 0.08501 at epoch 51
+loss: 0.128 
+
+Epoch 111, lr: 0.0006873032967079562
+Train loss: 0.19655
+loss: 0.197 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 56%|█████▌    | 112/200 [01:42<01:25,  1.02it/s]Val loss:   0.11258.   Best val loss: 0.08501 at epoch 51
+loss: 0.113 
+
+Epoch 112, lr: 0.0006545084971874739
+Train loss: 0.18510
+loss: 0.185 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 56%|█████▋    | 113/200 [01:43<01:24,  1.03it/s]Val loss:   0.11431.   Best val loss: 0.08501 at epoch 51
+loss: 0.114 
+
+Epoch 113, lr: 0.0006209609477998343
+Train loss: 0.18560
+loss: 0.186 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 57%|█████▋    | 114/200 [01:44<01:23,  1.04it/s]Val loss:   0.10584.   Best val loss: 0.08501 at epoch 51
+loss: 0.106 
+
+Epoch 114, lr: 0.0005868240888334653
+Train loss: 0.17575
+loss: 0.176 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 57%|█████▊    | 115/200 [01:45<01:21,  1.05it/s]Val loss:   0.14794.   Best val loss: 0.08501 at epoch 51
+loss: 0.148 
+
+Epoch 115, lr: 0.0005522642316338268
+Train loss: 0.20331
+loss: 0.203 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 58%|█████▊    | 116/200 [01:46<01:20,  1.04it/s]Best ckpt saved, val loss 0.081860 @ epoch115
+Val loss:   0.08186.   Best val loss: 0.08186 at epoch 115
+loss: 0.082 
+
+Epoch 116, lr: 0.0005174497483512504
+Train loss: 0.18767
+loss: 0.188 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 58%|█████▊    | 117/200 [01:47<01:18,  1.05it/s]Val loss:   0.19071.   Best val loss: 0.08186 at epoch 115
+loss: 0.191 
+
+Epoch 117, lr: 0.0004825502516487499
+Train loss: 0.18708
+loss: 0.187 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 59%|█████▉    | 118/200 [01:48<01:17,  1.06it/s]Val loss:   0.19135.   Best val loss: 0.08186 at epoch 115
+loss: 0.191 
+
+Epoch 118, lr: 0.0004477357683661736
+Train loss: 0.15986
+loss: 0.160 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 60%|█████▉    | 119/200 [01:49<01:16,  1.06it/s]Val loss:   0.08577.   Best val loss: 0.08186 at epoch 115
+loss: 0.086 
+
+Epoch 119, lr: 0.00041317591116653507
+Train loss: 0.21556
+loss: 0.216 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 60%|██████    | 120/200 [01:50<01:15,  1.07it/s]Val loss:   0.08394.   Best val loss: 0.08186 at epoch 115
+loss: 0.084 
+
+Epoch 120, lr: 0.0003790390522001659
+Train loss: 0.18343
+loss: 0.183 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 60%|██████    | 121/200 [01:51<01:16,  1.04it/s]Val loss:   0.08476.   Best val loss: 0.08186 at epoch 115
+loss: 0.085 
+
+Epoch 121, lr: 0.00034549150281252644
+Train loss: 0.19367
+loss: 0.194 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 61%|██████    | 122/200 [01:52<01:16,  1.01it/s]Val loss:   0.14383.   Best val loss: 0.08186 at epoch 115
+loss: 0.144 
+
+Epoch 122, lr: 0.00031269670329204445
+Train loss: 0.20069
+loss: 0.201 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 62%|██████▏   | 123/200 [01:53<01:13,  1.05it/s]Val loss:   0.09414.   Best val loss: 0.08186 at epoch 115
+loss: 0.094 
+
+Epoch 123, lr: 0.00028081442660546135
+Train loss: 0.17669
+loss: 0.177 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 62%|██████▏   | 124/200 [01:54<01:12,  1.04it/s]Val loss:   0.08401.   Best val loss: 0.08186 at epoch 115
+loss: 0.084 
+
+Epoch 124, lr: 0.0002500000000000004
+Train loss: 0.17116
+loss: 0.171 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 62%|██████▎   | 125/200 [01:55<01:11,  1.04it/s]Best ckpt saved, val loss 0.075982 @ epoch124
+Val loss:   0.07598.   Best val loss: 0.07598 at epoch 124
+loss: 0.076 
+
+Epoch 125, lr: 0.00022040354826462655
+Train loss: 0.20728
+loss: 0.207 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 63%|██████▎   | 126/200 [01:56<01:09,  1.07it/s]Val loss:   0.12490.   Best val loss: 0.07598 at epoch 124
+loss: 0.125 
+
+Epoch 126, lr: 0.00019216926233717115
+Train loss: 0.19469
+loss: 0.195 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 64%|██████▎   | 127/200 [01:56<01:07,  1.08it/s]Val loss:   0.28141.   Best val loss: 0.07598 at epoch 124
+loss: 0.281 
+
+Epoch 127, lr: 0.00016543469682057078
+Train loss: 0.17016
+loss: 0.170 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 64%|██████▍   | 128/200 [01:57<01:06,  1.08it/s]Best ckpt saved, val loss 0.065565 @ epoch127
+Val loss:   0.06557.   Best val loss: 0.06557 at epoch 127
+loss: 0.066 
+
+Epoch 128, lr: 0.00014033009983067463
+Train loss: 0.18476
+loss: 0.185 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 64%|██████▍   | 129/200 [01:58<01:06,  1.07it/s]Val loss:   0.09468.   Best val loss: 0.06557 at epoch 127
+loss: 0.095 
+
+Epoch 129, lr: 0.00011697777844051138
+Train loss: 0.17888
+loss: 0.179 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 65%|██████▌   | 130/200 [01:59<01:04,  1.08it/s]Val loss:   0.08280.   Best val loss: 0.06557 at epoch 127
+loss: 0.083 
+
+Epoch 130, lr: 9.549150281252638e-05
+Train loss: 0.16377
+loss: 0.164 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 66%|██████▌   | 131/200 [02:00<01:05,  1.05it/s]Best ckpt saved, val loss 0.062350 @ epoch130
+Val loss:   0.06235.   Best val loss: 0.06235 at epoch 130
+loss: 0.062 
+
+Epoch 131, lr: 7.597595192178686e-05
+Train loss: 0.17151
+loss: 0.172 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 66%|██████▌   | 132/200 [02:01<01:07,  1.01it/s]Val loss:   0.12855.   Best val loss: 0.06235 at epoch 130
+loss: 0.129 
+
+Epoch 132, lr: 5.852620357053656e-05
+Train loss: 0.18810
+loss: 0.188 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 66%|██████▋   | 133/200 [02:02<01:05,  1.02it/s]Val loss:   0.17373.   Best val loss: 0.06235 at epoch 130
+loss: 0.174 
+
+Epoch 133, lr: 4.322727117869973e-05
+Train loss: 0.24826
+loss: 0.248 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 67%|██████▋   | 134/200 [02:03<01:03,  1.05it/s]Val loss:   0.07347.   Best val loss: 0.06235 at epoch 130
+loss: 0.073 
+
+Epoch 134, lr: 3.0153689607045788e-05
+Train loss: 0.16683
+loss: 0.167 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 68%|██████▊   | 135/200 [02:04<01:02,  1.05it/s]Val loss:   0.07073.   Best val loss: 0.06235 at epoch 130
+loss: 0.071 
+
+Epoch 135, lr: 1.9369152030840666e-05
+Train loss: 0.18012
+loss: 0.180 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 68%|██████▊   | 136/200 [02:05<00:59,  1.07it/s]Val loss:   0.16737.   Best val loss: 0.06235 at epoch 130
+loss: 0.167 
+
+Epoch 136, lr: 1.0926199633097322e-05
+Train loss: 0.15618
+loss: 0.156 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 68%|██████▊   | 137/200 [02:06<00:59,  1.07it/s]Val loss:   0.18188.   Best val loss: 0.06235 at epoch 130
+loss: 0.182 
+
+Epoch 137, lr: 4.865965629214875e-06
+Train loss: 0.17060
+loss: 0.171 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 69%|██████▉   | 138/200 [02:07<00:57,  1.08it/s]Val loss:   0.15265.   Best val loss: 0.06235 at epoch 130
+loss: 0.153 
+
+Epoch 138, lr: 1.2179748700878457e-06
+Train loss: 0.19616
+loss: 0.196 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 70%|██████▉   | 139/200 [02:08<00:56,  1.08it/s]Val loss:   0.07414.   Best val loss: 0.06235 at epoch 130
+loss: 0.074 
+
+Epoch 139, lr: 0.0
+Train loss: 0.19138
+loss: 0.191 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 70%|███████   | 140/200 [02:09<00:55,  1.08it/s]Val loss:   0.06356.   Best val loss: 0.06235 at epoch 130
+loss: 0.064 
+
+Epoch 140, lr: 1.2179748700878457e-06
+Train loss: 0.16871
+loss: 0.169 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 70%|███████   | 141/200 [02:10<00:56,  1.05it/s]Val loss:   0.12728.   Best val loss: 0.06235 at epoch 130
+loss: 0.127 
+
+Epoch 141, lr: 4.865965629214819e-06
+Train loss: 0.17660
+loss: 0.177 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 71%|███████   | 142/200 [02:11<00:58,  1.00s/it]Val loss:   0.06626.   Best val loss: 0.06235 at epoch 130
+loss: 0.066 
+
+Epoch 142, lr: 1.0926199633097266e-05
+Train loss: 0.17353
+loss: 0.174 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 72%|███████▏  | 143/200 [02:12<00:57,  1.00s/it]Best ckpt saved, val loss 0.060053 @ epoch142
+Val loss:   0.06005.   Best val loss: 0.06005 at epoch 142
+loss: 0.060 
+
+Epoch 143, lr: 1.9369152030840554e-05
+Train loss: 0.19176
+loss: 0.192 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 72%|███████▏  | 144/200 [02:13<00:56,  1.00s/it]Val loss:   0.13009.   Best val loss: 0.06005 at epoch 142
+loss: 0.130 
+
+Epoch 144, lr: 3.0153689607045676e-05
+Train loss: 0.16132
+loss: 0.161 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 72%|███████▎  | 145/200 [02:14<00:55,  1.01s/it]Best ckpt saved, val loss 0.059831 @ epoch144
+Val loss:   0.05983.   Best val loss: 0.05983 at epoch 144
+loss: 0.060 
+
+Epoch 145, lr: 4.3227271178699624e-05
+Train loss: 0.17646
+loss: 0.176 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 73%|███████▎  | 146/200 [02:15<00:53,  1.02it/s]Val loss:   0.15997.   Best val loss: 0.05983 at epoch 144
+loss: 0.160 
+
+Epoch 146, lr: 5.852620357053639e-05
+Train loss: 0.17857
+loss: 0.179 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 74%|███████▎  | 147/200 [02:16<00:51,  1.02it/s]Val loss:   0.15150.   Best val loss: 0.05983 at epoch 144
+loss: 0.151 
+
+Epoch 147, lr: 7.597595192178664e-05
+Train loss: 0.16945
+loss: 0.169 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 74%|███████▍  | 148/200 [02:17<00:50,  1.03it/s]Best ckpt saved, val loss 0.058499 @ epoch147
+Val loss:   0.05850.   Best val loss: 0.05850 at epoch 147
+loss: 0.058 
+
+Epoch 148, lr: 9.549150281252616e-05
+Train loss: 0.17773
+loss: 0.178 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 74%|███████▍  | 149/200 [02:18<00:49,  1.02it/s]Val loss:   0.15529.   Best val loss: 0.05850 at epoch 147
+loss: 0.155 
+
+Epoch 149, lr: 0.00011697777844051116
+Train loss: 0.18216
+loss: 0.182 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 75%|███████▌  | 150/200 [02:19<00:48,  1.03it/s]Val loss:   0.09052.   Best val loss: 0.05850 at epoch 147
+loss: 0.091 
+
+Epoch 150, lr: 0.00014033009983067436
+Train loss: 0.17919
+loss: 0.179 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 76%|███████▌  | 151/200 [02:20<00:47,  1.03it/s]Val loss:   0.06434.   Best val loss: 0.05850 at epoch 147
+loss: 0.064 
+
+Epoch 151, lr: 0.00016543469682057054
+Train loss: 0.16797
+loss: 0.168 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 76%|███████▌  | 152/200 [02:21<00:46,  1.03it/s]Val loss:   0.06005.   Best val loss: 0.05850 at epoch 147
+loss: 0.060 
+
+Epoch 152, lr: 0.00019216926233717085
+Train loss: 0.17288
+loss: 0.173 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 76%|███████▋  | 153/200 [02:22<00:46,  1.01it/s]Val loss:   0.21881.   Best val loss: 0.05850 at epoch 147
+loss: 0.219 
+
+Epoch 153, lr: 0.00022040354826462628
+Train loss: 0.17126
+loss: 0.171 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 77%|███████▋  | 154/200 [02:23<00:45,  1.02it/s]Val loss:   0.07737.   Best val loss: 0.05850 at epoch 147
+loss: 0.077 
+
+Epoch 154, lr: 0.0002500000000000001
+Train loss: 0.17878
+loss: 0.179 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 78%|███████▊  | 155/200 [02:24<00:43,  1.03it/s]Val loss:   0.08551.   Best val loss: 0.05850 at epoch 147
+loss: 0.086 
+
+Epoch 155, lr: 0.000280814426605461
+Train loss: 0.17895
+loss: 0.179 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 78%|███████▊  | 156/200 [02:24<00:42,  1.04it/s]Val loss:   0.06327.   Best val loss: 0.05850 at epoch 147
+loss: 0.063 
+
+Epoch 156, lr: 0.0003126967032920441
+Train loss: 0.20855
+loss: 0.209 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 78%|███████▊  | 157/200 [02:25<00:41,  1.03it/s]Val loss:   0.06301.   Best val loss: 0.05850 at epoch 147
+loss: 0.063 
+
+Epoch 157, lr: 0.00034549150281252606
+Train loss: 0.18310
+loss: 0.183 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 79%|███████▉  | 158/200 [02:26<00:40,  1.02it/s]Val loss:   0.07871.   Best val loss: 0.05850 at epoch 147
+loss: 0.079 
+
+Epoch 158, lr: 0.00037903905220016554
+Train loss: 0.19249
+loss: 0.192 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 80%|███████▉  | 159/200 [02:27<00:40,  1.02it/s]Val loss:   0.19057.   Best val loss: 0.05850 at epoch 147
+loss: 0.191 
+
+Epoch 159, lr: 0.00041317591116653475
+Train loss: 0.16420
+loss: 0.164 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 80%|████████  | 160/200 [02:28<00:39,  1.02it/s]Val loss:   0.09147.   Best val loss: 0.05850 at epoch 147
+loss: 0.091 
+
+Epoch 160, lr: 0.00044773576836617363
+Train loss: 0.15580
+loss: 0.156 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 80%|████████  | 161/200 [02:29<00:39,  1.00s/it]Val loss:   0.09904.   Best val loss: 0.05850 at epoch 147
+loss: 0.099 
+
+Epoch 161, lr: 0.0004825502516487495
+Train loss: 0.15873
+loss: 0.159 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 81%|████████  | 162/200 [02:30<00:37,  1.00it/s]Val loss:   0.07216.   Best val loss: 0.05850 at epoch 147
+loss: 0.072 
+
+Epoch 162, lr: 0.0005174497483512501
+Train loss: 0.17606
+loss: 0.176 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 82%|████████▏ | 163/200 [02:32<00:38,  1.04s/it]Val loss:   0.06615.   Best val loss: 0.05850 at epoch 147
+loss: 0.066 
+
+Epoch 163, lr: 0.000552264231633826
+Train loss: 0.17941
+loss: 0.179 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 82%|████████▏ | 164/200 [02:33<00:36,  1.02s/it]Val loss:   0.07819.   Best val loss: 0.05850 at epoch 147
+loss: 0.078 
+
+Epoch 164, lr: 0.0005868240888334648
+Train loss: 0.18851
+loss: 0.189 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 82%|████████▎ | 165/200 [02:34<00:34,  1.00it/s]Val loss:   0.17108.   Best val loss: 0.05850 at epoch 147
+loss: 0.171 
+
+Epoch 165, lr: 0.000620960947799834
+Train loss: 0.16951
+loss: 0.170 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 83%|████████▎ | 166/200 [02:35<00:33,  1.01it/s]Val loss:   0.08291.   Best val loss: 0.05850 at epoch 147
+loss: 0.083 
+
+Epoch 166, lr: 0.0006545084971874735
+Train loss: 0.19205
+loss: 0.192 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 84%|████████▎ | 167/200 [02:35<00:32,  1.02it/s]Val loss:   0.07946.   Best val loss: 0.05850 at epoch 147
+loss: 0.079 
+
+Epoch 167, lr: 0.0006873032967079554
+Train loss: 0.18146
+loss: 0.181 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 84%|████████▍ | 168/200 [02:36<00:31,  1.03it/s]Val loss:   0.08250.   Best val loss: 0.05850 at epoch 147
+loss: 0.082 
+
+Epoch 168, lr: 0.0007191855733945386
+Train loss: 0.17980
+loss: 0.180 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 84%|████████▍ | 169/200 [02:37<00:30,  1.03it/s]Val loss:   0.07260.   Best val loss: 0.05850 at epoch 147
+loss: 0.073 
+
+Epoch 169, lr: 0.0007499999999999996
+Train loss: 0.18206
+loss: 0.182 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 85%|████████▌ | 170/200 [02:38<00:29,  1.03it/s]Val loss:   0.14366.   Best val loss: 0.05850 at epoch 147
+loss: 0.144 
+
+Epoch 170, lr: 0.0007795964517353734
+Train loss: 0.18062
+loss: 0.181 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 86%|████████▌ | 171/200 [02:39<00:28,  1.01it/s]Val loss:   0.11690.   Best val loss: 0.05850 at epoch 147
+loss: 0.117 
+
+Epoch 171, lr: 0.0008078307376628289
+Train loss: 0.19059
+loss: 0.191 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 86%|████████▌ | 172/200 [02:40<00:27,  1.03it/s]Val loss:   0.08009.   Best val loss: 0.05850 at epoch 147
+loss: 0.080 
+
+Epoch 172, lr: 0.0008345653031794292
+Train loss: 0.17343
+loss: 0.173 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 86%|████████▋ | 173/200 [02:41<00:25,  1.04it/s]Val loss:   0.09362.   Best val loss: 0.05850 at epoch 147
+loss: 0.094 
+
+Epoch 173, lr: 0.0008596699001693253
+Train loss: 0.18389
+loss: 0.184 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 87%|████████▋ | 174/200 [02:42<00:26,  1.00s/it]Val loss:   0.08055.   Best val loss: 0.05850 at epoch 147
+loss: 0.081 
+
+Epoch 174, lr: 0.0008830222215594885
+Train loss: 0.19405
+loss: 0.194 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 88%|████████▊ | 175/200 [02:43<00:24,  1.01it/s]Val loss:   0.12801.   Best val loss: 0.05850 at epoch 147
+loss: 0.128 
+
+Epoch 175, lr: 0.0009045084971874735
+Train loss: 0.17311
+loss: 0.173 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 88%|████████▊ | 176/200 [02:44<00:23,  1.03it/s]Val loss:   0.08890.   Best val loss: 0.05850 at epoch 147
+loss: 0.089 
+
+Epoch 176, lr: 0.0009240240480782131
+Train loss: 0.18137
+loss: 0.181 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 88%|████████▊ | 177/200 [02:45<00:21,  1.05it/s]Val loss:   0.08884.   Best val loss: 0.05850 at epoch 147
+loss: 0.089 
+
+Epoch 177, lr: 0.0009414737964294634
+Train loss: 0.18998
+loss: 0.190 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 89%|████████▉ | 178/200 [02:46<00:20,  1.06it/s]Val loss:   0.10445.   Best val loss: 0.05850 at epoch 147
+loss: 0.104 
+
+Epoch 178, lr: 0.0009567727288213001
+Train loss: 0.18254
+loss: 0.183 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 90%|████████▉ | 179/200 [02:47<00:20,  1.04it/s]Val loss:   0.09752.   Best val loss: 0.05850 at epoch 147
+loss: 0.098 
+
+Epoch 179, lr: 0.0009698463103929542
+Train loss: 0.19382
+loss: 0.194 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 90%|█████████ | 180/200 [02:48<00:19,  1.03it/s]Val loss:   0.20837.   Best val loss: 0.05850 at epoch 147
+loss: 0.208 
+
+Epoch 180, lr: 0.0009806308479691594
+Train loss: 0.17135
+loss: 0.171 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 90%|█████████ | 181/200 [02:49<00:18,  1.01it/s]Val loss:   0.18611.   Best val loss: 0.05850 at epoch 147
+loss: 0.186 
+
+Epoch 181, lr: 0.0009890738003669026
+Train loss: 0.20201
+loss: 0.202 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 91%|█████████ | 182/200 [02:50<00:17,  1.01it/s]Val loss:   0.12477.   Best val loss: 0.05850 at epoch 147
+loss: 0.125 
+
+Epoch 182, lr: 0.000995134034370785
+Train loss: 0.18872
+loss: 0.189 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 92%|█████████▏| 183/200 [02:51<00:16,  1.02it/s]Val loss:   0.10222.   Best val loss: 0.05850 at epoch 147
+loss: 0.102 
+
+Epoch 183, lr: 0.0009987820251299122
+Train loss: 0.20878
+loss: 0.209 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 92%|█████████▏| 184/200 [02:52<00:16,  1.00s/it]Val loss:   0.10416.   Best val loss: 0.05850 at epoch 147
+loss: 0.104 
+
+Epoch 184, lr: 0.001
+Train loss: 0.17440
+loss: 0.174 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 92%|█████████▎| 185/200 [02:53<00:14,  1.02it/s]Val loss:   0.12294.   Best val loss: 0.05850 at epoch 147
+loss: 0.123 
+
+Epoch 185, lr: 0.0009987820251299122
+Train loss: 0.18585
+loss: 0.186 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 93%|█████████▎| 186/200 [02:54<00:13,  1.01it/s]Val loss:   0.20504.   Best val loss: 0.05850 at epoch 147
+loss: 0.205 
+
+Epoch 186, lr: 0.0009951340343707852
+Train loss: 0.18339
+loss: 0.183 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 94%|█████████▎| 187/200 [02:55<00:12,  1.01it/s]Val loss:   0.10410.   Best val loss: 0.05850 at epoch 147
+loss: 0.104 
+
+Epoch 187, lr: 0.000989073800366903
+Train loss: 0.19477
+loss: 0.195 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 94%|█████████▍| 188/200 [02:56<00:11,  1.02it/s]Val loss:   0.19280.   Best val loss: 0.05850 at epoch 147
+loss: 0.193 
+
+Epoch 188, lr: 0.0009806308479691596
+Train loss: 0.18612
+loss: 0.186 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 94%|█████████▍| 189/200 [02:57<00:10,  1.02it/s]Val loss:   0.09018.   Best val loss: 0.05850 at epoch 147
+loss: 0.090 
+
+Epoch 189, lr: 0.0009698463103929543
+Train loss: 0.19784
+loss: 0.198 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 95%|█████████▌| 190/200 [02:58<00:09,  1.02it/s]Val loss:   0.21046.   Best val loss: 0.05850 at epoch 147
+loss: 0.210 
+
+Epoch 190, lr: 0.0009567727288213005
+Train loss: 0.18895
+loss: 0.189 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 96%|█████████▌| 191/200 [02:59<00:08,  1.02it/s]Val loss:   0.08416.   Best val loss: 0.05850 at epoch 147
+loss: 0.084 
+
+Epoch 191, lr: 0.0009414737964294632
+Train loss: 0.20073
+loss: 0.201 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 96%|█████████▌| 192/200 [03:00<00:07,  1.02it/s]Val loss:   0.09327.   Best val loss: 0.05850 at epoch 147
+loss: 0.093 
+
+Epoch 192, lr: 0.0009240240480782129
+Train loss: 0.18627
+loss: 0.186 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 96%|█████████▋| 193/200 [03:01<00:06,  1.03it/s]Val loss:   0.08794.   Best val loss: 0.05850 at epoch 147
+loss: 0.088 
+
+Epoch 193, lr: 0.0009045084971874739
+Train loss: 0.18525
+loss: 0.185 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 97%|█████████▋| 194/200 [03:02<00:05,  1.00it/s]Val loss:   0.13800.   Best val loss: 0.05850 at epoch 147
+loss: 0.138 
+
+Epoch 194, lr: 0.0008830222215594889
+Train loss: 0.17264
+loss: 0.173 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 98%|█████████▊| 195/200 [03:03<00:04,  1.01it/s]Val loss:   0.10046.   Best val loss: 0.05850 at epoch 147
+loss: 0.100 
+
+Epoch 195, lr: 0.0008596699001693258
+Train loss: 0.19691
+loss: 0.197 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 98%|█████████▊| 196/200 [03:04<00:03,  1.02it/s]Val loss:   0.11968.   Best val loss: 0.05850 at epoch 147
+loss: 0.120 
+
+Epoch 196, lr: 0.0008345653031794296
+Train loss: 0.18733
+loss: 0.187 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 98%|█████████▊| 197/200 [03:05<00:02,  1.02it/s]Val loss:   0.13056.   Best val loss: 0.05850 at epoch 147
+loss: 0.131 
+
+Epoch 197, lr: 0.0008078307376628292
+Train loss: 0.17890
+loss: 0.179 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+ 99%|█████████▉| 198/200 [03:06<00:01,  1.03it/s]Val loss:   0.10208.   Best val loss: 0.05850 at epoch 147
+loss: 0.102 
+
+Epoch 198, lr: 0.0007795964517353737
+Train loss: 0.19609
+loss: 0.196 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+100%|█████████▉| 199/200 [03:07<00:00,  1.02it/s]Val loss:   0.08896.   Best val loss: 0.05850 at epoch 147
+loss: 0.089 
+
+Epoch 199, lr: 0.0007500000000000007
+Train loss: 0.17607
+loss: 0.176 
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+/home/xuxuezhou/miniconda3/lib/python3.12/site-packages/diffusers/configuration_utils.py:140: FutureWarning: Accessing config attribute `num_train_timesteps` directly via 'DDPMScheduler' object attribute is deprecated. Please access 'num_train_timesteps' over 'DDPMScheduler's config object instead, e.g. 'scheduler.config.num_train_timesteps'.
+  deprecate("direct config name access", "1.0.0", deprecation_message, standard_warn=False)
+100%|██████████| 200/200 [03:08<00:00,  1.01it/s]100%|██████████| 200/200 [03:08<00:00,  1.06it/s]
+Val loss:   0.08887.   Best val loss: 0.05850 at epoch 147
+loss: 0.089 
+Training finished:
+Seed 0, val loss 0.058499 at epoch 147
+Saved enhanced plots to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion
+Saved real-time loss plot to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion/realtime_loss_seed_0.png
+
+=== Training Analysis Report (Seed 0) ===
+
+Basic Statistics:
+- Train Loss: μ=0.248037, σ=0.139893
+- Val Loss: μ=0.180366, σ=0.159635
+
+Best/Worst Points:
+- Best Val Loss: 0.058499 at epoch 147
+- Worst Val Loss: 0.813429 at epoch 4
+- Best Train Loss: 0.147428 at epoch 272
+- Worst Train Loss: 0.802386 at epoch 1
+
+Trend Analysis:
+- Train Loss Trend: -0.000754 (negative = improving)
+- Val Loss Trend: -0.001572 (negative = improving)
+
+Training analysis saved to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion/training_analysis_seed_0.txt
+train.log File copied to ./ckpt/2025-07-31_10-09-10SimpleBBoxDiffusion/train.log
+Best ckpt, val loss 0.058499 @ epoch147

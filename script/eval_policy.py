@@ -317,6 +317,9 @@ def eval_policy(task_name,
         
         while TASK_ENV.take_action_cnt < TASK_ENV.step_lim:
             observation = TASK_ENV.get_obs()
+            if 'bbox' in observation and isinstance(observation['bbox'], np.ndarray):
+                observation['bbox'] = observation['bbox'][:12]
+
             eval_func(TASK_ENV, model, observation)
             if TASK_ENV.eval_success:
                 succ = True

@@ -590,12 +590,19 @@ class ManiBoxRNNModel:
         print(f"🔍 Debug: bbox_features shape = {bbox_features.shape}")
         print(f"🔍 Debug: bbox_features content = {bbox_features}")
         
-        # Keep 24-dim bbox features for training and inference consistency
-        # Training and inference should both use 24-dim bbox (3 cameras * 2 objects * 4 coordinates)
-        print(f"🔍 Debug: bbox_features shape = {bbox_features.shape}")
+        # Use only first 12 dimensions of bbox features for inference
+        # This matches the training format where we use 12-dim bbox (2 cameras * 1 object * 4 coordinates)
+        if bbox_features.shape[0] == 24:
+            bbox_features = bbox_features[:12]
+            print(f"🔄 Using first 12 dimensions of bbox features for inference (shape: {bbox_features.shape})")
+        elif bbox_features.shape[0] == 12:
+            print(f"✅ Bbox features already have 12 dimensions (shape: {bbox_features.shape})")
+        else:
+            print(f"⚠️ Unexpected bbox dimensions: {bbox_features.shape[0]}, using first 12")
+            bbox_features = bbox_features[:12]
         
-        # Now we have 24-dim bbox_features + 14-dim qpos = 38-dim total input
-        # This matches the training format (24 + 14 = 38)
+        # Now we have 12-dim bbox_features + 14-dim qpos = 26-dim total input
+        # This matches the training format (12 + 14 = 26)
         
         # Extract bboxes for visualization if enabled
         if self.enable_visualization and cam_high is not None:

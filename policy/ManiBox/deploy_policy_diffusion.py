@@ -674,17 +674,27 @@ class ManiBoxDiffusionModel:
                 print(f"⚠️  BBox coordinates clipped: {torch.sum(bbox_flat != bbox_flat_clipped)} values out of bounds")
                 bbox_features = bbox_flat_clipped.reshape(bbox_features.shape)
             
-            # 解析 bbox 数据 (3个相机 × 2个检测 × 4个坐标)
-            if bbox_flat.shape[0] >= 24:
-                for cam_idx, cam_name in enumerate(['head', 'left_wrist', 'right_wrist']):
-                    for det_idx in range(2):
-                        start_idx = cam_idx * 8 + det_idx * 4
-                        bbox = bbox_flat[start_idx:start_idx+4].tolist()
-                        bbox_clipped = bbox_flat_clipped[start_idx:start_idx+4].tolist()
-                        if bbox != bbox_clipped:
-                            print(f"   {cam_name}_cam, detection_{det_idx}: {bbox} -> {bbox_clipped} (clipped)")
-                        else:
-                            print(f"   {cam_name}_cam, detection_{det_idx}: {bbox}")
+            # Use only first 12 dimensions of bbox features for inference
+            # This matches the training format where we use 12-dim bbox (2 cameras * 1 object * 4 coordinates)
+            if bbox_features.shape[0] == 24:
+                bbox_features = bbox_features[:12]
+                print(f"🔄 Using first 12 dimensions of bbox features for inference (shape: {bbox_features.shape})")
+            elif bbox_features.shape[0] == 12:
+                print(f"✅ Bbox features already have 12 dimensions (shape: {bbox_features.shape})")
+            else:
+                print(f"⚠️ Unexpected bbox dimensions: {bbox_features.shape[0]}, using first 12")
+                bbox_features = bbox_features[:12]
+            
+            # 解析 bbox 数据 (2个相机 × 1个检测 × 4个坐标)
+            if bbox_flat.shape[0] >= 12:
+                for cam_idx, cam_name in enumerate(['head', 'left_wrist']):
+                    start_idx = cam_idx * 4  # Only first object per camera
+                    bbox = bbox_flat[start_idx:start_idx+4].tolist()
+                    bbox_clipped = bbox_flat_clipped[start_idx:start_idx+4].tolist()
+                    if bbox != bbox_clipped:
+                        print(f"   {cam_name}_cam, detection_0: {bbox} -> {bbox_clipped} (clipped)")
+                    else:
+                        print(f"   {cam_name}_cam, detection_0: {bbox}")
         
         # Extract bboxes for visualization if enabled
         if self.enable_visualization and cam_high is not None:
